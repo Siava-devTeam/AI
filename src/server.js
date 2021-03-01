@@ -2,7 +2,6 @@
 var express = require('express');
 var cors = require('cors');
 var bodyParser = require('body-parser');
-// var http = require('http');
 var morgan = require('morgan');
 
 // app
@@ -15,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(morgan("dev"))
 
 //Static Route
-app.use("/", express.static("./public"));
+app.use("/", express.static("./src/public"));
 //404 route
 app.use("*", (req, res) => res.status(404).json({ error: "not found" }));
 
