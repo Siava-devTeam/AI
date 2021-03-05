@@ -110,5 +110,4 @@ dist
 package-lock.json
 
 #SCSS
-*.scss
 *.css.map
