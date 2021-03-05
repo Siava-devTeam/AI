@@ -1,4 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap");
+.col-twothird {
+  width: 6.25%;
+}
+
 .col-half {
   width: 4.16667%;
 }
@@ -51,11 +55,11 @@
   width: 100%;
 }
 
-.h-screen, body, .modalWrapper {
+.h-screen, body, .modalWrapper, .appWrapper {
   height: 100vh;
 }
 
-.w-screen, body, .modalWrapper {
+.w-screen, body, .modalWrapper, .appWrapper {
   width: 100vw;
 }
 
@@ -74,7 +78,7 @@
   line-height: 1.25rem;
 }
 
-.text-base, body, .modalWrapper, .modalWrapper .messageWrapper .modalButton, .formWrapper .formButton, .formWrapper .formButtonGoogle {
+.text-base, body, .modalWrapper, .modalWrapper .messageWrapper .modalButton, .appWrapper, .formWrapper .formButton, .formWrapper .formButtonGoogle {
   font-size: 1rem;
   line-height: 1.5rem;
 }
@@ -3004,7 +3008,7 @@
   display: block;
 }
 
-.display-flex, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .modalButton, body, .vrow, .formWrapper, .formWrapper .header, .formWrapper .headerImage, .formWrapper .formTextGroup, .formWrapper .formSubtitle {
+.display-flex, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .modalButton, body, .vrow, .appWrapper, .formWrapper, .formWrapper .header, .formWrapper .headerImage, .formWrapper .formTextGroup, .formWrapper .formSubtitle {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3030,7 +3034,7 @@
           flex-direction: row-reverse;
 }
 
-.flex-column, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .modalButton, body, .vrow, .formWrapper, .formWrapper .header, .formWrapper .headerImage, .formWrapper .formTextGroup {
+.flex-column, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .modalButton, body, .vrow, .appWrapper, .formWrapper, .formWrapper .header, .formWrapper .headerImage, .formWrapper .formTextGroup {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -3071,7 +3075,7 @@
           align-items: flex-end;
 }
 
-.align-items-center, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .modalButton, body, .formWrapper .header {
+.align-items-center, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .modalButton, body, .appWrapper, .formWrapper .header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -3179,7 +3183,7 @@
           justify-content: flex-end;
 }
 
-.justify-content-center, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .modalButton, body, .formWrapper .header, .formWrapper .formTextGroup, .formWrapper .formSubtitle {
+.justify-content-center, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .modalButton, body, .appWrapper, .formWrapper .header, .formWrapper .formTextGroup, .formWrapper .formSubtitle {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -3225,6 +3229,29 @@
 .justify-self-stretch {
   -ms-grid-column-align: stretch;
       justify-self: stretch;
+}
+
+.transition-none {
+  -webkit-transition-property: none;
+  transition-property: none;
+}
+
+.transition-all {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-duration: 150ms;
+          transition-duration: 150ms;
+}
+
+.transition-opacity, .modalWrapper .messageWrapper, .appWrapper {
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-duration: 150ms;
+          transition-duration: 150ms;
 }
 
 *,
@@ -3319,7 +3346,7 @@ body {
   z-index: 10;
 }
 
-.formWrapper .formTextGroup .formLabel.disapear {
+.formWrapper .formTextGroup .formLabel.disappear {
   display: none;
 }
 

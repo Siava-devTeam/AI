@@ -10,6 +10,12 @@ body{
     @extend .col-12, .py-1;
 }
 
+.appWrapper{
+    @extend .display-flex, .flex-column, .justify-content-center, .align-items-center;
+    @extend .h-screen, .w-screen, .text-base;
+    @extend .transition-opacity;
+}
+
 .formWrapper{
     background-color: $white-900;
     @extend .display-flex, .flex-column;
@@ -37,7 +43,7 @@ body{
             position:absolute;
             z-index: 10;
         }
-        & .formLabel.disapear{
+        & .formLabel.disappear{
             display: none;
         }
 
