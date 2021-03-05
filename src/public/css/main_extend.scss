@@ -3192,6 +3192,23 @@ $font-color:$gray-800;
   justify-self: stretch;
 }
 
+//transitions
+.transition-none {
+  transition-property: none;
+}
+
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.transition-opacity {
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
 //For all
 *,
 ::after,
@@ -3221,6 +3238,7 @@ body {
     background-color: $white-900;
     @extend .display-flex, .flex-column, .justify-content-center, .align-items-center;
     @extend .col-3, .px-6, .py-6;
+    @extend .transition-opacity;
 
     & .messageImage {
         @extend .display-flex, .flex-column, .justify-content-center, .align-items-center;
