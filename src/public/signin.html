@@ -19,60 +19,52 @@
             <div class="modalButton">OK</div>
         </div>
     </div>
-    <div class="formWrapper">
-        <div class="vrow">
-            <div class="headerImage">
-                <img src="images/aiRect.svg" alt="ai"/>
-            </div>
-        </div>
-        <div class="body">
+    <div class="appWrapper">
+        <div class="formWrapper">
             <div class="vrow">
-                <div class="formTextGroup">
-                    <div class="formLabel">Email</div>
-                    <input class="formTextbox" type="text" 
-                    onfocus="disapear(this)" onblur="disapear(this)"/>
+                <div class="headerImage">
+                    <img src="images/aiRect.svg" alt="ai"/>
                 </div>
             </div>
-            <div class="vrow">
-                <div class="formTextGroup">
-                    <div class="formLabel">Password</div>
-                    <input class="formTextbox" type="password" 
-                    onfocus="disapear(this)" onblur="disapear(this)"/>
-                    <div class="passwordEye">
-                        <img src="images/eye.svg" alt="passEye"/>
+            <div class="body">
+                <div class="vrow">
+                    <div class="formTextGroup">
+                        <div class="formLabel">Email</div>
+                        <input class="formTextbox" type="text"/>
                     </div>
                 </div>
-            </div>
-            <div class="vrow">
-                <button class="formButton">Continue</button>
-            </div>
-            <div class="vrow">
-                <div class="lineTextGroup">
-                    <div class="line"></div>
-                    <div class="lineText">or</div>
+                <div class="vrow">
+                    <div class="formTextGroup">
+                        <div class="formLabel">Password</div>
+                        <input class="formTextbox" type="password"/>
+                        <div class="passwordEye">
+                            <img src="images/eyeSlash.svg" class="passwordEyeImage"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="vrow">
+                    <button class="formButton">Continue</button>
+                </div>
+                <div class="vrow">
+                    <div class="lineTextGroup">
+                        <div class="line"></div>
+                        <div class="lineText">or</div>
+                    </div>
+                </div>
+                <div class="vrow">
+                    <button class="formButtonGoogle">Sign in with Google</button>
                 </div>
             </div>
             <div class="vrow">
-                <button class="formButtonGoogle">Sign in with Google</button>
-            </div>
-
-        </div>
-        <div class="vrow">
-            <div class="formSubtitle">
-                Don't have an account? 
-                <div class="formLink">Register</div>
+                <div class="formSubtitle">
+                    Don't have an account? 
+                    <div class="formLink" destination="signup">Sign Up</div>
+                </div>
             </div>
         </div>
     </div>
 
     <script src="js/main.js"></script>
     <script src="js/signin.js"></script>
-    <script>
-        function disapear(div){
-            if (div.value.length==0){
-                div.parentNode.children[0].classList.toggle("disapear");
-            }
-        }
-    </script>
 </body>
 </html>
