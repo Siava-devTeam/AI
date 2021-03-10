@@ -1,0 +1,3163 @@
+//12 column grid
+@function colWidth($col_num) {
+  $result: 100% * ($col_num/12);
+  @return $result;
+}
+
+@mixin col-twothird (){
+  width: colWidth(0.75);
+}
+@mixin col-half () {
+  width: colWidth(0.5);
+}
+@mixin col-1 () {
+  width: colWidth(1);
+}
+@mixin col-2 () {
+  width: colWidth(2);
+}
+@mixin col-3 () {
+  width: colWidth(3);
+}
+@mixin col-4 () {
+  width: colWidth(4);
+}
+@mixin col-5 () {
+  width: colWidth(5);
+}
+@mixin col-6 () {
+  width: colWidth(6);
+}
+@mixin col-7 () {
+  width: colWidth(7);
+}
+@mixin col-8 () {
+  width: colWidth(8);
+}
+@mixin col-9 () {
+  width: colWidth(9);
+}
+@mixin col-10 () {
+  width: colWidth(10);
+}
+@mixin col-11 () {
+  width: colWidth(11);
+}
+@mixin col-12 () {
+  width: colWidth(12);
+}
+
+//Screen Width and Height
+@mixin h-screen () {
+  height: 100vh;
+}
+@mixin w-screen () {
+  width: 100vw;
+}
+
+//Font Sizes
+@mixin text-xss () {
+    font-size: 0.70rem;
+    line-height: 1rem;
+  }
+
+@mixin text-xs () {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+@mixin text-sm () {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+@mixin text-base () {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+@mixin text-lg () {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+@mixin text-xl () {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+@mixin text-2xl () {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+@mixin text-3xl () {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+@mixin text-4xl () {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+@mixin italic () {
+  font-style: italic;
+}
+
+@mixin normal () {
+  font-style: normal;
+}
+
+@mixin uppercase () {
+  text-transform: uppercase;
+}
+
+@mixin lowercase () {
+  text-transform: lowercase;
+}
+
+@mixin capitalize () {
+  text-transform: capitalize;
+}
+
+@mixin normal-transform () {
+  text-transform: none;
+}
+
+@mixin underline () {
+  text-decoration: underline;
+}
+
+@mixin line-through () {
+  text-decoration: line-through;
+}
+
+@mixin normal-decoration () {
+  text-decoration: none;
+}
+
+@mixin bold-100 () {
+  font-weight: 100;
+}
+
+@mixin bold-200 () {
+  font-weight: 200;
+}
+
+@mixin bold-300 () {
+  font-weight: 300;
+}
+
+@mixin bold-400 () {
+  font-weight: 400;
+}
+
+@mixin bold-500 () {
+  font-weight: 500;
+}
+
+@mixin bold-600 () {
+  font-weight: 600;
+}
+
+@mixin bold-700 () {
+  font-weight: 700;
+}
+
+@mixin bold-800 () {
+  font-weight: 800;
+}
+
+@mixin bold-900 () {
+  font-weight: 900;
+}
+//Margins
+@mixin m-0 () {
+  margin: 0px;
+}
+
+@mixin m-1 () {
+  margin: 0.25rem;
+}
+
+@mixin m-2 () {
+  margin: 0.5rem;
+}
+
+@mixin m-3 () {
+  margin: 0.75rem;
+}
+
+@mixin m-4 () {
+  margin: 1rem;
+}
+
+@mixin m-5 () {
+  margin: 1.25rem;
+}
+
+@mixin m-6 () {
+  margin: 1.5rem;
+}
+
+@mixin m-7 () {
+  margin: 1.75rem;
+}
+
+@mixin m-8 () {
+  margin: 2rem;
+}
+
+@mixin m-9 () {
+  margin: 2.25rem;
+}
+
+@mixin m-10 () {
+  margin: 2.5rem;
+}
+
+@mixin m-11 () {
+  margin: 2.75rem;
+}
+
+@mixin m-12 () {
+  margin: 3rem;
+}
+
+@mixin m-14 () {
+  margin: 3.5rem;
+}
+
+@mixin m-16 () {
+  margin: 4rem;
+}
+
+@mixin m-20 () {
+  margin: 5rem;
+}
+
+@mixin m-24 () {
+  margin: 6rem;
+}
+
+@mixin m-28 () {
+  margin: 7rem;
+}
+
+@mixin m-32 () {
+  margin: 8rem;
+}
+
+@mixin m-36 () {
+  margin: 9rem;
+}
+
+@mixin m-40 () {
+  margin: 10rem;
+}
+
+@mixin m-44 () {
+  margin: 11rem;
+}
+
+@mixin m-48 () {
+  margin: 12rem;
+}
+
+@mixin m-52 () {
+  margin: 13rem;
+}
+
+@mixin m-56 () {
+  margin: 14rem;
+}
+
+@mixin m-60 () {
+  margin: 15rem;
+}
+
+@mixin m-64 () {
+  margin: 16rem;
+}
+
+@mixin m-72 () {
+  margin: 18rem;
+}
+
+@mixin m-80 () {
+  margin: 20rem;
+}
+
+@mixin m-96 () {
+  margin: 24rem;
+}
+
+@mixin m-auto () {
+  margin: auto;
+}
+
+@mixin m-px () {
+  margin: 1px;
+}
+
+@mixin -m-0 () {
+  margin: 0px;
+}
+
+@mixin -m-1 () {
+  margin: -0.25rem;
+}
+
+@mixin -m-2 () {
+  margin: -0.5rem;
+}
+
+@mixin -m-3 () {
+  margin: -0.75rem;
+}
+
+@mixin -m-4 () {
+  margin: -1rem;
+}
+
+@mixin -m-5 () {
+  margin: -1.25rem;
+}
+
+@mixin -m-6 () {
+  margin: -1.5rem;
+}
+
+@mixin -m-7 () {
+  margin: -1.75rem;
+}
+
+@mixin -m-8 () {
+  margin: -2rem;
+}
+
+@mixin -m-9 () {
+  margin: -2.25rem;
+}
+
+@mixin -m-10 () {
+  margin: -2.5rem;
+}
+
+@mixin -m-11 () {
+  margin: -2.75rem;
+}
+
+@mixin -m-12 () {
+  margin: -3rem;
+}
+
+@mixin -m-14 () {
+  margin: -3.5rem;
+}
+
+@mixin -m-16 () {
+  margin: -4rem;
+}
+
+@mixin -m-20 () {
+  margin: -5rem;
+}
+
+@mixin -m-24 () {
+  margin: -6rem;
+}
+
+@mixin -m-28 () {
+  margin: -7rem;
+}
+
+@mixin -m-32 () {
+  margin: -8rem;
+}
+
+@mixin -m-36 () {
+  margin: -9rem;
+}
+
+@mixin -m-40 () {
+  margin: -10rem;
+}
+
+@mixin -m-44 () {
+  margin: -11rem;
+}
+
+@mixin -m-48 () {
+  margin: -12rem;
+}
+
+@mixin -m-52 () {
+  margin: -13rem;
+}
+
+@mixin -m-56 () {
+  margin: -14rem;
+}
+
+@mixin -m-60 () {
+  margin: -15rem;
+}
+
+@mixin -m-64 () {
+  margin: -16rem;
+}
+
+@mixin -m-72 () {
+  margin: -18rem;
+}
+
+@mixin -m-80 () {
+  margin: -20rem;
+}
+
+@mixin -m-96 () {
+  margin: -24rem;
+}
+
+@mixin -m-px () {
+  margin: -1px;
+}
+
+@mixin my-0 () {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+@mixin mx-0 () {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+@mixin my-1 () {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+@mixin mx-1 () {
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+}
+
+@mixin my-2 () {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+@mixin mx-2 () {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+@mixin my-3 () {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+@mixin mx-3 () {
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+}
+
+@mixin my-4 () {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+@mixin mx-4 () {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+@mixin my-5 () {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+@mixin mx-5 () {
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+}
+
+@mixin my-6 () {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+@mixin mx-6 () {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+@mixin my-7 () {
+  margin-top: 1.75rem;
+  margin-bottom: 1.75rem;
+}
+
+@mixin mx-7 () {
+  margin-left: 1.75rem;
+  margin-right: 1.75rem;
+}
+
+@mixin my-8 () {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+@mixin mx-8 () {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+@mixin my-9 () {
+  margin-top: 2.25rem;
+  margin-bottom: 2.25rem;
+}
+
+@mixin mx-9 () {
+  margin-left: 2.25rem;
+  margin-right: 2.25rem;
+}
+
+@mixin my-10 () {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+@mixin mx-10 () {
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
+}
+
+@mixin my-11 () {
+  margin-top: 2.75rem;
+  margin-bottom: 2.75rem;
+}
+
+@mixin mx-11 () {
+  margin-left: 2.75rem;
+  margin-right: 2.75rem;
+}
+
+@mixin my-12 () {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+@mixin mx-12 () {
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
+
+@mixin my-14 () {
+  margin-top: 3.5rem;
+  margin-bottom: 3.5rem;
+}
+
+@mixin mx-14 () {
+  margin-left: 3.5rem;
+  margin-right: 3.5rem;
+}
+
+@mixin my-16 () {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+@mixin mx-16 () {
+  margin-left: 4rem;
+  margin-right: 4rem;
+}
+
+@mixin my-20 () {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+@mixin mx-20 () {
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
+
+@mixin my-24 () {
+  margin-top: 6rem;
+  margin-bottom: 6rem;
+}
+
+@mixin mx-24 () {
+  margin-left: 6rem;
+  margin-right: 6rem;
+}
+
+@mixin my-28 () {
+  margin-top: 7rem;
+  margin-bottom: 7rem;
+}
+
+@mixin mx-28 () {
+  margin-left: 7rem;
+  margin-right: 7rem;
+}
+
+@mixin my-32 () {
+  margin-top: 8rem;
+  margin-bottom: 8rem;
+}
+
+@mixin mx-32 () {
+  margin-left: 8rem;
+  margin-right: 8rem;
+}
+
+@mixin my-36 () {
+  margin-top: 9rem;
+  margin-bottom: 9rem;
+}
+
+@mixin mx-36 () {
+  margin-left: 9rem;
+  margin-right: 9rem;
+}
+
+@mixin my-40 () {
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+}
+
+@mixin mx-40 () {
+  margin-left: 10rem;
+  margin-right: 10rem;
+}
+
+@mixin my-44 () {
+  margin-top: 11rem;
+  margin-bottom: 11rem;
+}
+
+@mixin mx-44 () {
+  margin-left: 11rem;
+  margin-right: 11rem;
+}
+
+@mixin my-48 () {
+  margin-top: 12rem;
+  margin-bottom: 12rem;
+}
+
+@mixin mx-48 () {
+  margin-left: 12rem;
+  margin-right: 12rem;
+}
+
+@mixin my-52 () {
+  margin-top: 13rem;
+  margin-bottom: 13rem;
+}
+
+@mixin mx-52 () {
+  margin-left: 13rem;
+  margin-right: 13rem;
+}
+
+@mixin my-56 () {
+  margin-top: 14rem;
+  margin-bottom: 14rem;
+}
+
+@mixin mx-56 () {
+  margin-left: 14rem;
+  margin-right: 14rem;
+}
+
+@mixin my-60 () {
+  margin-top: 15rem;
+  margin-bottom: 15rem;
+}
+
+@mixin mx-60 () {
+  margin-left: 15rem;
+  margin-right: 15rem;
+}
+
+@mixin my-64 () {
+  margin-top: 16rem;
+  margin-bottom: 16rem;
+}
+
+@mixin mx-64 () {
+  margin-left: 16rem;
+  margin-right: 16rem;
+}
+
+@mixin my-72 () {
+  margin-top: 18rem;
+  margin-bottom: 18rem;
+}
+
+@mixin mx-72 () {
+  margin-left: 18rem;
+  margin-right: 18rem;
+}
+
+@mixin my-80 () {
+  margin-top: 20rem;
+  margin-bottom: 20rem;
+}
+
+@mixin mx-80 () {
+  margin-left: 20rem;
+  margin-right: 20rem;
+}
+
+@mixin my-96 () {
+  margin-top: 24rem;
+  margin-bottom: 24rem;
+}
+
+@mixin mx-96 () {
+  margin-left: 24rem;
+  margin-right: 24rem;
+}
+
+@mixin my-auto () {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+@mixin mx-auto () {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin my-px () {
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+
+@mixin mx-px () {
+  margin-left: 1px;
+  margin-right: 1px;
+}
+
+@mixin -my-0 () {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+@mixin -mx-0 () {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+@mixin -my-1 () {
+  margin-top: -0.25rem;
+  margin-bottom: -0.25rem;
+}
+
+@mixin -mx-1 () {
+  margin-left: -0.25rem;
+  margin-right: -0.25rem;
+}
+
+@mixin -my-2 () {
+  margin-top: -0.5rem;
+  margin-bottom: -0.5rem;
+}
+
+@mixin -mx-2 () {
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+}
+
+@mixin -my-3 () {
+  margin-top: -0.75rem;
+  margin-bottom: -0.75rem;
+}
+
+@mixin -mx-3 () {
+  margin-left: -0.75rem;
+  margin-right: -0.75rem;
+}
+
+@mixin -my-4 () {
+  margin-top: -1rem;
+  margin-bottom: -1rem;
+}
+
+@mixin -mx-4 () {
+  margin-left: -1rem;
+  margin-right: -1rem;
+}
+
+@mixin -my-5 () {
+  margin-top: -1.25rem;
+  margin-bottom: -1.25rem;
+}
+
+@mixin -mx-5 () {
+  margin-left: -1.25rem;
+  margin-right: -1.25rem;
+}
+
+@mixin -my-6 () {
+  margin-top: -1.5rem;
+  margin-bottom: -1.5rem;
+}
+
+@mixin -mx-6 () {
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+}
+
+@mixin -my-7 () {
+  margin-top: -1.75rem;
+  margin-bottom: -1.75rem;
+}
+
+@mixin -mx-7 () {
+  margin-left: -1.75rem;
+  margin-right: -1.75rem;
+}
+
+@mixin -my-8 () {
+  margin-top: -2rem;
+  margin-bottom: -2rem;
+}
+
+@mixin -mx-8 () {
+  margin-left: -2rem;
+  margin-right: -2rem;
+}
+
+@mixin -my-9 () {
+  margin-top: -2.25rem;
+  margin-bottom: -2.25rem;
+}
+
+@mixin -mx-9 () {
+  margin-left: -2.25rem;
+  margin-right: -2.25rem;
+}
+
+@mixin -my-10 () {
+  margin-top: -2.5rem;
+  margin-bottom: -2.5rem;
+}
+
+@mixin -mx-10 () {
+  margin-left: -2.5rem;
+  margin-right: -2.5rem;
+}
+
+@mixin -my-11 () {
+  margin-top: -2.75rem;
+  margin-bottom: -2.75rem;
+}
+
+@mixin -mx-11 () {
+  margin-left: -2.75rem;
+  margin-right: -2.75rem;
+}
+
+@mixin -my-12 () {
+  margin-top: -3rem;
+  margin-bottom: -3rem;
+}
+
+@mixin -mx-12 () {
+  margin-left: -3rem;
+  margin-right: -3rem;
+}
+
+@mixin -my-14 () {
+  margin-top: -3.5rem;
+  margin-bottom: -3.5rem;
+}
+
+@mixin -mx-14 () {
+  margin-left: -3.5rem;
+  margin-right: -3.5rem;
+}
+
+@mixin -my-16 () {
+  margin-top: -4rem;
+  margin-bottom: -4rem;
+}
+
+@mixin -mx-16 () {
+  margin-left: -4rem;
+  margin-right: -4rem;
+}
+
+@mixin -my-20 () {
+  margin-top: -5rem;
+  margin-bottom: -5rem;
+}
+
+@mixin -mx-20 () {
+  margin-left: -5rem;
+  margin-right: -5rem;
+}
+
+@mixin -my-24 () {
+  margin-top: -6rem;
+  margin-bottom: -6rem;
+}
+
+@mixin -mx-24 () {
+  margin-left: -6rem;
+  margin-right: -6rem;
+}
+
+@mixin -my-28 () {
+  margin-top: -7rem;
+  margin-bottom: -7rem;
+}
+
+@mixin -mx-28 () {
+  margin-left: -7rem;
+  margin-right: -7rem;
+}
+
+@mixin -my-32 () {
+  margin-top: -8rem;
+  margin-bottom: -8rem;
+}
+
+@mixin -mx-32 () {
+  margin-left: -8rem;
+  margin-right: -8rem;
+}
+
+@mixin -my-36 () {
+  margin-top: -9rem;
+  margin-bottom: -9rem;
+}
+
+@mixin -mx-36 () {
+  margin-left: -9rem;
+  margin-right: -9rem;
+}
+
+@mixin -my-40 () {
+  margin-top: -10rem;
+  margin-bottom: -10rem;
+}
+
+@mixin -mx-40 () {
+  margin-left: -10rem;
+  margin-right: -10rem;
+}
+
+@mixin -my-44 () {
+  margin-top: -11rem;
+  margin-bottom: -11rem;
+}
+
+@mixin -mx-44 () {
+  margin-left: -11rem;
+  margin-right: -11rem;
+}
+
+@mixin -my-48 () {
+  margin-top: -12rem;
+  margin-bottom: -12rem;
+}
+
+@mixin -mx-48 () {
+  margin-left: -12rem;
+  margin-right: -12rem;
+}
+
+@mixin -my-52 () {
+  margin-top: -13rem;
+  margin-bottom: -13rem;
+}
+
+@mixin -mx-52 () {
+  margin-left: -13rem;
+  margin-right: -13rem;
+}
+
+@mixin -my-56 () {
+  margin-top: -14rem;
+  margin-bottom: -14rem;
+}
+
+@mixin -mx-56 () {
+  margin-left: -14rem;
+  margin-right: -14rem;
+}
+
+@mixin -my-60 () {
+  margin-top: -15rem;
+  margin-bottom: -15rem;
+}
+
+@mixin -mx-60 () {
+  margin-left: -15rem;
+  margin-right: -15rem;
+}
+
+@mixin -my-64 () {
+  margin-top: -16rem;
+  margin-bottom: -16rem;
+}
+
+@mixin -mx-64 () {
+  margin-left: -16rem;
+  margin-right: -16rem;
+}
+
+@mixin -my-72 () {
+  margin-top: -18rem;
+  margin-bottom: -18rem;
+}
+
+@mixin -mx-72 () {
+  margin-left: -18rem;
+  margin-right: -18rem;
+}
+
+@mixin -my-80 () {
+  margin-top: -20rem;
+  margin-bottom: -20rem;
+}
+
+@mixin -mx-80 () {
+  margin-left: -20rem;
+  margin-right: -20rem;
+}
+
+@mixin -my-96 () {
+  margin-top: -24rem;
+  margin-bottom: -24rem;
+}
+
+@mixin -mx-96 () {
+  margin-left: -24rem;
+  margin-right: -24rem;
+}
+
+@mixin -my-px () {
+  margin-top: -1px;
+  margin-bottom: -1px;
+}
+
+@mixin -mx-px () {
+  margin-left: -1px;
+  margin-right: -1px;
+}
+
+@mixin mt-0 () {
+  margin-top: 0px;
+}
+
+@mixin mr-0 () {
+  margin-right: 0px;
+}
+
+@mixin mb-0 () {
+  margin-bottom: 0px;
+}
+
+@mixin ml-0 () {
+  margin-left: 0px;
+}
+
+@mixin mt-1 () {
+  margin-top: 0.25rem;
+}
+
+@mixin mr-1 () {
+  margin-right: 0.25rem;
+}
+
+@mixin mb-1 () {
+  margin-bottom: 0.25rem;
+}
+
+@mixin ml-1 () {
+  margin-left: 0.25rem;
+}
+
+@mixin mt-2 () {
+  margin-top: 0.5rem;
+}
+
+@mixin mr-2 () {
+  margin-right: 0.5rem;
+}
+
+@mixin mb-2 () {
+  margin-bottom: 0.5rem;
+}
+
+@mixin ml-2 () {
+  margin-left: 0.5rem;
+}
+
+@mixin mt-3 () {
+  margin-top: 0.75rem;
+}
+
+@mixin mr-3 () {
+  margin-right: 0.75rem;
+}
+
+@mixin mb-3 () {
+  margin-bottom: 0.75rem;
+}
+
+@mixin ml-3 () {
+  margin-left: 0.75rem;
+}
+
+@mixin mt-4 () {
+  margin-top: 1rem;
+}
+
+@mixin mr-4 () {
+  margin-right: 1rem;
+}
+
+@mixin mb-4 () {
+  margin-bottom: 1rem;
+}
+
+@mixin ml-4 () {
+  margin-left: 1rem;
+}
+
+@mixin mt-5 () {
+  margin-top: 1.25rem;
+}
+
+@mixin mr-5 () {
+  margin-right: 1.25rem;
+}
+
+@mixin mb-5 () {
+  margin-bottom: 1.25rem;
+}
+
+@mixin ml-5 () {
+  margin-left: 1.25rem;
+}
+
+@mixin mt-6 () {
+  margin-top: 1.5rem;
+}
+
+@mixin mr-6 () {
+  margin-right: 1.5rem;
+}
+
+@mixin mb-6 () {
+  margin-bottom: 1.5rem;
+}
+
+@mixin ml-6 () {
+  margin-left: 1.5rem;
+}
+
+@mixin mt-7 () {
+  margin-top: 1.75rem;
+}
+
+@mixin mr-7 () {
+  margin-right: 1.75rem;
+}
+
+@mixin mb-7 () {
+  margin-bottom: 1.75rem;
+}
+
+@mixin ml-7 () {
+  margin-left: 1.75rem;
+}
+
+@mixin mt-8 () {
+  margin-top: 2rem;
+}
+
+@mixin mr-8 () {
+  margin-right: 2rem;
+}
+
+@mixin mb-8 () {
+  margin-bottom: 2rem;
+}
+
+@mixin ml-8 () {
+  margin-left: 2rem;
+}
+
+@mixin mt-9 () {
+  margin-top: 2.25rem;
+}
+
+@mixin mr-9 () {
+  margin-right: 2.25rem;
+}
+
+@mixin mb-9 () {
+  margin-bottom: 2.25rem;
+}
+
+@mixin ml-9 () {
+  margin-left: 2.25rem;
+}
+
+@mixin mt-10 () {
+  margin-top: 2.5rem;
+}
+
+@mixin mr-10 () {
+  margin-right: 2.5rem;
+}
+
+@mixin mb-10 () {
+  margin-bottom: 2.5rem;
+}
+
+@mixin ml-10 () {
+  margin-left: 2.5rem;
+}
+
+@mixin mt-11 () {
+  margin-top: 2.75rem;
+}
+
+@mixin mr-11 () {
+  margin-right: 2.75rem;
+}
+
+@mixin mb-11 () {
+  margin-bottom: 2.75rem;
+}
+
+@mixin ml-11 () {
+  margin-left: 2.75rem;
+}
+
+@mixin mt-12 () {
+  margin-top: 3rem;
+}
+
+@mixin mr-12 () {
+  margin-right: 3rem;
+}
+
+@mixin mb-12 () {
+  margin-bottom: 3rem;
+}
+
+@mixin ml-12 () {
+  margin-left: 3rem;
+}
+
+@mixin mt-14 () {
+  margin-top: 3.5rem;
+}
+
+@mixin mr-14 () {
+  margin-right: 3.5rem;
+}
+
+@mixin mb-14 () {
+  margin-bottom: 3.5rem;
+}
+
+@mixin ml-14 () {
+  margin-left: 3.5rem;
+}
+
+@mixin mt-16 () {
+  margin-top: 4rem;
+}
+
+@mixin mr-16 () {
+  margin-right: 4rem;
+}
+
+@mixin mb-16 () {
+  margin-bottom: 4rem;
+}
+
+@mixin ml-16 () {
+  margin-left: 4rem;
+}
+
+@mixin mt-20 () {
+  margin-top: 5rem;
+}
+
+@mixin mr-20 () {
+  margin-right: 5rem;
+}
+
+@mixin mb-20 () {
+  margin-bottom: 5rem;
+}
+
+@mixin ml-20 () {
+  margin-left: 5rem;
+}
+
+@mixin mt-24 () {
+  margin-top: 6rem;
+}
+
+@mixin mr-24 () {
+  margin-right: 6rem;
+}
+
+@mixin mb-24 () {
+  margin-bottom: 6rem;
+}
+
+@mixin ml-24 () {
+  margin-left: 6rem;
+}
+
+@mixin mt-28 () {
+  margin-top: 7rem;
+}
+
+@mixin mr-28 () {
+  margin-right: 7rem;
+}
+
+@mixin mb-28 () {
+  margin-bottom: 7rem;
+}
+
+@mixin ml-28 () {
+  margin-left: 7rem;
+}
+
+@mixin mt-32 () {
+  margin-top: 8rem;
+}
+
+@mixin mr-32 () {
+  margin-right: 8rem;
+}
+
+@mixin mb-32 () {
+  margin-bottom: 8rem;
+}
+
+@mixin ml-32 () {
+  margin-left: 8rem;
+}
+
+@mixin mt-36 () {
+  margin-top: 9rem;
+}
+
+@mixin mr-36 () {
+  margin-right: 9rem;
+}
+
+@mixin mb-36 () {
+  margin-bottom: 9rem;
+}
+
+@mixin ml-36 () {
+  margin-left: 9rem;
+}
+
+@mixin mt-40 () {
+  margin-top: 10rem;
+}
+
+@mixin mr-40 () {
+  margin-right: 10rem;
+}
+
+@mixin mb-40 () {
+  margin-bottom: 10rem;
+}
+
+@mixin ml-40 () {
+  margin-left: 10rem;
+}
+
+@mixin mt-44 () {
+  margin-top: 11rem;
+}
+
+@mixin mr-44 () {
+  margin-right: 11rem;
+}
+
+@mixin mb-44 () {
+  margin-bottom: 11rem;
+}
+
+@mixin ml-44 () {
+  margin-left: 11rem;
+}
+
+@mixin mt-48 () {
+  margin-top: 12rem;
+}
+
+@mixin mr-48 () {
+  margin-right: 12rem;
+}
+
+@mixin mb-48 () {
+  margin-bottom: 12rem;
+}
+
+@mixin ml-48 () {
+  margin-left: 12rem;
+}
+
+@mixin mt-52 () {
+  margin-top: 13rem;
+}
+
+@mixin mr-52 () {
+  margin-right: 13rem;
+}
+
+@mixin mb-52 () {
+  margin-bottom: 13rem;
+}
+
+@mixin ml-52 () {
+  margin-left: 13rem;
+}
+
+@mixin mt-56 () {
+  margin-top: 14rem;
+}
+
+@mixin mr-56 () {
+  margin-right: 14rem;
+}
+
+@mixin mb-56 () {
+  margin-bottom: 14rem;
+}
+
+@mixin ml-56 () {
+  margin-left: 14rem;
+}
+
+@mixin mt-60 () {
+  margin-top: 15rem;
+}
+
+@mixin mr-60 () {
+  margin-right: 15rem;
+}
+
+@mixin mb-60 () {
+  margin-bottom: 15rem;
+}
+
+@mixin ml-60 () {
+  margin-left: 15rem;
+}
+
+@mixin mt-64 () {
+  margin-top: 16rem;
+}
+
+@mixin mr-64 () {
+  margin-right: 16rem;
+}
+
+@mixin mb-64 () {
+  margin-bottom: 16rem;
+}
+
+@mixin ml-64 () {
+  margin-left: 16rem;
+}
+
+@mixin mt-72 () {
+  margin-top: 18rem;
+}
+
+@mixin mr-72 () {
+  margin-right: 18rem;
+}
+
+@mixin mb-72 () {
+  margin-bottom: 18rem;
+}
+
+@mixin ml-72 () {
+  margin-left: 18rem;
+}
+
+@mixin mt-80 () {
+  margin-top: 20rem;
+}
+
+@mixin mr-80 () {
+  margin-right: 20rem;
+}
+
+@mixin mb-80 () {
+  margin-bottom: 20rem;
+}
+
+@mixin ml-80 () {
+  margin-left: 20rem;
+}
+
+@mixin mt-96 () {
+  margin-top: 24rem;
+}
+
+@mixin mr-96 () {
+  margin-right: 24rem;
+}
+
+@mixin mb-96 () {
+  margin-bottom: 24rem;
+}
+
+@mixin ml-96 () {
+  margin-left: 24rem;
+}
+
+@mixin mt-auto () {
+  margin-top: auto;
+}
+
+@mixin mr-auto () {
+  margin-right: auto;
+}
+
+@mixin mb-auto () {
+  margin-bottom: auto;
+}
+
+@mixin ml-auto () {
+  margin-left: auto;
+}
+
+@mixin mt-px () {
+  margin-top: 1px;
+}
+
+@mixin mr-px () {
+  margin-right: 1px;
+}
+
+@mixin mb-px () {
+  margin-bottom: 1px;
+}
+
+@mixin ml-px () {
+  margin-left: 1px;
+}
+
+@mixin -mt-0 () {
+  margin-top: 0px;
+}
+
+@mixin -mr-0 () {
+  margin-right: 0px;
+}
+
+@mixin -mb-0 () {
+  margin-bottom: 0px;
+}
+
+@mixin -ml-0 () {
+  margin-left: 0px;
+}
+
+@mixin -mt-1 () {
+  margin-top: -0.25rem;
+}
+
+@mixin -mr-1 () {
+  margin-right: -0.25rem;
+}
+
+@mixin -mb-1 () {
+  margin-bottom: -0.25rem;
+}
+
+@mixin -ml-1 () {
+  margin-left: -0.25rem;
+}
+
+@mixin -mt-2 () {
+  margin-top: -0.5rem;
+}
+
+@mixin -mr-2 () {
+  margin-right: -0.5rem;
+}
+
+@mixin -mb-2 () {
+  margin-bottom: -0.5rem;
+}
+
+@mixin -ml-2 () {
+  margin-left: -0.5rem;
+}
+
+@mixin -mt-3 () {
+  margin-top: -0.75rem;
+}
+
+@mixin -mr-3 () {
+  margin-right: -0.75rem;
+}
+
+@mixin -mb-3 () {
+  margin-bottom: -0.75rem;
+}
+
+@mixin -ml-3 () {
+  margin-left: -0.75rem;
+}
+
+@mixin -mt-4 () {
+  margin-top: -1rem;
+}
+
+@mixin -mr-4 () {
+  margin-right: -1rem;
+}
+
+@mixin -mb-4 () {
+  margin-bottom: -1rem;
+}
+
+@mixin -ml-4 () {
+  margin-left: -1rem;
+}
+
+@mixin -mt-5 () {
+  margin-top: -1.25rem;
+}
+
+@mixin -mr-5 () {
+  margin-right: -1.25rem;
+}
+
+@mixin -mb-5 () {
+  margin-bottom: -1.25rem;
+}
+
+@mixin -ml-5 () {
+  margin-left: -1.25rem;
+}
+
+@mixin -mt-6 () {
+  margin-top: -1.5rem;
+}
+
+@mixin -mr-6 () {
+  margin-right: -1.5rem;
+}
+
+@mixin -mb-6 () {
+  margin-bottom: -1.5rem;
+}
+
+@mixin -ml-6 () {
+  margin-left: -1.5rem;
+}
+
+@mixin -mt-7 () {
+  margin-top: -1.75rem;
+}
+
+@mixin -mr-7 () {
+  margin-right: -1.75rem;
+}
+
+@mixin -mb-7 () {
+  margin-bottom: -1.75rem;
+}
+
+@mixin -ml-7 () {
+  margin-left: -1.75rem;
+}
+
+@mixin -mt-8 () {
+  margin-top: -2rem;
+}
+
+@mixin -mr-8 () {
+  margin-right: -2rem;
+}
+
+@mixin -mb-8 () {
+  margin-bottom: -2rem;
+}
+
+@mixin -ml-8 () {
+  margin-left: -2rem;
+}
+
+@mixin -mt-9 () {
+  margin-top: -2.25rem;
+}
+
+@mixin -mr-9 () {
+  margin-right: -2.25rem;
+}
+
+@mixin -mb-9 () {
+  margin-bottom: -2.25rem;
+}
+
+@mixin -ml-9 () {
+  margin-left: -2.25rem;
+}
+
+@mixin -mt-10 () {
+  margin-top: -2.5rem;
+}
+
+@mixin -mr-10 () {
+  margin-right: -2.5rem;
+}
+
+@mixin -mb-10 () {
+  margin-bottom: -2.5rem;
+}
+
+@mixin -ml-10 () {
+  margin-left: -2.5rem;
+}
+
+@mixin -mt-11 () {
+  margin-top: -2.75rem;
+}
+
+@mixin -mr-11 () {
+  margin-right: -2.75rem;
+}
+
+@mixin -mb-11 () {
+  margin-bottom: -2.75rem;
+}
+
+@mixin -ml-11 () {
+  margin-left: -2.75rem;
+}
+
+@mixin -mt-12 () {
+  margin-top: -3rem;
+}
+
+@mixin -mr-12 () {
+  margin-right: -3rem;
+}
+
+@mixin -mb-12 () {
+  margin-bottom: -3rem;
+}
+
+@mixin -ml-12 () {
+  margin-left: -3rem;
+}
+
+@mixin -mt-14 () {
+  margin-top: -3.5rem;
+}
+
+@mixin -mr-14 () {
+  margin-right: -3.5rem;
+}
+
+@mixin -mb-14 () {
+  margin-bottom: -3.5rem;
+}
+
+@mixin -ml-14 () {
+  margin-left: -3.5rem;
+}
+
+@mixin -mt-16 () {
+  margin-top: -4rem;
+}
+
+@mixin -mr-16 () {
+  margin-right: -4rem;
+}
+
+@mixin -mb-16 () {
+  margin-bottom: -4rem;
+}
+
+@mixin -ml-16 () {
+  margin-left: -4rem;
+}
+
+@mixin -mt-20 () {
+  margin-top: -5rem;
+}
+
+@mixin -mr-20 () {
+  margin-right: -5rem;
+}
+
+@mixin -mb-20 () {
+  margin-bottom: -5rem;
+}
+
+@mixin -ml-20 () {
+  margin-left: -5rem;
+}
+
+@mixin -mt-24 () {
+  margin-top: -6rem;
+}
+
+@mixin -mr-24 () {
+  margin-right: -6rem;
+}
+
+@mixin -mb-24 () {
+  margin-bottom: -6rem;
+}
+
+@mixin -ml-24 () {
+  margin-left: -6rem;
+}
+
+@mixin -mt-28 () {
+  margin-top: -7rem;
+}
+
+@mixin -mr-28 () {
+  margin-right: -7rem;
+}
+
+@mixin -mb-28 () {
+  margin-bottom: -7rem;
+}
+
+@mixin -ml-28 () {
+  margin-left: -7rem;
+}
+
+@mixin -mt-32 () {
+  margin-top: -8rem;
+}
+
+@mixin -mr-32 () {
+  margin-right: -8rem;
+}
+
+@mixin -mb-32 () {
+  margin-bottom: -8rem;
+}
+
+@mixin -ml-32 () {
+  margin-left: -8rem;
+}
+
+@mixin -mt-36 () {
+  margin-top: -9rem;
+}
+
+@mixin -mr-36 () {
+  margin-right: -9rem;
+}
+
+@mixin -mb-36 () {
+  margin-bottom: -9rem;
+}
+
+@mixin -ml-36 () {
+  margin-left: -9rem;
+}
+
+@mixin -mt-40 () {
+  margin-top: -10rem;
+}
+
+@mixin -mr-40 () {
+  margin-right: -10rem;
+}
+
+@mixin -mb-40 () {
+  margin-bottom: -10rem;
+}
+
+@mixin -ml-40 () {
+  margin-left: -10rem;
+}
+
+@mixin -mt-44 () {
+  margin-top: -11rem;
+}
+
+@mixin -mr-44 () {
+  margin-right: -11rem;
+}
+
+@mixin -mb-44 () {
+  margin-bottom: -11rem;
+}
+
+@mixin -ml-44 () {
+  margin-left: -11rem;
+}
+
+@mixin -mt-48 () {
+  margin-top: -12rem;
+}
+
+@mixin -mr-48 () {
+  margin-right: -12rem;
+}
+
+@mixin -mb-48 () {
+  margin-bottom: -12rem;
+}
+
+@mixin -ml-48 () {
+  margin-left: -12rem;
+}
+
+@mixin -mt-52 () {
+  margin-top: -13rem;
+}
+
+@mixin -mr-52 () {
+  margin-right: -13rem;
+}
+
+@mixin -mb-52 () {
+  margin-bottom: -13rem;
+}
+
+@mixin -ml-52 () {
+  margin-left: -13rem;
+}
+
+@mixin -mt-56 () {
+  margin-top: -14rem;
+}
+
+@mixin -mr-56 () {
+  margin-right: -14rem;
+}
+
+@mixin -mb-56 () {
+  margin-bottom: -14rem;
+}
+
+@mixin -ml-56 () {
+  margin-left: -14rem;
+}
+
+@mixin -mt-60 () {
+  margin-top: -15rem;
+}
+
+@mixin -mr-60 () {
+  margin-right: -15rem;
+}
+
+@mixin -mb-60 () {
+  margin-bottom: -15rem;
+}
+
+@mixin -ml-60 () {
+  margin-left: -15rem;
+}
+
+@mixin -mt-64 () {
+  margin-top: -16rem;
+}
+
+@mixin -mr-64 () {
+  margin-right: -16rem;
+}
+
+@mixin -mb-64 () {
+  margin-bottom: -16rem;
+}
+
+@mixin -ml-64 () {
+  margin-left: -16rem;
+}
+
+@mixin -mt-72 () {
+  margin-top: -18rem;
+}
+
+@mixin -mr-72 () {
+  margin-right: -18rem;
+}
+
+@mixin -mb-72 () {
+  margin-bottom: -18rem;
+}
+
+@mixin -ml-72 () {
+  margin-left: -18rem;
+}
+
+@mixin -mt-80 () {
+  margin-top: -20rem;
+}
+
+@mixin -mr-80 () {
+  margin-right: -20rem;
+}
+
+@mixin -mb-80 () {
+  margin-bottom: -20rem;
+}
+
+@mixin -ml-80 () {
+  margin-left: -20rem;
+}
+
+@mixin -mt-96 () {
+  margin-top: -24rem;
+}
+
+@mixin -mr-96 () {
+  margin-right: -24rem;
+}
+
+@mixin -mb-96 () {
+  margin-bottom: -24rem;
+}
+
+@mixin -ml-96 () {
+  margin-left: -24rem;
+}
+
+@mixin -mt-px () {
+  margin-top: -1px;
+}
+
+@mixin -mr-px () {
+  margin-right: -1px;
+}
+
+@mixin -mb-px () {
+  margin-bottom: -1px;
+}
+
+@mixin -ml-px () {
+  margin-left: -1px;
+}
+//Paddings
+@mixin p-0 () {
+  padding: 0px;
+}
+
+@mixin p-1 () {
+  padding: 0.25rem;
+}
+
+@mixin p-2 () {
+  padding: 0.5rem;
+}
+
+@mixin p-3 () {
+  padding: 0.75rem;
+}
+
+@mixin p-4 () {
+  padding: 1rem;
+}
+
+@mixin p-5 () {
+  padding: 1.25rem;
+}
+
+@mixin p-6 () {
+  padding: 1.5rem;
+}
+
+@mixin p-7 () {
+  padding: 1.75rem;
+}
+
+@mixin p-8 () {
+  padding: 2rem;
+}
+
+@mixin p-9 () {
+  padding: 2.25rem;
+}
+
+@mixin p-10 () {
+  padding: 2.5rem;
+}
+
+@mixin p-11 () {
+  padding: 2.75rem;
+}
+
+@mixin p-12 () {
+  padding: 3rem;
+}
+
+@mixin p-14 () {
+  padding: 3.5rem;
+}
+
+@mixin p-16 () {
+  padding: 4rem;
+}
+
+@mixin p-20 () {
+  padding: 5rem;
+}
+
+@mixin p-24 () {
+  padding: 6rem;
+}
+
+@mixin p-28 () {
+  padding: 7rem;
+}
+
+@mixin p-32 () {
+  padding: 8rem;
+}
+
+@mixin p-36 () {
+  padding: 9rem;
+}
+
+@mixin p-40 () {
+  padding: 10rem;
+}
+
+@mixin p-44 () {
+  padding: 11rem;
+}
+
+@mixin p-48 () {
+  padding: 12rem;
+}
+
+@mixin p-52 () {
+  padding: 13rem;
+}
+
+@mixin p-56 () {
+  padding: 14rem;
+}
+
+@mixin p-60 () {
+  padding: 15rem;
+}
+
+@mixin p-64 () {
+  padding: 16rem;
+}
+
+@mixin p-72 () {
+  padding: 18rem;
+}
+
+@mixin p-80 () {
+  padding: 20rem;
+}
+
+@mixin p-96 () {
+  padding: 24rem;
+}
+
+@mixin p-px () {
+  padding: 1px;
+}
+
+@mixin py-0 () {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+@mixin px-0 () {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+@mixin py-1 () {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+@mixin px-1 () {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
+@mixin py-2 () {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+@mixin px-2 () {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+@mixin py-3 () {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+@mixin px-3 () {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+@mixin py-4 () {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+@mixin px-4 () {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@mixin py-5 () {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
+@mixin px-5 () {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+@mixin py-6 () {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+@mixin px-6 () {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@mixin py-7 () {
+  padding-top: 1.75rem;
+  padding-bottom: 1.75rem;
+}
+
+@mixin px-7 () {
+  padding-left: 1.75rem;
+  padding-right: 1.75rem;
+}
+
+@mixin py-8 () {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+@mixin px-8 () {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+@mixin py-9 () {
+  padding-top: 2.25rem;
+  padding-bottom: 2.25rem;
+}
+
+@mixin px-9 () {
+  padding-left: 2.25rem;
+  padding-right: 2.25rem;
+}
+
+@mixin py-10 () {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+@mixin px-10 () {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
+@mixin py-11 () {
+  padding-top: 2.75rem;
+  padding-bottom: 2.75rem;
+}
+
+@mixin px-11 () {
+  padding-left: 2.75rem;
+  padding-right: 2.75rem;
+}
+
+@mixin py-12 () {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+@mixin px-12 () {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+@mixin py-14 () {
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+}
+
+@mixin px-14 () {
+  padding-left: 3.5rem;
+  padding-right: 3.5rem;
+}
+
+@mixin py-16 () {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+@mixin px-16 () {
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+@mixin py-20 () {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@mixin px-20 () {
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
+@mixin py-24 () {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+@mixin px-24 () {
+  padding-left: 6rem;
+  padding-right: 6rem;
+}
+
+@mixin py-28 () {
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+}
+
+@mixin px-28 () {
+  padding-left: 7rem;
+  padding-right: 7rem;
+}
+
+@mixin py-32 () {
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+@mixin px-32 () {
+  padding-left: 8rem;
+  padding-right: 8rem;
+}
+
+@mixin py-36 () {
+  padding-top: 9rem;
+  padding-bottom: 9rem;
+}
+
+@mixin px-36 () {
+  padding-left: 9rem;
+  padding-right: 9rem;
+}
+
+@mixin py-40 () {
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+}
+
+@mixin px-40 () {
+  padding-left: 10rem;
+  padding-right: 10rem;
+}
+
+@mixin py-44 () {
+  padding-top: 11rem;
+  padding-bottom: 11rem;
+}
+
+@mixin px-44 () {
+  padding-left: 11rem;
+  padding-right: 11rem;
+}
+
+@mixin py-48 () {
+  padding-top: 12rem;
+  padding-bottom: 12rem;
+}
+
+@mixin px-48 () {
+  padding-left: 12rem;
+  padding-right: 12rem;
+}
+
+@mixin py-52 () {
+  padding-top: 13rem;
+  padding-bottom: 13rem;
+}
+
+@mixin px-52 () {
+  padding-left: 13rem;
+  padding-right: 13rem;
+}
+
+@mixin py-56 () {
+  padding-top: 14rem;
+  padding-bottom: 14rem;
+}
+
+@mixin px-56 () {
+  padding-left: 14rem;
+  padding-right: 14rem;
+}
+
+@mixin py-60 () {
+  padding-top: 15rem;
+  padding-bottom: 15rem;
+}
+
+@mixin px-60 () {
+  padding-left: 15rem;
+  padding-right: 15rem;
+}
+
+@mixin py-64 () {
+  padding-top: 16rem;
+  padding-bottom: 16rem;
+}
+
+@mixin px-64 () {
+  padding-left: 16rem;
+  padding-right: 16rem;
+}
+
+@mixin py-72 () {
+  padding-top: 18rem;
+  padding-bottom: 18rem;
+}
+
+@mixin px-72 () {
+  padding-left: 18rem;
+  padding-right: 18rem;
+}
+
+@mixin py-80 () {
+  padding-top: 20rem;
+  padding-bottom: 20rem;
+}
+
+@mixin px-80 () {
+  padding-left: 20rem;
+  padding-right: 20rem;
+}
+
+@mixin py-96 () {
+  padding-top: 24rem;
+  padding-bottom: 24rem;
+}
+
+@mixin px-96 () {
+  padding-left: 24rem;
+  padding-right: 24rem;
+}
+
+@mixin py-px () {
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+@mixin px-px () {
+  padding-left: 1px;
+  padding-right: 1px;
+}
+
+@mixin pt-0 () {
+  padding-top: 0px;
+}
+
+@mixin pr-0 () {
+  padding-right: 0px;
+}
+
+@mixin pb-0 () {
+  padding-bottom: 0px;
+}
+
+@mixin pl-0 () {
+  padding-left: 0px;
+}
+
+@mixin pt-1 () {
+  padding-top: 0.25rem;
+}
+
+@mixin pr-1 () {
+  padding-right: 0.25rem;
+}
+
+@mixin pb-1 () {
+  padding-bottom: 0.25rem;
+}
+
+@mixin pl-1 () {
+  padding-left: 0.25rem;
+}
+
+@mixin pt-2 () {
+  padding-top: 0.5rem;
+}
+
+@mixin pr-2 () {
+  padding-right: 0.5rem;
+}
+
+@mixin pb-2 () {
+  padding-bottom: 0.5rem;
+}
+
+@mixin pl-2 () {
+  padding-left: 0.5rem;
+}
+
+@mixin pt-3 () {
+  padding-top: 0.75rem;
+}
+
+@mixin pr-3 () {
+  padding-right: 0.75rem;
+}
+
+@mixin pb-3 () {
+  padding-bottom: 0.75rem;
+}
+
+@mixin pl-3 () {
+  padding-left: 0.75rem;
+}
+
+@mixin pt-4 () {
+  padding-top: 1rem;
+}
+
+@mixin pr-4 () {
+  padding-right: 1rem;
+}
+
+@mixin pb-4 () {
+  padding-bottom: 1rem;
+}
+
+@mixin pl-4 () {
+  padding-left: 1rem;
+}
+
+@mixin pt-5 () {
+  padding-top: 1.25rem;
+}
+
+@mixin pr-5 () {
+  padding-right: 1.25rem;
+}
+
+@mixin pb-5 () {
+  padding-bottom: 1.25rem;
+}
+
+@mixin pl-5 () {
+  padding-left: 1.25rem;
+}
+
+@mixin pt-6 () {
+  padding-top: 1.5rem;
+}
+
+@mixin pr-6 () {
+  padding-right: 1.5rem;
+}
+
+@mixin pb-6 () {
+  padding-bottom: 1.5rem;
+}
+
+@mixin pl-6 () {
+  padding-left: 1.5rem;
+}
+
+@mixin pt-7 () {
+  padding-top: 1.75rem;
+}
+
+@mixin pr-7 () {
+  padding-right: 1.75rem;
+}
+
+@mixin pb-7 () {
+  padding-bottom: 1.75rem;
+}
+
+@mixin pl-7 () {
+  padding-left: 1.75rem;
+}
+
+@mixin pt-8 () {
+  padding-top: 2rem;
+}
+
+@mixin pr-8 () {
+  padding-right: 2rem;
+}
+
+@mixin pb-8 () {
+  padding-bottom: 2rem;
+}
+
+@mixin pl-8 () {
+  padding-left: 2rem;
+}
+
+@mixin pt-9 () {
+  padding-top: 2.25rem;
+}
+
+@mixin pr-9 () {
+  padding-right: 2.25rem;
+}
+
+@mixin pb-9 () {
+  padding-bottom: 2.25rem;
+}
+
+@mixin pl-9 () {
+  padding-left: 2.25rem;
+}
+
+@mixin pt-10 () {
+  padding-top: 2.5rem;
+}
+
+@mixin pr-10 () {
+  padding-right: 2.5rem;
+}
+
+@mixin pb-10 () {
+  padding-bottom: 2.5rem;
+}
+
+@mixin pl-10 () {
+  padding-left: 2.5rem;
+}
+
+@mixin pt-11 () {
+  padding-top: 2.75rem;
+}
+
+@mixin pr-11 () {
+  padding-right: 2.75rem;
+}
+
+@mixin pb-11 () {
+  padding-bottom: 2.75rem;
+}
+
+@mixin pl-11 () {
+  padding-left: 2.75rem;
+}
+
+@mixin pt-12 () {
+  padding-top: 3rem;
+}
+
+@mixin pr-12 () {
+  padding-right: 3rem;
+}
+
+@mixin pb-12 () {
+  padding-bottom: 3rem;
+}
+
+@mixin pl-12 () {
+  padding-left: 3rem;
+}
+
+@mixin pt-14 () {
+  padding-top: 3.5rem;
+}
+
+@mixin pr-14 () {
+  padding-right: 3.5rem;
+}
+
+@mixin pb-14 () {
+  padding-bottom: 3.5rem;
+}
+
+@mixin pl-14 () {
+  padding-left: 3.5rem;
+}
+
+@mixin pt-16 () {
+  padding-top: 4rem;
+}
+
+@mixin pr-16 () {
+  padding-right: 4rem;
+}
+
+@mixin pb-16 () {
+  padding-bottom: 4rem;
+}
+
+@mixin pl-16 () {
+  padding-left: 4rem;
+}
+
+@mixin pt-20 () {
+  padding-top: 5rem;
+}
+
+@mixin pr-20 () {
+  padding-right: 5rem;
+}
+
+@mixin pb-20 () {
+  padding-bottom: 5rem;
+}
+
+@mixin pl-20 () {
+  padding-left: 5rem;
+}
+
+@mixin pt-24 () {
+  padding-top: 6rem;
+}
+
+@mixin pr-24 () {
+  padding-right: 6rem;
+}
+
+@mixin pb-24 () {
+  padding-bottom: 6rem;
+}
+
+@mixin pl-24 () {
+  padding-left: 6rem;
+}
+
+@mixin pt-28 () {
+  padding-top: 7rem;
+}
+
+@mixin pr-28 () {
+  padding-right: 7rem;
+}
+
+@mixin pb-28 () {
+  padding-bottom: 7rem;
+}
+
+@mixin pl-28 () {
+  padding-left: 7rem;
+}
+
+@mixin pt-32 () {
+  padding-top: 8rem;
+}
+
+@mixin pr-32 () {
+  padding-right: 8rem;
+}
+
+@mixin pb-32 () {
+  padding-bottom: 8rem;
+}
+
+@mixin pl-32 () {
+  padding-left: 8rem;
+}
+
+@mixin pt-36 () {
+  padding-top: 9rem;
+}
+
+@mixin pr-36 () {
+  padding-right: 9rem;
+}
+
+@mixin pb-36 () {
+  padding-bottom: 9rem;
+}
+
+@mixin pl-36 () {
+  padding-left: 9rem;
+}
+
+@mixin pt-40 () {
+  padding-top: 10rem;
+}
+
+@mixin pr-40 () {
+  padding-right: 10rem;
+}
+
+@mixin pb-40 () {
+  padding-bottom: 10rem;
+}
+
+@mixin pl-40 () {
+  padding-left: 10rem;
+}
+
+@mixin pt-44 () {
+  padding-top: 11rem;
+}
+
+@mixin pr-44 () {
+  padding-right: 11rem;
+}
+
+@mixin pb-44 () {
+  padding-bottom: 11rem;
+}
+
+@mixin pl-44 () {
+  padding-left: 11rem;
+}
+
+@mixin pt-48 () {
+  padding-top: 12rem;
+}
+
+@mixin pr-48 () {
+  padding-right: 12rem;
+}
+
+@mixin pb-48 () {
+  padding-bottom: 12rem;
+}
+
+@mixin pl-48 () {
+  padding-left: 12rem;
+}
+
+@mixin pt-52 () {
+  padding-top: 13rem;
+}
+
+@mixin pr-52 () {
+  padding-right: 13rem;
+}
+
+@mixin pb-52 () {
+  padding-bottom: 13rem;
+}
+
+@mixin pl-52 () {
+  padding-left: 13rem;
+}
+
+@mixin pt-56 () {
+  padding-top: 14rem;
+}
+
+@mixin pr-56 () {
+  padding-right: 14rem;
+}
+
+@mixin pb-56 () {
+  padding-bottom: 14rem;
+}
+
+@mixin pl-56 () {
+  padding-left: 14rem;
+}
+
+@mixin pt-60 () {
+  padding-top: 15rem;
+}
+
+@mixin pr-60 () {
+  padding-right: 15rem;
+}
+
+@mixin pb-60 () {
+  padding-bottom: 15rem;
+}
+
+@mixin pl-60 () {
+  padding-left: 15rem;
+}
+
+@mixin pt-64 () {
+  padding-top: 16rem;
+}
+
+@mixin pr-64 () {
+  padding-right: 16rem;
+}
+
+@mixin pb-64 () {
+  padding-bottom: 16rem;
+}
+
+@mixin pl-64 () {
+  padding-left: 16rem;
+}
+
+@mixin pt-72 () {
+  padding-top: 18rem;
+}
+
+@mixin pr-72 () {
+  padding-right: 18rem;
+}
+
+@mixin pb-72 () {
+  padding-bottom: 18rem;
+}
+
+@mixin pl-72 () {
+  padding-left: 18rem;
+}
+
+@mixin pt-80 () {
+  padding-top: 20rem;
+}
+
+@mixin pr-80 () {
+  padding-right: 20rem;
+}
+
+@mixin pb-80 () {
+  padding-bottom: 20rem;
+}
+
+@mixin pl-80 () {
+  padding-left: 20rem;
+}
+
+@mixin pt-96 () {
+  padding-top: 24rem;
+}
+
+@mixin pr-96 () {
+  padding-right: 24rem;
+}
+
+@mixin pb-96 () {
+  padding-bottom: 24rem;
+}
+
+@mixin pl-96 () {
+  padding-left: 24rem;
+}
+
+@mixin pt-px () {
+  padding-top: 1px;
+}
+
+@mixin pr-px () {
+  padding-right: 1px;
+}
+
+@mixin pb-px () {
+  padding-bottom: 1px;
+}
+
+@mixin pl-px () {
+  padding-left: 1px;
+}
+
+//FLEX
+@mixin display-none () {
+  display: none;
+}
+@mixin display-block () {
+  display: block;
+}
+@mixin display-flex () {
+  display: flex;
+}
+@mixin display-inline-flex () {
+  display: inline-flex;
+}
+@mixin flex-row () {
+  flex-direction: row;
+}
+
+@mixin flex-row-reverse () {
+  flex-direction: row-reverse;
+}
+
+@mixin flex-column () {
+  flex-direction: column;
+}
+
+@mixin flex-col-reverse () {
+  flex-direction: column-reverse;
+}
+
+@mixin flex-wrap () {
+  flex-wrap: wrap;
+}
+
+@mixin flex-wrap-reverse () {
+  flex-wrap: wrap-reverse;
+}
+
+@mixin flex-nowrap () {
+  flex-wrap: nowrap;
+}
+
+@mixin align-items-start () {
+  align-items: flex-start;
+}
+
+@mixin align-items-end () {
+  align-items: flex-end;
+}
+
+@mixin align-items-center () {
+  align-items: center;
+}
+
+@mixin align-items-baseline () {
+  align-items: baseline;
+}
+
+@mixin align-items-stretch () {
+  align-items: stretch;
+}
+
+@mixin align-content-center () {
+  align-content: center;
+}
+
+@mixin content-start () {
+  align-content: flex-start;
+}
+
+@mixin align-content-end () {
+  align-content: flex-end;
+}
+
+@mixin align-content-between () {
+  align-content: space-between;
+}
+
+@mixin align-content-around () {
+  align-content: space-around;
+}
+
+@mixin align-content-evenly () {
+  align-content: space-evenly;
+}
+
+@mixin align-self-auto () {
+  align-self: auto;
+}
+
+@mixin align-self-start () {
+  align-self: flex-start;
+}
+
+@mixin align-self-end () {
+  align-self: flex-end;
+}
+
+@mixin align-self-center () {
+  align-self: center;
+}
+
+@mixin align-self-stretch () {
+  align-self: stretch;
+}
+
+@mixin justify-items-auto () {
+  justify-items: auto;
+}
+
+@mixin justify-items-start () {
+  justify-items: start;
+}
+
+@mixin justify-items-end () {
+  justify-items: end;
+}
+
+@mixin justify-items-center () {
+  justify-items: center;
+}
+
+@mixin justify-items-stretch () {
+  justify-items: stretch;
+}
+
+@mixin justify-content-start () {
+  justify-content: flex-start;
+}
+
+@mixin justify-content-end () {
+  justify-content: flex-end;
+}
+
+@mixin justify-content-center () {
+  justify-content: center;
+}
+
+@mixin justify-content-between () {
+  justify-content: space-between;
+}
+
+@mixin justify-content-around () {
+  justify-content: space-around;
+}
+
+@mixin justify-content-evenly () {
+  justify-content: space-evenly;
+}
+
+@mixin justify-self-auto () {
+  justify-self: auto;
+}
+
+@mixin justify-self-start () {
+  justify-self: start;
+}
+
+@mixin justify-self-end () {
+  justify-self: end;
+}
+
+@mixin justify-self-center () {
+  justify-self: center;
+}
+
+@mixin justify-self-stretch () {
+  justify-self: stretch;
+}

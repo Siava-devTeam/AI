@@ -1,0 +1,136 @@
+@import 'main_extend';
+
+body{
+    background-color: $web-background;
+    @extend .display-flex, .flex-column, .justify-content-center, .align-items-center;   
+}
+
+.vrow{
+    @extend .display-flex, .flex-column;
+    @extend .col-12, .py-1;
+}
+
+.appWrapper{
+    @extend .display-flex, .flex-column, .justify-content-center, .align-items-center;
+    @extend .h-screen, .w-screen, .text-base;
+    @extend .transition-opacity;
+}
+
+.formWrapper{
+    background-color: $white-900;
+    @extend .display-flex, .flex-column;
+    @extend .col-4, .text-sm, .p-5;
+
+    & .header{
+        color: $primary;
+        @extend .display-flex, .flex-column, .justify-content-center, .align-items-center; 
+        @extend .text-2xl,.p-5;
+    }
+
+    & .headerImage{
+        @extend .display-flex, .flex-column;
+        @extend .py-5;
+    }
+
+    & .formTextGroup{
+        @extend .display-flex, .flex-column, .justify-content-center, .align-items-start;;
+        @extend .col-12;
+        position:relative;
+
+        & .formLabel{
+            color: $primary;
+            @extend .text-sm, .ml-3;
+            position:absolute;
+            z-index: 10;
+        }
+        & .formLabel.disappear{
+            display: none;
+        }
+
+        & .formTextbox{
+            background-color: $textbox-background;
+            @extend .col-12, .text-sm, .p-3;
+            border: none;
+            border-radius: 8px;
+
+            &:focus{
+                outline: none;
+            }
+        }
+    }
+
+    & .formButton, .formButtonGoogle{
+        background-color: $primary;
+        color: $white-900;
+        @extend .text-base, .p-2;
+        border-radius: 8px;
+        border: 2px $primary solid;
+
+        &:hover{
+            cursor: pointer;
+        }
+
+        &:focus{
+            outline: none;
+        }
+    }
+
+    & .formButtonGoogle{
+        color: $primary;
+        background-color:$white-900;
+
+        &:hover{
+            background-color: $primary;
+            color: $white-900;
+            cursor: pointer;
+        }
+
+        &:focus{
+            outline: none;
+        }
+    }
+
+    & .formSubtitle{
+        color: $primary;
+        @extend .display-flex, .flex-row, .justify-content-center;
+        @extend .col-12, .text-xss, .p-1;
+    }
+
+    & .formLink{
+        color: $primary;
+        @extend .text-xss, .ml-1;
+        text-decoration: underline;
+
+        &:hover{
+            cursor: pointer;
+        }
+    }
+
+}
+
+
+//RESPONSIVE
+//MEDIA QUERIES
+@media (min-width: 1025px) {}
+@media (min-width: 767px) and (max-width: 1024px) {
+    .formWrapper{
+        @include col-6();
+        @include text-sm();
+    }
+}
+@media (max-width: 766px) {
+    body{
+        background-color: $mobile-background;
+    }
+    .formWrapper{
+        @include text-sm();
+        @include col-11();
+        & .formSubtitle{
+            @include text-xss;
+        }
+    
+        & .formLink{
+            @include text-xss;
+        }
+    }
+}
