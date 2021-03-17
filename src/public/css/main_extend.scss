@@ -27,6 +27,43 @@ $error-color:$red-600;
 $success-color:$green-600;
 $font-color:$gray-800;
 
+//Row height based on screen height
+@function rowHeightScreenHeight($percentage) {
+  $height: 1vh * ($percentage);
+  @return $height;
+}
+
+.row-10 {
+  height: rowHeightScreenHeight(10);
+}
+.row-20 {
+  height: rowHeightScreenHeight(20);
+}
+.row-30 {
+  height: rowHeightScreenHeight(30);
+}
+.row-40 {
+  height: rowHeightScreenHeight(40);
+}
+.row-50 {
+  height: rowHeightScreenHeight(50);
+}
+.row-60 {
+  height: rowHeightScreenHeight(60);
+}
+.row-70 {
+  height: rowHeightScreenHeight(70);
+}
+.row-80 {
+  height: rowHeightScreenHeight(80);
+}
+.row-90 {
+  height: rowHeightScreenHeight(90);
+}
+.row-100 {
+  height: rowHeightScreenHeight(100);
+}
+
 //12 column grid
 @function colWidth($col_num) {
   $result: 100% * ($col_num/12);
