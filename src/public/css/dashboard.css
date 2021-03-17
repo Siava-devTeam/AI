@@ -51,15 +51,15 @@
   width: 8.33333%;
 }
 
-.col-2 {
+.col-2, .appWrapper .leftSection {
   width: 16.66667%;
 }
 
-.col-3, .modalWrapper .messageWrapper {
+.col-3, .modalWrapper .messageWrapper, .appWrapper .rightSection .topMenu .topMenuRight .notifications {
   width: 25%;
 }
 
-.col-4, .formWrapper {
+.col-4 {
   width: 33.33333%;
 }
 
@@ -67,7 +67,7 @@
   width: 41.66667%;
 }
 
-.col-6 {
+.col-6, .appWrapper .rightSection .topMenu .topMenuLeft, .appWrapper .rightSection .topMenu .topMenuRight, .appWrapper .rightSection .topMenu .topMenuRight .user {
   width: 50%;
 }
 
@@ -75,7 +75,7 @@
   width: 58.33333%;
 }
 
-.col-8 {
+.col-8, .appWrapper .leftSection .leftMenu .menuRow .menuText, .appWrapper .rightSection .topMenu .topMenuRight .user .options {
   width: 66.66667%;
 }
 
@@ -83,7 +83,7 @@
   width: 75%;
 }
 
-.col-10 {
+.col-10, .appWrapper .rightSection {
   width: 83.33333%;
 }
 
@@ -91,34 +91,34 @@
   width: 91.66667%;
 }
 
-.col-12, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .messageText, .modalWrapper .messageWrapper .modalButton, .vrow, .formWrapper .formTextGroup, .formWrapper .formTextGroup .formTextbox, .formWrapper .formSubtitle {
+.col-12, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .messageText, .modalWrapper .messageWrapper .modalButton, .appWrapper, .appWrapper .leftSection .appLogo, .appWrapper .leftSection .leftMenu, .appWrapper .leftSection .leftMenu .menuRow, .appWrapper .rightSection .topMenu, .appWrapper .rightSection .topMenu .topMenuLeft .searchBox, .appWrapper .rightSection .topMenu .topMenuRight .notifications .notification, .appWrapper .rightSection .content {
   width: 100%;
 }
 
-.h-screen, body, .modalWrapper, .appWrapper {
+.h-screen, body, .modalWrapper {
   height: 100vh;
 }
 
-.w-screen, body, .modalWrapper, .appWrapper {
+.w-screen, body, .modalWrapper {
   width: 100vw;
 }
 
-.text-xss, .formWrapper .formSubtitle, .formWrapper .formLink {
+.text-xss {
   font-size: 0.70rem;
   line-height: 1rem;
 }
 
-.text-xs {
+.text-xs, .appWrapper .rightSection .topMenu .topMenuRight .notifications .notification .counter {
   font-size: 0.75rem;
   line-height: 1rem;
 }
 
-.text-sm, .modalWrapper .messageWrapper .messageText, .formWrapper, .formWrapper .formTextGroup .formLabel, .formWrapper .formTextGroup .formTextbox {
+.text-sm, .modalWrapper .messageWrapper .messageText, .appWrapper .leftSection, .appWrapper .rightSection .topMenu, .appWrapper .rightSection .topMenu .topMenuRight .user .options {
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
 
-.text-base, body, .modalWrapper, .modalWrapper .messageWrapper .modalButton, .appWrapper, .formWrapper .formButton, .formWrapper .formButtonGoogle {
+.text-base, body, .modalWrapper, .modalWrapper .messageWrapper .modalButton {
   font-size: 1rem;
   line-height: 1.5rem;
 }
@@ -133,7 +133,7 @@
   line-height: 1.75rem;
 }
 
-.text-2xl, .formWrapper .header {
+.text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
 }
@@ -1130,7 +1130,7 @@
   margin-bottom: 0.25rem;
 }
 
-.ml-1, .formWrapper .formLink {
+.ml-1 {
   margin-left: 0.25rem;
 }
 
@@ -1146,7 +1146,7 @@
   margin-bottom: 0.5rem;
 }
 
-.ml-2 {
+.ml-2, .appWrapper .leftSection .leftMenu .menuRow .menuText {
   margin-left: 0.5rem;
 }
 
@@ -1162,7 +1162,7 @@
   margin-bottom: 0.75rem;
 }
 
-.ml-3, .formWrapper .formTextGroup .formLabel {
+.ml-3 {
   margin-left: 0.75rem;
 }
 
@@ -1262,7 +1262,7 @@
   margin-left: 2.25rem;
 }
 
-.mt-10 {
+.mt-10, .appWrapper .leftSection .leftMenu, .appWrapper .rightSection .content {
   margin-top: 2.5rem;
 }
 
@@ -2114,15 +2114,15 @@
   padding: 0px;
 }
 
-.p-1, .formWrapper .formSubtitle {
+.p-1 {
   padding: 0.25rem;
 }
 
-.p-2, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .modalButton, .formWrapper .formButton, .formWrapper .formButtonGoogle {
+.p-2, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .modalButton, .appWrapper .leftSection .appLogo {
   padding: 0.5rem;
 }
 
-.p-3, .formWrapper .formTextGroup .formTextbox {
+.p-3 {
   padding: 0.75rem;
 }
 
@@ -2130,7 +2130,7 @@
   padding: 1rem;
 }
 
-.p-5, .formWrapper, .formWrapper .header {
+.p-5 {
   padding: 1.25rem;
 }
 
@@ -2244,7 +2244,7 @@
   padding-right: 0px;
 }
 
-.py-1, .vrow {
+.py-1 {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
 }
@@ -2259,12 +2259,12 @@
   padding-bottom: 0.5rem;
 }
 
-.px-2 {
+.px-2, .appWrapper, .appWrapper .leftSection .leftMenu .menuRow {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
 
-.py-3 {
+.py-3, .appWrapper .leftSection .leftMenu .menuRow {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
 }
@@ -2284,12 +2284,12 @@
   padding-right: 1rem;
 }
 
-.py-5, .formWrapper .headerImage {
+.py-5, .appWrapper {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
 }
 
-.px-5 {
+.px-5, .appWrapper .rightSection {
   padding-left: 1.25rem;
   padding-right: 1.25rem;
 }
@@ -2334,7 +2334,7 @@
   padding-right: 2.25rem;
 }
 
-.py-10 {
+.py-10, .appWrapper .rightSection .content {
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
 }
@@ -2580,7 +2580,7 @@
   padding-top: 0.5rem;
 }
 
-.pr-2 {
+.pr-2, .appWrapper .leftSection .leftMenu {
   padding-right: 0.5rem;
 }
 
@@ -2588,7 +2588,7 @@
   padding-bottom: 0.5rem;
 }
 
-.pl-2 {
+.pl-2, .appWrapper .rightSection .topMenu .topMenuRight .user .options {
   padding-left: 0.5rem;
 }
 
@@ -2604,7 +2604,7 @@
   padding-bottom: 0.75rem;
 }
 
-.pl-3 {
+.pl-3, .appWrapper .rightSection .topMenu .topMenuRight .user {
   padding-left: 0.75rem;
 }
 
@@ -3048,7 +3048,7 @@
   display: block;
 }
 
-.display-flex, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .modalButton, body, .vrow, .appWrapper, .formWrapper, .formWrapper .header, .formWrapper .headerImage, .formWrapper .formTextGroup, .formWrapper .formSubtitle {
+.display-flex, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .modalButton, body, .appWrapper, .appWrapper .leftSection, .appWrapper .leftSection .leftMenu .menuRow, .appWrapper .rightSection, .appWrapper .rightSection .topMenu .topMenuLeft, .appWrapper .rightSection .topMenu .topMenuRight, .appWrapper .rightSection .topMenu .topMenuRight .notifications .notification .counter, .appWrapper .rightSection .topMenu .topMenuRight .user {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3060,7 +3060,7 @@
   display: inline-flex;
 }
 
-.flex-row, .formWrapper .formSubtitle {
+.flex-row, .appWrapper, .appWrapper .leftSection .leftMenu .menuRow, .appWrapper .rightSection .topMenu .topMenuLeft, .appWrapper .rightSection .topMenu .topMenuRight, .appWrapper .rightSection .topMenu .topMenuRight .notifications .notification .counter, .appWrapper .rightSection .topMenu .topMenuRight .user {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -3074,7 +3074,7 @@
           flex-direction: row-reverse;
 }
 
-.flex-column, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .modalButton, body, .vrow, .appWrapper, .formWrapper, .formWrapper .header, .formWrapper .headerImage, .formWrapper .formTextGroup {
+.flex-column, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .modalButton, body, .appWrapper .leftSection {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -3103,7 +3103,7 @@
       flex-wrap: nowrap;
 }
 
-.align-items-start, .formWrapper .formTextGroup {
+.align-items-start {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
@@ -3115,7 +3115,7 @@
           align-items: flex-end;
 }
 
-.align-items-center, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .modalButton, body, .appWrapper, .formWrapper .header {
+.align-items-center, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .modalButton, .appWrapper .leftSection .leftMenu .menuRow, .appWrapper .rightSection .topMenu .topMenuLeft, .appWrapper .rightSection .topMenu .topMenuRight, .appWrapper .rightSection .topMenu .topMenuRight .notifications .notification .counter, .appWrapper .rightSection .topMenu .topMenuRight .user {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -3211,19 +3211,19 @@
   justify-items: stretch;
 }
 
-.justify-content-start {
+.justify-content-start, .appWrapper .leftSection .leftMenu .menuRow {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
 }
 
-.justify-content-end {
+.justify-content-end, .appWrapper .rightSection .topMenu .topMenuRight, .appWrapper .rightSection .topMenu .topMenuRight .user {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
 }
 
-.justify-content-center, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .modalButton, body, .appWrapper, .formWrapper .header, .formWrapper .formTextGroup, .formWrapper .formSubtitle {
+.justify-content-center, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .modalButton, .appWrapper .rightSection .topMenu .topMenuRight .notifications .notification .counter {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -3366,107 +3366,345 @@ body {
 
 body {
   background-color: #F3F4F6;
+  height: 100vh;
 }
 
-.formWrapper {
-  background-color: #ffffff;
+.appWrapper {
+  height: 100%;
 }
 
-.formWrapper .header {
-  color: #60A5FA;
+.appWrapper .leftSection {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
 }
 
-.formWrapper .formTextGroup {
+.appWrapper .leftSection .appLogo {
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.appWrapper .leftSection .appLogo img {
+  height: 50px;
+}
+
+.appWrapper .leftSection .leftMenu {
+  border-right: 2px solid #E5E7EB;
+  height: 100%;
+}
+
+.appWrapper .leftSection .leftMenu .menuRow img {
+  width: 20px;
+}
+
+.appWrapper .leftSection .leftMenu .menuRow:hover {
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #1E40AF;
+  color: #eee;
+}
+
+.appWrapper .rightSection {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.appWrapper .rightSection .topMenu {
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.appWrapper .rightSection .topMenu .topMenuLeft {
+  height: 100%;
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 
-.formWrapper .formTextGroup .formLabel {
-  color: #60A5FA;
+.appWrapper .rightSection .topMenu .topMenuLeft .searchBox {
+  height: 40px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10px;
+  background-color: #E5E7EB;
+  color: #6B7280;
+}
+
+.appWrapper .rightSection .topMenu .topMenuLeft .searchBox:focus {
+  outline: none;
+}
+
+.appWrapper .rightSection .topMenu .topMenuLeft .searchImage {
+  margin-right: 15px;
   position: absolute;
   z-index: 10;
 }
 
-.formWrapper .formTextGroup .formLabel.disappear {
-  display: none;
+.appWrapper .rightSection .topMenu .topMenuLeft .searchImage:hover {
+  cursor: pointer;
+  margin-right: 14px;
 }
 
-.formWrapper .formTextGroup .formTextbox {
-  background-color: #F3F4F6;
-  border: none;
-  border-radius: 8px;
+.appWrapper .rightSection .topMenu .topMenuRight {
+  height: 100%;
 }
 
-.formWrapper .formTextGroup .formTextbox:focus {
-  outline: none;
+.appWrapper .rightSection .topMenu .topMenuRight .notifications {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.formWrapper .formButton, .formWrapper .formButtonGoogle {
-  background-color: #60A5FA;
-  color: #ffffff;
-  border-radius: 8px;
-  border: 2px #60A5FA solid;
+.appWrapper .rightSection .topMenu .topMenuRight .notifications .notification {
+  position: relative;
 }
 
-.formWrapper .formButton:hover, .formWrapper .formButtonGoogle:hover {
+.appWrapper .rightSection .topMenu .topMenuRight .notifications .notification .counter {
+  height: 30px;
+  width: 30px;
+  background-color: teal;
+  color: #eee;
+  position: absolute;
+  z-index: 10;
+  border-radius: 10px;
+  top: -15px;
+  left: 15px;
+}
+
+.appWrapper .rightSection .topMenu .topMenuRight .notifications .notification:hover {
   cursor: pointer;
 }
 
-.formWrapper .formButton:focus, .formWrapper .formButtonGoogle:focus {
-  outline: none;
+.appWrapper .rightSection .topMenu .topMenuRight .notifications .notification:hover .counter {
+  top: -16px;
 }
 
-.formWrapper .formButtonGoogle {
-  color: #60A5FA;
-  background-color: #ffffff;
+.appWrapper .rightSection .topMenu .topMenuRight .user {
+  height: 100%;
 }
 
-.formWrapper .formButtonGoogle:hover {
-  background-color: #60A5FA;
-  color: #ffffff;
+.appWrapper .rightSection .topMenu .topMenuRight .user .profilePic {
+  width: 50px;
+  height: 50px;
+  background-color: #D1D5DB;
+  border-radius: 10px;
+}
+
+.appWrapper .rightSection .topMenu .topMenuRight .user .options {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.appWrapper .rightSection .topMenu .topMenuRight .user .options .logout:hover {
   cursor: pointer;
-}
-
-.formWrapper .formButtonGoogle:focus {
-  outline: none;
-}
-
-.formWrapper .formSubtitle {
-  color: #60A5FA;
-}
-
-.formWrapper .formLink {
-  color: #60A5FA;
   text-decoration: underline;
 }
 
-.formWrapper .formLink:hover {
-  cursor: pointer;
+.appWrapper .rightSection .content {
+  background-color: #D1D5DB;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-@media (min-width: 767px) and (max-width: 1024px) {
-  .formWrapper {
-    width: 50%;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-  }
+.appWrapper .rightSection .content .contentRow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  height: 100%;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-@media (max-width: 766px) {
-  body {
-    background-color: #ffffff;
-  }
-  .formWrapper {
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    width: 91.66667%;
-  }
-  .formWrapper .formSubtitle {
-    font-size: 0.70rem;
-    line-height: 1rem;
-  }
-  .formWrapper .formLink {
-    font-size: 0.70rem;
-    line-height: 1rem;
-  }
+.appWrapper .rightSection .content .contentColumn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
-/*# sourceMappingURL=signup.css.map */
+
+.appWrapper .rightSection .content .widget, .appWrapper .rightSection .content .widget22, .appWrapper .rightSection .content .widget11, .appWrapper .rightSection .content .widget21, .appWrapper .rightSection .content .widget31 {
+  background-color: white;
+  border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.appWrapper .rightSection .content .plus, .appWrapper .rightSection .content .plus22, .appWrapper .rightSection .content .plus11, .appWrapper .rightSection .content .plus21, .appWrapper .rightSection .content .plus31 {
+  border: 2px #D1D5DB dashed;
+  border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-image: url("../images/plus.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.appWrapper .rightSection .content .hSpacer {
+  width: 100%;
+  height: 10px;
+}
+
+.appWrapper .rightSection .content .vSpacer {
+  width: 10px;
+  height: 100%;
+}
+
+.appWrapper .rightSection .content .widget22 {
+  width: 300px;
+  height: 300px;
+}
+
+.appWrapper .rightSection .content .widget11 {
+  width: 150px;
+  height: 150px;
+}
+
+.appWrapper .rightSection .content .widget21 {
+  width: 310px;
+  height: 150px;
+}
+
+.appWrapper .rightSection .content .widget31 {
+  width: 460px;
+  height: 150px;
+}
+
+.appWrapper .rightSection .content .plus22 {
+  padding: 130px;
+}
+
+.appWrapper .rightSection .content .plus11 {
+  padding: 50px;
+}
+
+.appWrapper .rightSection .content .plus21 {
+  padding: 50px 130px;
+}
+
+.appWrapper .rightSection .content .plus31 {
+  padding: 50px 200px;
+}
+/*# sourceMappingURL=dashboard.css.map */
