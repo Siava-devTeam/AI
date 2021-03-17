@@ -1,0 +1,307 @@
+@import 'main_extend';
+
+$topMenu-height:50px;
+
+body{
+    background-color: $web-background;
+    @extend .display-flex, .flex-column;
+    height: 100vh;
+}
+
+
+.appWrapper{
+    @extend .display-flex, .flex-row;
+    @extend .col-12, .py-5, .px-2;
+    @extend .transition-opacity;
+    height: 100%;
+
+    & .leftSection{
+        @extend .col-2, .text-sm;
+        @extend .display-flex, .flex-column;
+        justify-content: flex-start;
+        align-items: center;
+        height: 100%;
+
+        & .appLogo{
+            @extend .col-12, .p-2;
+            height: $topMenu-height;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+
+            & img{
+                height:$topMenu-height;
+            }
+        }
+
+        & .leftMenu{
+            @extend .col-12, .mt-10, .pr-2;
+            border-right:2px solid $gray-200;
+            height: 100%;
+
+            & .menuRow{
+                @extend .display-flex, .flex-row, .justify-content-start, .align-items-center;
+                @extend .col-12, .py-3, .px-2;
+
+                & img{
+                    width:20px;
+                    
+                }
+                & .menuText{
+                    @extend .col-8, .ml-2;
+                }
+
+                &:hover{
+                    border-radius: 10px;
+                    cursor: pointer;
+                    background-color:$blue-800;
+                    color: #eee;
+                }
+            }
+        }
+    }
+
+    & .rightSection{
+        @extend .col-10, .px-5;
+        @extend .display-flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items:flex-start;
+
+        & .topMenu{
+            @extend .col-12, .text-sm;
+            height: $topMenu-height;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+
+            & .topMenuLeft{
+                @extend .display-flex, .flex-row, .align-items-center;
+                @extend .col-6;
+                height: 100%;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items:flex-end;
+
+                & .searchBox{
+                    @extend .col-12;
+                    height: 40px;
+                    padding: 10px 15px;
+                    border: none;
+                    border-radius: 10px;
+                    background-color: $gray-200;
+                    color: $gray-500;
+
+                    &:focus{
+                        outline: none;
+                    }
+                }
+
+                & .searchImage{
+                    margin-right:15px;
+                    position: absolute;
+                    z-index: 10;
+
+                    &:hover{
+                        cursor: pointer;
+                        margin-right: 14px;
+                    }
+                }
+
+            }
+
+            & .topMenuRight{
+                @extend .display-flex, .flex-row, .align-items-center, .justify-content-end;
+                @extend .col-6;
+                height: 100%;
+
+                & .notifications{
+                    // @extend .display-flex, .flex-row;
+                    @extend .col-3;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-around;
+                    justify-items: center;
+                    align-items: center;
+
+                    & .notification{
+                        position: relative;
+                        @extend .col-12;
+
+                        & .counter{
+                            @extend .display-flex, .flex-row, .align-items-center, .justify-content-center;
+                            @extend .text-xs;
+                            height: 30px;
+                            width: 30px;
+                            background-color: teal;
+                            color: #eee;
+                            position: absolute;
+                            z-index: 10;
+                            border-radius: 10px;
+                            top: -15px;
+                            left: 15px;
+
+                        }
+
+                        &:hover{
+                            cursor: pointer;
+
+                            & .counter{
+                                top: -16px;
+                            }
+                        }
+                    }
+                }
+
+                & .user{
+                    @extend .display-flex, .flex-row, .align-items-center, .justify-content-end;
+                    @extend .col-6, .pl-3;
+                    height: 100%;
+
+                    & .profilePic{
+                        width: 50px;
+                        height: 50px;
+                        background-color: $gray-300;
+                        border-radius: 10px;
+                    }
+
+                    & .options{
+                        @extend .col-8, .text-sm, .pl-2;
+                        height: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: flex-end;
+                        align-items: flex-start;
+
+                        & .logout{
+
+                            &:hover{
+                                cursor: pointer;
+                                text-decoration: underline;
+                            }
+
+                        }
+                    }
+                }
+
+
+            }
+        }
+
+        & .content{
+            @extend .col-12, .mt-10, .py-10;
+            background-color: $gray-300;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            & .contentRow{
+                display: flex;
+                flex-direction: row;
+                height: 100%;
+                width: 100%;
+                justify-content: center;
+                align-items: center;
+
+            }
+
+            & .contentColumn{
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .widget{
+                background-color: white;
+                border-radius: 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+            }
+            
+            .plus{
+                border: 2px $gray-300 dashed;
+                border-radius: 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                background-image: url('../images/plus.svg');
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+
+            .hSpacer{
+                width: 100%;
+                height: 10px;
+            }
+
+            .vSpacer{
+                width: 10px;
+                height: 100%;
+            }
+
+            & .widget22{
+                @extend .widget;
+                width:300px;
+                height: 300px;
+            }
+            & .widget11{
+                @extend .widget;
+                width:150px;
+                height: 150px;
+            }
+            & .widget21{
+                @extend .widget;
+                width:310px;
+                height: 150px;
+            }
+            & .widget31{
+                @extend .widget;
+                width:460px;
+                height: 150px;
+            }
+
+            & .plus22{
+                @extend .plus;
+                padding: 130px;
+            }
+
+            & .plus11{
+                @extend .plus;
+                padding: 50px;
+            }
+
+            & .plus21{
+                @extend .plus;
+                padding: 50px 130px;
+            }
+
+            & .plus31{
+                @extend .plus;
+                padding: 50px 200px;
+            }
+        }
+    }
+}
+
+//RESPONSIVE
+//MEDIA QUERIES
+@media (min-width: 1025px) {}
+@media (min-width: 767px) and (max-width: 1024px) {
+    
+}
+@media (max-width: 766px) {
+    
+}
