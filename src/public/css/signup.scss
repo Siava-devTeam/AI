@@ -19,7 +19,7 @@ body{
 .formWrapper{
     background-color: $white-900;
     @extend .display-flex, .flex-column;
-    @extend .col-4, .text-sm, .p-5;
+    @extend .col-5, .text-sm, .p-5;
 
     & .header{
         color: $primary;
@@ -57,6 +57,14 @@ body{
                 outline: none;
             }
         }
+
+        & .iti{
+            @extend .col-12;
+
+            & .formTextbox{
+                padding-left: 50px;
+            }
+        }
     }
 
     & .formButton, .formButtonGoogle{
@@ -92,8 +100,12 @@ body{
 
     & .formSubtitle{
         color: $primary;
-        @extend .display-flex, .flex-row, .justify-content-center;
+        @extend .display-flex, .flex-row, .justify-content-center, .align-items-center;
         @extend .col-12, .text-xss, .p-1;
+
+        & .policyCheck{
+            cursor: pointer;
+        }
     }
 
     & .formLink{
