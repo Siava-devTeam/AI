@@ -3294,6 +3294,7 @@ body {
     }
 
     & .messageText {
+      @extend .display-flex, .flex-column, .justify-content-center, .align-items-center;
       @extend .col-12, .text-sm;
     }
 
