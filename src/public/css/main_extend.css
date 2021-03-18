@@ -3048,7 +3048,7 @@
   display: block;
 }
 
-.display-flex, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .modalButton {
+.display-flex, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .messageText, .modalWrapper .messageWrapper .modalButton {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3074,7 +3074,7 @@
           flex-direction: row-reverse;
 }
 
-.flex-column, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .modalButton {
+.flex-column, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .messageText, .modalWrapper .messageWrapper .modalButton {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -3115,7 +3115,7 @@
           align-items: flex-end;
 }
 
-.align-items-center, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .modalButton {
+.align-items-center, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .messageText, .modalWrapper .messageWrapper .modalButton {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -3223,7 +3223,7 @@
           justify-content: flex-end;
 }
 
-.justify-content-center, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .modalButton {
+.justify-content-center, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .messageText, .modalWrapper .messageWrapper .modalButton {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
