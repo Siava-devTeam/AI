@@ -38,17 +38,19 @@ body{
         position:relative;
 
         & .formLabel{
-            color: $primary;
+            color: $textbox-placeHolder-color;
             @extend .text-sm, .ml-3;
             position:absolute;
             z-index: 10;
         }
+
         & .formLabel.disappear{
             display: none;
         }
 
         & .formTextbox{
             background-color: $textbox-background;
+            color: $textbox-font-color;
             @extend .col-12, .text-sm, .p-3;
             border: none;
             border-radius: 8px;
