@@ -19,7 +19,7 @@ body{
 .formWrapper{
     background-color: $white-900;
     @extend .display-flex, .flex-column;
-    @extend .col-4, .text-sm, .p-5;
+    @extend .col-5, .text-sm, .p-5;
 
     & .header{
         color: $primary;
@@ -38,7 +38,7 @@ body{
         position:relative;
 
         & .formLabel{
-            color: $primary;
+            color: $textbox-placeHolder-color;
             @extend .text-sm, .ml-3;
             position:absolute;
             z-index: 10;
@@ -49,12 +49,21 @@ body{
 
         & .formTextbox{
             background-color: $textbox-background;
+            color: $textbox-font-color;
             @extend .col-12, .text-sm, .p-3;
             border: none;
             border-radius: 8px;
 
             &:focus{
                 outline: none;
+            }
+        }
+
+        & .iti{
+            @extend .col-12;
+
+            & .formTextbox{
+                padding-left: 50px;
             }
         }
     }
@@ -92,8 +101,12 @@ body{
 
     & .formSubtitle{
         color: $primary;
-        @extend .display-flex, .flex-row, .justify-content-center;
+        @extend .display-flex, .flex-row, .justify-content-center, .align-items-center;
         @extend .col-12, .text-xss, .p-1;
+
+        & .policyCheck{
+            cursor: pointer;
+        }
     }
 
     & .formLink{

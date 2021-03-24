@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="images/ai.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="css/profileInfo.css" />
+        <title>profileInfo</title>
+    </head>
+</head>
+<body>
+    <div class="modalWrapper">
+        <div class="messageWrapper">
+            <div class="messageImage"></div>
+            <div class="messageTitle">Nearly done!</div>
+            <div class="messageText">Thanks for verifying your email! 
+                Close this message to finish creating your account.
+            </div>
+            <div class="modalButton">OK</div>
+        </div>
+    </div>
+    <div class="appWrapper">
+        <div class="formWrapper">
+            <!-- Form Header -->
+            <div class="formHeader">
+                <img src="images/aiRect.svg" alt="ai"/>
+            </div>
+            <!-- Form Body -->
+            <div class="formBody">
+                <!-- Form Title -->
+                <div class="frow">
+                    <div class="formTitle">
+                        User Information
+                    </div>
+                </div>
+                <div class="frow">
+                    <!-- Left Field -->
+                    <div class="formTextGroup">
+                        <div class="formLabel">First Name</div>
+                        <input class="formTextbox" type="text" id="firstName" name="firstName"/>
+                    </div>
+                    <!-- Right Field -->
+                    <div class="formTextGroup">
+                        <div class="formLabel">Company Name</div>
+                        <input class="formTextbox" type="text" id="companyName" name="companyName"/>
+                    </div>
+                </div>
+                <div class="frow">
+                    <!-- Left Field -->
+                    <div class="formTextGroup">
+                        <div class="formLabel">Last Name</div>
+                        <input class="formTextbox" type="text" id="lastName" name="lastName"/>
+                    </div>
+                    <!-- Right Field -->
+                    <div class="formTextGroup">
+                        <div class="formLabel">Password</div>
+                        <input class="formTextbox" type="text" id="password" name="password"/>
+                    </div>
+                </div>
+                <div class="frow">
+                    <!-- Left Field -->
+                    <div class="formTextGroup">
+                        <div class="formLabel">Date of birth</div>
+                        <input class="formTextbox" type="text" id="dob" name="dob"/>
+                    </div>
+                    <!-- Right Field -->
+                    <div class="formTextGroup">
+                        <div class="formLabel">Retype Password</div>
+                        <input class="formTextbox" type="text" id="password2" name="password2"/>
+                    </div>
+                </div>
+                <div class="frow">
+                    <!-- Left Field -->
+                    <div class="formTextGroup">
+                        <div class="formLabel">Licence number</div>
+                        <input class="formTextbox" type="text" id="licenceNumber" name="licenceNumber"/>
+                    </div>
+                    <!-- Right Field -->
+                    <!-- <div class="formSelectGroup">
+                        <select class="formSelect">
+                            <option value="nothing"><div class="optionDefault">Select Your Plan ... </div></option>
+                            <option value="plan1"><div class="selectOptions">Plan 1</div></option>
+                            <option value="plan2"><div class="selectOptions">Plan 2</div></option>
+                            <option value="plan3"><div class="selectOptions">Plan 3</div></option>
+                        </select>
+                    </div> -->
+                    <div class="formTextGroup">
+                        <div class="formLabel">Select your plan</div>
+                        <input class="formTextbox" type="text" id="plan" name="plan"/>
+                    </div>
+                </div>
+                <div class="frow">
+                    <button class="formButton" id="btnContinue">Continue</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/profileInfo.js"></script>
+</body>
+</html>

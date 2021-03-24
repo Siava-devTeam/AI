@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="images/ai.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/intlTelInput.css">
     <link rel="stylesheet" href="css/signup.css">
     <title>Sign Up</title>
 </head>
@@ -29,45 +30,43 @@
             <div class="body">
                 <div class="vrow">
                     <div class="formTextGroup">
+                        <div class="formLabel">First name</div>
+                        <input class="formTextbox" type="text" id="txtFirstName" name="txtFirstName">
+                    </div>
+                </div>
+                <div class="vrow">
+                    <div class="formTextGroup">
+                        <div class="formLabel">Last name</div>
+                        <input class="formTextbox" type="text" id="txtLastName" name="txtLastName">
+                    </div>
+                </div>
+                <div class="vrow">
+                    <div class="formTextGroup">
                         <div class="formLabel">Email</div>
-                        <input class="formTextbox" type="text">
+                        <input class="formTextbox" type="text" id="txtEmail"  name="txtEmail">
                     </div>
                 </div>
                 <div class="vrow">
                     <div class="formTextGroup">
-                        <div class="formLabel">Password</div>
-                        <input class="formTextbox" type="password">
-                    </div>
-                </div>
-                <div class="vrow">
-                    <div class="formTextGroup">
-                        <div class="formLabel">Repeat Password</div>
-                        <input class="formTextbox" type="password">
+                        <div class="formLabel"></div>
+                        <input class="formTextbox" type="tel" id="phone" name="phone">
                     </div>
                 </div>
                 <div class="vrow">
                     <div class="formSubtitle">
-                        By continuing, you agree to our 
-                        <div class="formLink" destination="termsOfPolicy">terms of policy.</div>
+                        <input type="checkbox" id="checkBoxPolicy" class="policyCheck">
+                        By checking the box, you agree to our 
+                        <a class="formLink" destination="termsOfPolicy">terms of policy.</a>
                     </div>
                 </div>
                 <div class="vrow">
-                    <button class="formButton">Register</button>
-                </div>
-                <div class="vrow">
-                    <button class="formButtonGoogle">Sign up with Google</button>
-                </div>
-
-            </div>
-            <div class="vrow">
-                <div class="formSubtitle">
-                    Already have an account? 
-                    <div class="formLink" destination="signin">Sign in</div>
+                    <button class="formButton" id="signup">Sign up</button>
                 </div>
             </div>
         </div>
     </div>
-
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/intlTelInput.js"></script>
     <script src="js/main.js"></script>
     <script src="js/signup.js"></script>
 </body>

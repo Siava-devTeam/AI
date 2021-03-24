@@ -52,14 +52,17 @@ app.setTexBoxGroups = function(){
     //TextBox Group
     var textBoxGroups = Object.values(document.getElementsByClassName('formTextGroup'));
     textBoxGroups.map(function(element,index){
+        
+        if (element.children[1].getAttribute('name')!='phone'){
+            
+            element.children[1].addEventListener('focus',function(){
+                app.disappear(element.children[1]);
+            });
 
-        element.children[1].addEventListener('focus',function(){
-            app.disappear(element.children[1]);
-        });
-
-        element.children[1].addEventListener('blur',function(){
-            app.disappear(element.children[1]);
-        });
+            element.children[1].addEventListener('blur',function(){
+                app.disappear(element.children[1]);
+            });
+        }
 
     });
 };
