@@ -26,12 +26,40 @@ config.backEnd={}
 config.backEnd.development={
     "httpPort":5200,
     "httpsPort":5400,
+    "base":"http://localhost:5200",
+    "db":{
+        "uri":"mongodb+srv://aiDevUser:aiDevUser@2021@cluster0.y1k2d.mongodb.net",
+        "dbName":"automatedImmigration"
+    },
+    "mail":{
+        'host':"mail.automatedimmigration.com",
+        'port':465,
+        'secure':true,
+        'auth':{
+            'user':'no-reply@automatedimmigration.com',
+            'pass':'Siava@2021',
+        }
+    }
 }
 
 //backEnd production config
 config.backEnd.production={
     "httpPort":6200,
     "httpsPort":6400,
+    "base":"",
+    "db":{
+        "uri":"mongodb+srv://aiDevUser:aiDevUser@2021@cluster0.y1k2d.mongodb.net",
+        "dbName":"automatedImmigration"
+    },
+    "mail":{
+        'host':"mail.automatedimmigration.com",
+        'port':465,
+        'secure':true,
+        'auth':{
+            'user':'no-reply@automatedimmigration.com',
+            'pass':'Siava@2021',
+        }
+    }
 }
 
 module.exports = config[programmingEnvironment][nodeEnvironment];
