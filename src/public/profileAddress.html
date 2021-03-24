@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="images/ai.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="css/profileInfo.css" />
+        <title>profileInfo</title>
+    </head>
+</head>
+<body>
+    <div class="modalWrapper">
+        <div class="messageWrapper">
+            <div class="messageImage"></div>
+            <div class="messageTitle">Nearly done!</div>
+            <div class="messageText">Thanks for verifying your email! 
+                Close this message to finish creating your account.
+            </div>
+            <div class="modalButton">OK</div>
+        </div>
+    </div>
+    <div class="appWrapper">
+        <div class="formWrapper">
+            <!-- Form Header -->
+            <div class="formHeader">
+                <img src="images/aiRect.svg" alt="ai"/>
+            </div>
+            <!-- Form Body -->
+            <div class="formBody">
+                <!-- Form Title -->
+                <div class="frow">
+                    <div class="formTitle">
+                        User Address
+                    </div>
+                </div>
+                <div class="frow">
+                    <!-- Left Field -->
+                    <div class="formTextGroup">
+                        <div class="formLabel">Street Number</div>
+                        <input class="formTextbox" type="text" id="txtStreetNumber" name="txtStreetNumber"/>
+                    </div>
+                    <!-- Right Field -->
+                    <div class="formTextGroup">
+                        <div class="formLabel">Country</div>
+                        <input class="formTextbox" type="text" id="txtCountry" name="txtCountry"/>
+                    </div>
+                </div>
+                <div class="frow">
+                    <!-- Left Field -->
+                    <div class="formTextGroup">
+                        <div class="formLabel">Street Name</div>
+                        <input class="formTextbox" type="text" id="txtStreetName" name="txtStreetName"/>
+                    </div>
+                    <!-- Right Field -->
+                    <div class="formTextGroup">
+                        <div class="formLabel">Province</div>
+                        <input class="formTextbox" type="text" id="txtProvince" name="txtProvince"/>
+                    </div>
+                </div>
+                <div class="frow">
+                    <!-- Left Field -->
+                    <div class="formTextGroup">
+                        <div class="formLabel">Unit, Suite ... </div>
+                        <input class="formTextbox" type="text" id="txtUnit" name="txtUnit"/>
+                    </div>
+                    <!-- Right Field -->
+                    <div class="formTextGroup">
+                        <div class="formLabel">Zip Code</div>
+                        <input class="formTextbox" type="text" id="txtZip" name="txtZip"/>
+                    </div>
+                </div>
+                <div class="frow">
+                    <button class="formButton" id="btnContinue">Continue</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/profileAddress.js"></script>
+</body>
+</html>

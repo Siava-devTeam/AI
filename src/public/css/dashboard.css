@@ -3048,7 +3048,7 @@
   display: block;
 }
 
-.display-flex, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .modalButton, body, .appWrapper, .appWrapper .leftSection, .appWrapper .leftSection .leftMenu .menuRow, .appWrapper .rightSection, .appWrapper .rightSection .topMenu .topMenuLeft, .appWrapper .rightSection .topMenu .topMenuRight, .appWrapper .rightSection .topMenu .topMenuRight .notifications .notification .counter, .appWrapper .rightSection .topMenu .topMenuRight .user {
+.display-flex, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .messageText, .modalWrapper .messageWrapper .modalButton, body, .appWrapper, .appWrapper .leftSection, .appWrapper .leftSection .leftMenu .menuRow, .appWrapper .rightSection, .appWrapper .rightSection .topMenu .topMenuLeft, .appWrapper .rightSection .topMenu .topMenuRight, .appWrapper .rightSection .topMenu .topMenuRight .notifications .notification .counter, .appWrapper .rightSection .topMenu .topMenuRight .user {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3074,7 +3074,7 @@
           flex-direction: row-reverse;
 }
 
-.flex-column, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .modalButton, body, .appWrapper .leftSection {
+.flex-column, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .messageText, .modalWrapper .messageWrapper .modalButton, body, .appWrapper .leftSection {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -3115,7 +3115,7 @@
           align-items: flex-end;
 }
 
-.align-items-center, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .modalButton, .appWrapper .leftSection .leftMenu .menuRow, .appWrapper .rightSection .topMenu .topMenuLeft, .appWrapper .rightSection .topMenu .topMenuRight, .appWrapper .rightSection .topMenu .topMenuRight .notifications .notification .counter, .appWrapper .rightSection .topMenu .topMenuRight .user {
+.align-items-center, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .messageText, .modalWrapper .messageWrapper .modalButton, .appWrapper .leftSection .leftMenu .menuRow, .appWrapper .rightSection .topMenu .topMenuLeft, .appWrapper .rightSection .topMenu .topMenuRight, .appWrapper .rightSection .topMenu .topMenuRight .notifications .notification .counter, .appWrapper .rightSection .topMenu .topMenuRight .user {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -3223,7 +3223,7 @@
           justify-content: flex-end;
 }
 
-.justify-content-center, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .modalButton, .appWrapper .rightSection .topMenu .topMenuRight .notifications .notification .counter {
+.justify-content-center, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .messageText, .modalWrapper .messageWrapper .modalButton, .appWrapper .rightSection .topMenu .topMenuRight .notifications .notification .counter {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -3299,6 +3299,22 @@
 ::before {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+input::-webkit-input-placeholder {
+  color: #9CA3AF;
+}
+
+input:-ms-input-placeholder {
+  color: #9CA3AF;
+}
+
+input::-ms-input-placeholder {
+  color: #9CA3AF;
+}
+
+input::placeholder {
+  color: #9CA3AF;
 }
 
 body {
