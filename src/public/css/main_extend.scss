@@ -26,6 +26,8 @@ $textbox-background: $gray-100;
 $error-color:$red-600;
 $success-color:$green-600;
 $font-color:$gray-800;
+$textbox-font-color:$primary;
+$textbox-placeHolder-color:$gray-400;
 
 //Row height based on screen height
 @function rowHeightScreenHeight($percentage) {
@@ -3254,6 +3256,10 @@ $font-color:$gray-800;
 }
 
 //BODY
+input::placeholder{
+  color:$textbox-placeHolder-color;
+}
+
 body {
   font-family: $font-mono;
   font-size: 12px;
