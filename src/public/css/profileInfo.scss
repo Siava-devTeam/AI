@@ -1,0 +1,100 @@
+@import 'main_extend';
+
+body{
+    background-color: $web-background;
+    @extend .display-flex, .flex-column, .justify-content-center, .align-items-center;   
+}
+.appWrapper{
+    @extend .display-flex, .flex-column, .justify-content-center, .align-items-center;
+    @extend .h-screen, .w-screen, .text-base;
+    @extend .transition-opacity;
+}
+
+.formWrapper{
+    background-color: $white-900;
+    @extend .display-flex, .flex-column;
+    @extend .col-7, .text-sm, .px-2, .py-5;
+
+    & .frow{
+        @extend .display-flex, .flex-row, .justify-content-center, .align-items-center;
+        @extend .col-12, .py-2;
+    }
+
+    & .formHeader{
+        color: $primary;
+        @extend .display-flex, .flex-column, .justify-content-center, .align-items-center; 
+        @extend .text-2xl, .p-5, .col-12;
+        height: 60px;
+
+        & img{
+            height: 60px;
+        }
+    }
+
+    & .formBody{
+        @extend .display-flex, .flex-column, .justify-content-center, .align-items-center; 
+        @extend .p-5, .col-12;
+
+        & .formTitle{
+            color: $primary;
+            @extend .display-flex, .flex-column, .justify-content-center, .align-items-center; 
+            @extend .text-xl, .col-12;
+        }
+        & .formSelectGroup{
+            @extend .display-flex, .flex-column, .justify-content-center, .align-items-start;
+            @extend .col-6, .px-2;
+
+            & .formSelect{
+                background-color: $textbox-background;
+                color: $textbox-font-color;
+                @extend .col-12, .text-sm, .p-3;
+                border: none;
+                border-radius: 8px;
+                appearance: none;
+            }
+        }
+        & .formTextGroup{
+            @extend .display-flex, .flex-column, .justify-content-center, .align-items-start;
+            @extend .col-6, .px-2;
+            position:relative;
+
+            & .formLabel{
+                color: $textbox-placeHolder-color;
+                @extend .text-sm, .ml-3;
+                position:absolute;
+                z-index: 10;
+            }
+            & .formLabel.disappear{
+                display: none;
+            }
+    
+            & .formTextbox{
+                background-color: $textbox-background;
+                color: $textbox-font-color;
+                @extend .col-12, .text-sm, .p-3;
+                border: none;
+                border-radius: 8px;
+    
+                &:focus{
+                    outline: none;
+                }
+            }
+        }
+
+        & .formButton{
+            background-color: $primary;
+            color: $white-900;
+            @extend .text-base, .p-2, .col-6;
+            border-radius: 8px;
+            border: 2px $primary solid;
+    
+            &:hover{
+                cursor: pointer;
+            }
+    
+            &:focus{
+                outline: none;
+            }
+        }
+    }
+}
