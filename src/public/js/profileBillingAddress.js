@@ -14,9 +14,6 @@ profileBillingAddress.validatePage = function(){
     return false;
 };
 
-profileBillingAddress.validateForm = function(callback){
-    callback ("valid","valid");
-};
 profileBillingAddress.validateRequired = function(filedId){
     var fieldValue =(document.getElementById(filedId).value).trim();
     if ((fieldValue=='')|| (fieldValue==null) || (fieldValue=='undefined')){
@@ -25,12 +22,40 @@ profileBillingAddress.validateRequired = function(filedId){
 
     return true;
 };
+
 profileBillingAddress.validateForm = function(callback){
-    if (profileAddress.validateRequired(txtCountry)){
-        if (profileAddress.validateRequired(txtStreetNumber)){
-            if (profileAddress.validateRequired(txtStreetName)){
-                if (profileAddress.validateRequired(txtProvince)){
-                    if (profileAddress.validateRequired(txtZip)){
+    if (profileBillingAddress.validateRequired('txtCountry')){
+        if (profileBillingAddress.validateRequired('txtStreetNumber')){
+            if (profileBillingAddress.validateRequired('txtStreetName')){
+                if (profileBillingAddress.validateRequired('txtProvince')){
+                    if (profileBillingAddress.validateRequired('txtZip')){
+                        //SUBMIT FORM
+                        callback ("valid","valid");
+
+                    }else{
+                        callback('Zip Code Field', "Zip Code cannot be empty!")
+                    }
+                }else{
+                    callback('Province Field', "Province cannot be empty!");
+                }
+            }else{
+                callback('Street Name Field', "Street Number  cannot be empty!")
+            }
+        }else{
+            callback('Street Number Field', "Street Number  cannot be empty!")
+        }
+    }else{
+        callback('Country Field', "Country cannot be empty!")
+    }
+
+};
+
+profileBillingAddress.validateForm = function(callback){
+    if (profileBillingAddress.validateRequired('txtCountry')){
+        if (profileBillingAddress.validateRequired('txtStreetNumber')){
+            if (profileBillingAddress.validateRequired('txtStreetName')){
+                if (profileBillingAddress.validateRequired('txtProvince')){
+                    if (profileBillingAddress.validateRequired('txtZip')){
                         //SUBMIT FORM
                         callback ("valid","valid");
 
@@ -54,12 +79,12 @@ profileBillingAddress.validateForm = function(callback){
 profileBillingAddress.handleUserAddressSubmission = function(){
     profileBillingAddress.validateForm(function(title, message){
         if (title == 'valid'){
-            var userCountry = document.getElementById(txtCountry).value;
-            var userStreetNumber = document.getElementById(txtStreetNumber).value;
-            var userStreetName =  document.getElementById(txtStreetName).value;
-            var userUnit =  document.getElementById(txtUnit).value;
-            var userProvince =  document.getElementById(txtProvince).value;
-            var userZipCode =  document.getElementById(txtZip).value;
+            var userCountry = document.getElementById('txtCountry').value.trim();
+            var userStreetNumber = document.getElementById('txtStreetNumber').value.trim();
+            var userStreetName =  document.getElementById('txtStreetName').value.trim();
+            var userUnit =  document.getElementById('txtUnit').value.trim();
+            var userProvince =  document.getElementById('txtProvince').value.trim();
+            var userZipCode =  document.getElementById('txtZip').value.trim();
 
             var pageToken = JSON.parse(window.localStorage.getItem('aiAppData'));
             var formData={
