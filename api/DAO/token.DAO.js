@@ -79,4 +79,25 @@ tokenDAO.getTokenByEmail =  async function(email) {
 }
 
 
+/**
+   * Removes a token from token collection
+   * @param {string} email - The email of the user to for deleting tokens
+   * @returns {DAOResponse} Returns either a "success" or an "error" Object
+   */
+tokenDAO.deleteToken = async function(token) {
+    try {
+
+      await tokenDAO.tokens.deleteOne({ "token": token })
+      return ({ 
+            'type': 'success',
+            'data': 'Token deleted successfully' 
+        })
+    } catch (e) {
+        return({
+            'type': 'error',
+            'data':e.message
+        });
+    }
+  }
+
 module.exports = tokenDAO;
