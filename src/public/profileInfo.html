@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="shortcut icon" href="images/ai.ico" type="image/x-icon" />
         <link rel="stylesheet" href="css/profileInfo.css" />
+        <link rel="stylesheet" href="css/datepicker.min.css"/>
         <title>profileInfo</title>
     </head>
 </head>
@@ -56,7 +57,7 @@
                     <!-- Right Field -->
                     <div class="formTextGroup">
                         <div class="formLabel">Password</div>
-                        <input class="formTextbox" type="text" id="password" name="password"/>
+                        <input class="formTextbox" type="password" id="password" name="password"/>
                     </div>
                 </div>
                 <div class="frow">
@@ -64,11 +65,14 @@
                     <div class="formTextGroup">
                         <div class="formLabel">Date of birth</div>
                         <input class="formTextbox" type="text" id="dob" name="dob"/>
+                        <div class="calendar">
+                            <img src="images/calendarBlue.svg" class="calendarImg"/>
+                        </div>
                     </div>
                     <!-- Right Field -->
                     <div class="formTextGroup">
                         <div class="formLabel">Retype Password</div>
-                        <input class="formTextbox" type="text" id="password2" name="password2"/>
+                        <input class="formTextbox" type="password" id="password2" name="password2"/>
                     </div>
                 </div>
                 <div class="frow">
@@ -78,17 +82,12 @@
                         <input class="formTextbox" type="text" id="licenceNumber" name="licenceNumber"/>
                     </div>
                     <!-- Right Field -->
-                    <!-- <div class="formSelectGroup">
-                        <select class="formSelect">
-                            <option value="nothing"><div class="optionDefault">Select Your Plan ... </div></option>
+                    <div class="formSelectGroup">
+                        <select class="formSelect" id="selectPlan">
                             <option value="plan1"><div class="selectOptions">Plan 1</div></option>
                             <option value="plan2"><div class="selectOptions">Plan 2</div></option>
                             <option value="plan3"><div class="selectOptions">Plan 3</div></option>
                         </select>
-                    </div> -->
-                    <div class="formTextGroup">
-                        <div class="formLabel">Select your plan</div>
-                        <input class="formTextbox" type="text" id="plan" name="plan"/>
                     </div>
                 </div>
                 <div class="frow">
@@ -98,6 +97,7 @@
         </div>
     </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/datepicker-full.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/profileInfo.js"></script>
 </body>
