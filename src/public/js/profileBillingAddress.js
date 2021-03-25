@@ -17,16 +17,49 @@ profileBillingAddress.validatePage = function(){
 profileBillingAddress.validateForm = function(callback){
     callback ("valid","valid");
 };
+profileBillingAddress.validateRequired = function(filedId){
+    var fieldValue =(document.getElementById(filedId).value).trim();
+    if ((fieldValue=='')|| (fieldValue==null) || (fieldValue=='undefined')){
+        return false;
+    }
 
+    return true;
+};
+profileBillingAddress.validateForm = function(callback){
+    if (profileAddress.validateRequired(txtCountry)){
+        if (profileAddress.validateRequired(txtStreetNumber)){
+            if (profileAddress.validateRequired(txtStreetName)){
+                if (profileAddress.validateRequired(txtProvince)){
+                    if (profileAddress.validateRequired(txtZip)){
+                        //SUBMIT FORM
+                        callback ("valid","valid");
+
+                    }else{
+                        callback('Zip Code Field', "Zip Code cannot be empty!")
+                    }
+                }else{
+                    callback('Province Field', "Province cannot be empty!");
+                }
+            }else{
+                callback('Street Name Field', "Street Number  cannot be empty!")
+            }
+        }else{
+            callback('Street Number Field', "Street Number  cannot be empty!")
+        }
+    }else{
+        callback('Country Field', "Country cannot be empty!")
+    }
+
+};
 profileBillingAddress.handleUserAddressSubmission = function(){
     profileBillingAddress.validateForm(function(title, message){
         if (title == 'valid'){
-            var userCountry = 'Canada';
-            var userStreetNumber = '1770';
-            var userStreetName = 'Rue Joseph-Manseau';
-            var userUnit = '222';
-            var userProvince = 'QC';
-            var userZipCode = 'H3H 0A1';
+            var userCountry = document.getElementById(txtCountry).value;
+            var userStreetNumber = document.getElementById(txtStreetNumber).value;
+            var userStreetName =  document.getElementById(txtStreetName).value;
+            var userUnit =  document.getElementById(txtUnit).value;
+            var userProvince =  document.getElementById(txtProvince).value;
+            var userZipCode =  document.getElementById(txtZip).value;
 
             var pageToken = JSON.parse(window.localStorage.getItem('aiAppData'));
             var formData={
