@@ -39,7 +39,7 @@
   height: 100vh;
 }
 
-.col-twothird {
+.col-twothird, .formWrapper .formBody .calendar {
   width: 6.25%;
 }
 
@@ -1154,7 +1154,7 @@
   margin-top: 0.75rem;
 }
 
-.mr-3 {
+.mr-3, .formWrapper .formBody .calendar {
   margin-right: 0.75rem;
 }
 
@@ -3401,6 +3401,10 @@ body {
   color: #60A5FA;
 }
 
+.formWrapper .formBody .formSelectGroup {
+  position: relative;
+}
+
 .formWrapper .formBody .formSelectGroup .formSelect {
   background-color: #F3F4F6;
   color: #60A5FA;
@@ -3409,6 +3413,23 @@ body {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+}
+
+.formWrapper .formBody .formSelectGroup .formSelect:hover {
+  cursor: pointer;
+}
+
+.formWrapper .formBody .formSelectGroup:after {
+  content: '>';
+  font: 17px "Consolas", monospace;
+  color: #60A5FA;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  right: 22px;
+  top: 12px;
+  padding: 0 0 2px;
+  position: absolute;
+  pointer-events: none;
 }
 
 .formWrapper .formBody .formTextGroup {
@@ -3434,6 +3455,16 @@ body {
 
 .formWrapper .formBody .formTextGroup .formTextbox:focus {
   outline: none;
+}
+
+.formWrapper .formBody .calendar {
+  position: absolute;
+  right: 10px;
+  z-index: 30;
+}
+
+.formWrapper .formBody .calendar:hover {
+  cursor: pointer;
 }
 
 .formWrapper .formBody .formButton {
