@@ -9,5 +9,6 @@ router.route("/initReg").post(userCtl.initialRegistration);
 router.route("/updateUserByToken").post(userCtl.updateUserByToken);
 router.route("/updateUserAddressByToken").post(userCtl.updateUserAddressByToken);
 router.route("/getAddressByToken").get(userCtl.getAddressByToken);
+router.route("/deleteUserToken").delete(userCtl.deleteUserToken);
 
 module.exports = router;

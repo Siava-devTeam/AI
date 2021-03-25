@@ -14,6 +14,7 @@ var user={};
 
 */
 
+
 user.getUserByToken = async function(token){
 
     return new Promise(async function(resolve,reject){
@@ -56,6 +57,57 @@ user.getUserByToken = async function(token){
             reject(e.message);
         }
     });
+};
+
+user.deleteUserToken = async function(req,res,next){
+    try{
+        //Default message
+        res.set('Content-Type', 'application/json');
+        var messageStatus, messageText;
+        //Parsing Token
+        var token = req.query;
+        token = (token.hasOwnProperty('t'))?token.t:false;
+        token = (token)?await helpers.replaceIllegalChars(token):false;
+        token = ((token)&&(typeof(token)!=='undefined')&&(token.length==20))?token:false;
+        
+        console.log(token)
+
+        if(token){
+
+            var deleteResults = await tokenDAO.deleteToken(token);
+            if (deleteResults.type=='success'){
+            
+                console.log(deleteResults);
+
+                messageStatus = 200;
+                messageText = {
+                    'type':'success',
+                    'data': 'user deleted successfully'
+                };
+
+            }else{
+                messageStatus = 500;
+                messageText = {
+                    'type':'error',
+                    'data': 'Problem with deleting the item!'
+                };
+            }
+
+        }else{
+            messageStatus = 500;
+            messageText = {
+                'type':'error',
+                'data': 'The token is not Valid!'
+            };
+        }
+        //Response
+        res.status(messageStatus).send(messageText);
+        
+    }catch(e){
+        const error = new Error(e.message);
+        error.statusCode = 501;
+        next(error);
+    }
 };
 
 user.updateUserByToken = async function(req,res,next){

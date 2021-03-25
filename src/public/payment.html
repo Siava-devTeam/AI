@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="images/ai.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="css/payment.css" />
+        <title>profileInfo</title>
+    </head>
+</head>
+<body>
+    <div class="modalWrapper">
+        <div class="messageWrapper">
+            <div class="messageImage"></div>
+            <div class="messageTitle">Nearly done!</div>
+            <div class="messageText">Thanks for verifying your email! 
+                Close this message to finish creating your account.
+            </div>
+            <div class="modalButton">OK</div>
+        </div>
+    </div>
+    <div class="appWrapper">
+        <div class="formWrapper">
+            <!-- Form Header -->
+            <div class="formHeader">
+                <img src="images/aiRect.svg" alt="ai"/>
+            </div>
+            <!-- Form Body -->
+            <div class="formBody">
+                <!-- Form Title -->
+                <div class="frow">
+                    <div class="formTitle">
+                        Credit Card Information
+                    </div>
+                </div>
+                <div class="frow">
+                    <div class="stripe">
+                        Stripe
+                    </div>
+                </div>
+                <div class="frow">
+                    <button class="formButton" id="btnContinue">Continue</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/payment.js"></script>
+</body>
+</html>
