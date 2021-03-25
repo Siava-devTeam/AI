@@ -35,23 +35,71 @@ profileInfo.validatePage = function(){
     return false;
 };
 
-profileInfo.validateForm = function(callback){
-    callback ("valid","valid");
+profileInfo.validateRequired = function(filedId){
+    var fieldValue =(document.getElementById(filedId).value).trim();
+    if ((fieldValue=='')|| (fieldValue==null) || (fieldValue=='undefined')){
+        return false;
+    }
+
+    return true;
 };
 
-// profileInfo.handleUserInfoSubmission = function(){
-//     //Validate Input
-//     //If Valid -> Send for registration
-//     //If data added successFully -> go to next page
-// };
+profileInfo.validateDOB = function(){
+    var result = true;
+    var dob = document.getElementById('dob').value.trim();
+    result = (dob.length!=10)?false:true;
+    result = (dob.indexOf('/')==-1)?false:true;
+    return result;
+};
+
+profileInfo.validatePassword = function(){
+    var result = true;
+    var pass1 = document.getElementById('password').value.trim();
+    var pass2 = document.getElementById('password2').value.trim();
+    result = (pass1 == pass2)?true: false;
+    return result;
+};
+
+profileInfo.validateForm = function(callback){
+    if (profileInfo.validateRequired('firstName')){
+        if (profileInfo.validateRequired('lastName')){
+            if (profileInfo.validateRequired('companyName')){
+                if (profileInfo.validateRequired('licenceNumber')){
+                    if (profileInfo.validateDOB()){
+                        if (profileInfo.validatePassword()){
+                            //SUBMIT FORM
+                            callback ("valid","valid");
+    
+                        }else{
+                            callback('Password', "Password does not match")
+                        }
+
+                    }else{
+                        callback('Date of birth format', "Date of Birth not valid!")
+                    }
+                }else{
+                    callback('Licence Number Empty', "Licence Number cannot be empty!");
+                }
+            }else{
+                callback('Company Name Empty', "Company name cannot be empty!")
+            }
+        }else{
+            callback('Last name Empty', "Last name cannot be empty!")
+        }
+    }else{
+        callback('First name Empty', "First name cannot be empty!")
+    }
+
+};
+
 profileInfo.handleUserInfoSubmission = function(){
     profileInfo.validateForm(function(title, message){
         if (title == 'valid'){
-            var userDateOfBirth = '12/08/1983';
-            var userLicenceNumber = '123123123';
-            var userCompanyName = 'Siava';
-            var userPassword = 'SomePass';
-            var userPlan = 'Plan1';
+            var userDateOfBirth = document.getElementById('dob').value.trim();
+            var userLicenceNumber = document.getElementById('licenceNumber').value.trim();
+            var userCompanyName = document.getElementById('companyName').value.trim();
+            var userPassword = document.getElementById('password').value.trim();
+            var userPlan = document.getElementById('selectPlan').value.trim();
 
             var pageToken = JSON.parse(window.localStorage.getItem('aiAppData'));
             var formData={
@@ -129,12 +177,15 @@ profileInfo.setFormButton = function(){
 };
 
 app.init = function(){
+    
     app.setModalCloseButton();
     app.setTexBoxGroups();
     if (profileInfo.validatePage()){
         profileInfo.setFormButton();
         profileInfo.loadUserInfo();
     }
+    const elem = document.querySelector('input[name="dob"]');
+    const datepicker = new Datepicker(elem, {});
 };
 
 
