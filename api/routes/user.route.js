@@ -7,7 +7,9 @@ const router = new express.Router();
 router.route("/getTokenUser").get(userCtl.getTokenUser);
 router.route("/initReg").post(userCtl.initialRegistration);
 router.route("/updateUserByToken").post(userCtl.updateUserByToken);
-router.route("/updateUserAddressByToken").post(userCtl.updateUserAddressByToken);
 router.route("/getAddressByToken").get(userCtl.getAddressByToken);
+router.route("/deleteUserToken").delete(userCtl.deleteUserToken);
+router.route("/updateUserAddressByToken").put(userCtl.updateUserAddressByToken);
+router.route("/updateUserStatusByToken").put(userCtl.updateUserStatusByToken);
 
 module.exports = router;

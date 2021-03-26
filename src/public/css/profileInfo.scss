@@ -43,6 +43,7 @@ body{
         & .formSelectGroup{
             @extend .display-flex, .flex-column, .justify-content-center, .align-items-start;
             @extend .col-6, .px-2;
+            position: relative;
 
             & .formSelect{
                 background-color: $textbox-background;
@@ -51,8 +52,27 @@ body{
                 border: none;
                 border-radius: 8px;
                 appearance: none;
+
+                &:hover{
+                    cursor: pointer;
+                }
             }
+
+            &:after{
+                content: '>';
+                font: 17px "Consolas", monospace;
+                color: $textbox-font-color;
+                transform: rotate(90deg);
+                right: 22px;
+                top: 12px;
+                padding: 0 0 2px;
+                position: absolute;
+                pointer-events: none;
+            }
+
+            
         }
+
         & .formTextGroup{
             @extend .display-flex, .flex-column, .justify-content-center, .align-items-start;
             @extend .col-6, .px-2;
@@ -67,7 +87,7 @@ body{
             & .formLabel.disappear{
                 display: none;
             }
-    
+            
             & .formTextbox{
                 background-color: $textbox-background;
                 color: $textbox-font-color;
@@ -78,6 +98,17 @@ body{
                 &:focus{
                     outline: none;
                 }
+            }
+        }
+
+        & .calendar{
+            @extend .col-twothird, .mr-3;
+            position: absolute;
+            right: 10px;
+            z-index: 30;
+
+            &:hover{
+                cursor: pointer;
             }
         }
 

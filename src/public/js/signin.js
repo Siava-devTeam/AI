@@ -19,7 +19,7 @@ signIn.setPasswordEye = function(){
 
 app.init = function(){
     app.setModalCloseButton();
-    app.setTexBoxGroups();
+    // app.setTexBoxGroups();
     app.setTexFormLinks();
     signIn.setPasswordEye();
 };
