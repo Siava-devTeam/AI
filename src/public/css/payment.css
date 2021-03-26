@@ -39,7 +39,7 @@
   height: 100vh;
 }
 
-.col-twothird, .formWrapper .formBody .calendar {
+.col-twothird {
   width: 6.25%;
 }
 
@@ -67,7 +67,7 @@
   width: 41.66667%;
 }
 
-.col-6, .formWrapper .formBody .formSelectGroup, .formWrapper .formBody .formTextGroup, .formWrapper .formBody .formButton {
+.col-6, .formWrapper .formBody .stripe, .formWrapper .formBody .formButton {
   width: 50%;
 }
 
@@ -91,7 +91,7 @@
   width: 91.66667%;
 }
 
-.col-12, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .messageText, .modalWrapper .messageWrapper .modalButton, .formWrapper .frow, .formWrapper .formHeader, .formWrapper .formBody, .formWrapper .formBody .formTitle, .formWrapper .formBody .formSelectGroup .formSelect, .formWrapper .formBody .formTextGroup .formTextbox {
+.col-12, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .messageText, .modalWrapper .messageWrapper .modalButton, .formWrapper .frow, .formWrapper .formHeader, .formWrapper .formBody, .formWrapper .formBody .formTitle {
   width: 100%;
 }
 
@@ -113,7 +113,7 @@
   line-height: 1rem;
 }
 
-.text-sm, .modalWrapper .messageWrapper .messageText, .formWrapper, .formWrapper .formBody .formSelectGroup .formSelect, .formWrapper .formBody .formTextGroup .formLabel, .formWrapper .formBody .formTextGroup .formTextbox {
+.text-sm, .modalWrapper .messageWrapper .messageText, .formWrapper {
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
@@ -1154,7 +1154,7 @@
   margin-top: 0.75rem;
 }
 
-.mr-3, .formWrapper .formBody .calendar {
+.mr-3 {
   margin-right: 0.75rem;
 }
 
@@ -1162,7 +1162,7 @@
   margin-bottom: 0.75rem;
 }
 
-.ml-3, .formWrapper .formBody .formTextGroup .formLabel {
+.ml-3 {
   margin-left: 0.75rem;
 }
 
@@ -2122,7 +2122,7 @@
   padding: 0.5rem;
 }
 
-.p-3, .formWrapper .formBody .formSelectGroup .formSelect, .formWrapper .formBody .formTextGroup .formTextbox {
+.p-3 {
   padding: 0.75rem;
 }
 
@@ -2259,7 +2259,7 @@
   padding-bottom: 0.5rem;
 }
 
-.px-2, .formWrapper, .formWrapper .formBody .formSelectGroup, .formWrapper .formBody .formTextGroup {
+.px-2, .formWrapper {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
@@ -3048,7 +3048,7 @@
   display: block;
 }
 
-.display-flex, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .messageText, .modalWrapper .messageWrapper .modalButton, body, .appWrapper, .formWrapper, .formWrapper .frow, .formWrapper .formHeader, .formWrapper .formBody, .formWrapper .formBody .formTitle, .formWrapper .formBody .formSelectGroup, .formWrapper .formBody .formTextGroup {
+.display-flex, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .messageText, .modalWrapper .messageWrapper .modalButton, body, .appWrapper, .formWrapper, .formWrapper .frow, .formWrapper .formHeader, .formWrapper .formBody, .formWrapper .formBody .formTitle, .formWrapper .formBody .stripe {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3074,7 +3074,7 @@
           flex-direction: row-reverse;
 }
 
-.flex-column, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .messageText, .modalWrapper .messageWrapper .modalButton, body, .appWrapper, .formWrapper, .formWrapper .formHeader, .formWrapper .formBody, .formWrapper .formBody .formTitle, .formWrapper .formBody .formSelectGroup, .formWrapper .formBody .formTextGroup {
+.flex-column, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .messageText, .modalWrapper .messageWrapper .modalButton, body, .appWrapper, .formWrapper, .formWrapper .formHeader, .formWrapper .formBody, .formWrapper .formBody .formTitle, .formWrapper .formBody .stripe {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -3103,7 +3103,7 @@
       flex-wrap: nowrap;
 }
 
-.align-items-start, .formWrapper .formBody .formSelectGroup, .formWrapper .formBody .formTextGroup {
+.align-items-start {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
@@ -3115,7 +3115,7 @@
           align-items: flex-end;
 }
 
-.align-items-center, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .messageText, .modalWrapper .messageWrapper .modalButton, body, .appWrapper, .formWrapper .frow, .formWrapper .formHeader, .formWrapper .formBody, .formWrapper .formBody .formTitle {
+.align-items-center, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .messageText, .modalWrapper .messageWrapper .modalButton, body, .appWrapper, .formWrapper .frow, .formWrapper .formHeader, .formWrapper .formBody, .formWrapper .formBody .formTitle, .formWrapper .formBody .stripe {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -3223,7 +3223,7 @@
           justify-content: flex-end;
 }
 
-.justify-content-center, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .messageText, .modalWrapper .messageWrapper .modalButton, body, .appWrapper, .formWrapper .frow, .formWrapper .formHeader, .formWrapper .formBody, .formWrapper .formBody .formTitle, .formWrapper .formBody .formSelectGroup, .formWrapper .formBody .formTextGroup {
+.justify-content-center, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .messageText, .modalWrapper .messageWrapper .modalButton, body, .appWrapper, .formWrapper .frow, .formWrapper .formHeader, .formWrapper .formBody, .formWrapper .formBody .formTitle, .formWrapper .formBody .stripe {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -3401,70 +3401,13 @@ body {
   color: #60A5FA;
 }
 
-.formWrapper .formBody .formSelectGroup {
-  position: relative;
-}
-
-.formWrapper .formBody .formSelectGroup .formSelect {
-  background-color: #F3F4F6;
-  color: #60A5FA;
-  border: none;
-  border-radius: 8px;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-}
-
-.formWrapper .formBody .formSelectGroup .formSelect:hover {
-  cursor: pointer;
-}
-
-.formWrapper .formBody .formSelectGroup:after {
-  content: '>';
-  font: 17px "Consolas", monospace;
-  color: #60A5FA;
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-  right: 22px;
-  top: 12px;
-  padding: 0 0 2px;
-  position: absolute;
-  pointer-events: none;
-}
-
-.formWrapper .formBody .formTextGroup {
-  position: relative;
-}
-
-.formWrapper .formBody .formTextGroup .formLabel {
-  color: #9CA3AF;
-  position: absolute;
-  z-index: 10;
-}
-
-.formWrapper .formBody .formTextGroup .formLabel.disappear {
-  display: none;
-}
-
-.formWrapper .formBody .formTextGroup .formTextbox {
-  background-color: #F3F4F6;
-  color: #60A5FA;
-  border: none;
-  border-radius: 8px;
-}
-
-.formWrapper .formBody .formTextGroup .formTextbox:focus {
-  outline: none;
-}
-
-.formWrapper .formBody .calendar {
-  position: absolute;
-  right: 10px;
-  z-index: 30;
-}
-
-.formWrapper .formBody .calendar:hover {
-  cursor: pointer;
+.formWrapper .formBody .stripe {
+  background-color: #e0e0e0;
+  color: #6772e5;
+  font-family: Camphor,Open Sans,Segoe UI,sans-serif;
+  font-weight: 900;
+  font-size: 70px;
+  height: 200px;
 }
 
 .formWrapper .formBody .formButton {
@@ -3481,4 +3424,4 @@ body {
 .formWrapper .formBody .formButton:focus {
   outline: none;
 }
-/*# sourceMappingURL=profileInfo.css.map */
+/*# sourceMappingURL=payment.css.map */

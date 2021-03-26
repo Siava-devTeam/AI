@@ -121,7 +121,7 @@ app.init = function(){
 
     signup.setSignupButton();
     app.setModalCloseButton();
-    app.setTexBoxGroups();
+    // app.setTexBoxGroups();
     app.setTexFormLinks();
 
     var phoneField = document.getElementById("phone");

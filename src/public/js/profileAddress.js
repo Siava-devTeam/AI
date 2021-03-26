@@ -14,25 +14,50 @@ profileAddress.validatePage = function(){
     return false;
 };
 
-profileAddress.validateForm = function(callback){
-    callback ("valid","valid");
-};
+profileAddress.validateRequired = function(filedId){
+    var fieldValue =(document.getElementById(filedId).value).trim();
+    if ((fieldValue=='')|| (fieldValue==null) || (fieldValue=='undefined')){
+        return false;
+    }
 
-// profileAddress.handleUserAddressSubmission = function(){
-//     //Validate Input
-//     //If Valid -> Send for update profile
-//     //If data added successFully -> go to next page
-// };
+    return true;
+};
+profileAddress.validateForm = function(callback){
+    if (profileAddress.validateRequired('txtCountry')){
+        if (profileAddress.validateRequired('txtStreetNumber')){
+            if (profileAddress.validateRequired('txtStreetName')){
+                if (profileAddress.validateRequired('txtProvince')){
+                    if (profileAddress.validateRequired('txtZip')){
+                        //SUBMIT FORM
+                        callback ("valid","valid");
+
+                    }else{
+                        callback('Zip Code Field', "Zip Code cannot be empty!")
+                    }
+                }else{
+                    callback('Province Field', "Province cannot be empty!");
+                }
+            }else{
+                callback('Street Name Field', "Street Number  cannot be empty!")
+            }
+        }else{
+            callback('Street Number Field', "Street Number  cannot be empty!")
+        }
+    }else{
+        callback('Country Field', "Country cannot be empty!")
+    }
+
+};
 
 profileAddress.handleUserAddressSubmission = function(){
     profileAddress.validateForm(function(title, message){
         if (title == 'valid'){
-            var userCountry = 'Canada';
-            var userStreetNumber = '1770';
-            var userStreetName = 'Rue Joseph-Manseau';
-            var userUnit = '222';
-            var userProvince = 'QC';
-            var userZipCode = 'H3H 0A1';
+            var userCountry = document.getElementById('txtCountry').value.trim();
+            var userStreetNumber = document.getElementById('txtStreetNumber').value.trim();
+            var userStreetName =  document.getElementById('txtStreetName').value.trim();
+            var userUnit =  document.getElementById('txtUnit').value.trim();
+            var userProvince =  document.getElementById('txtProvince').value.trim();
+            var userZipCode =  document.getElementById('txtZip').value.trim();
 
             var pageToken = JSON.parse(window.localStorage.getItem('aiAppData'));
             var formData={
@@ -48,7 +73,7 @@ profileAddress.handleUserAddressSubmission = function(){
 
             var base = window.location.origin;
             axios({
-                method: "post",
+                method: "put",
                 url: base+"/api/v1/user/updateUserAddressByToken",
                 data:formData
             })
@@ -81,7 +106,7 @@ profileAddress.setFormButton = function(){
 
 app.init = function(){
     app.setModalCloseButton();
-    app.setTexBoxGroups();
+    // app.setTexBoxGroups();
     if (profileAddress.validatePage()){
         profileAddress.setFormButton();
     }

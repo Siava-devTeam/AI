@@ -1,0 +1,71 @@
+@import 'main_extend';
+
+body{
+    background-color: $web-background;
+    @extend .display-flex, .flex-column, .justify-content-center, .align-items-center;   
+}
+.appWrapper{
+    @extend .display-flex, .flex-column, .justify-content-center, .align-items-center;
+    @extend .h-screen, .w-screen, .text-base;
+    @extend .transition-opacity;
+}
+
+.formWrapper{
+    background-color: $white-900;
+    @extend .display-flex, .flex-column;
+    @extend .col-7, .text-sm, .px-2, .py-5;
+
+    & .frow{
+        @extend .display-flex, .flex-row, .justify-content-center, .align-items-center;
+        @extend .col-12, .py-2;
+    }
+
+    & .formHeader{
+        color: $primary;
+        @extend .display-flex, .flex-column, .justify-content-center, .align-items-center; 
+        @extend .text-2xl, .p-5, .col-12;
+        height: 60px;
+
+        & img{
+            height: 60px;
+        }
+    }
+
+    & .formBody{
+        @extend .display-flex, .flex-column, .justify-content-center, .align-items-center; 
+        @extend .p-5, .col-12;
+
+        & .formTitle{
+            color: $primary;
+            @extend .display-flex, .flex-column, .justify-content-center, .align-items-center; 
+            @extend .text-xl, .col-12;
+        }
+        
+        & .stripe{
+            @extend .display-flex, .flex-column, .justify-content-center, .align-items-center;
+            background-color: #e0e0e0;
+            color: #6772e5;
+            font-family: Camphor,Open Sans,Segoe UI,sans-serif;
+            font-weight: 900;
+            font-size: 70px;
+            @extend .col-6;
+            height:200px;
+        }
+
+        & .formButton{
+            background-color: $primary;
+            color: $white-900;
+            @extend .text-base, .p-2, .col-6;
+            border-radius: 8px;
+            border: 2px $primary solid;
+    
+            &:hover{
+                cursor: pointer;
+            }
+    
+            &:focus{
+                outline: none;
+            }
+        }
+    }
+}
