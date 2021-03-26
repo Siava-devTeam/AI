@@ -179,7 +179,7 @@ profileInfo.setFormButton = function(){
 app.init = function(){
     
     app.setModalCloseButton();
-    app.setTexBoxGroups();
+    // app.setTexBoxGroups();
     if (profileInfo.validatePage()){
         profileInfo.setFormButton();
         profileInfo.loadUserInfo();

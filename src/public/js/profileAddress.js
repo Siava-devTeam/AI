@@ -73,7 +73,7 @@ profileAddress.handleUserAddressSubmission = function(){
 
             var base = window.location.origin;
             axios({
-                method: "post",
+                method: "put",
                 url: base+"/api/v1/user/updateUserAddressByToken",
                 data:formData
             })
@@ -106,7 +106,7 @@ profileAddress.setFormButton = function(){
 
 app.init = function(){
     app.setModalCloseButton();
-    app.setTexBoxGroups();
+    // app.setTexBoxGroups();
     if (profileAddress.validatePage()){
         profileAddress.setFormButton();
     }

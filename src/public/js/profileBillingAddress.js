@@ -100,7 +100,7 @@ profileBillingAddress.handleUserAddressSubmission = function(){
 
             var base = window.location.origin;
             axios({
-                method: "post",
+                method: "put",
                 url: base+"/api/v1/user/updateUserAddressByToken",
                 data:formData
             })
@@ -176,7 +176,7 @@ profileBillingAddress.loadUserInfo = function(){
 
 app.init = function(){
     app.setModalCloseButton();
-    app.setTexBoxGroups();
+    // app.setTexBoxGroups();
     if (profileBillingAddress.validatePage()){
         profileBillingAddress.setFormButton();
         profileBillingAddress.loadUserInfo();

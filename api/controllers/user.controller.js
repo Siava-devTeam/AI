@@ -30,7 +30,7 @@ user.getUserByToken = async function(token){
                 if ((tokenData.type=='success') && (tokenData.data)){
                     
                     var userData = await userDAO.getUser(tokenData.data.email);
-                    
+
                     if ((userData.type=='success') && (userData.data)){
 
                         // var data = {
@@ -237,6 +237,75 @@ user.getAddressByToken =async function(req,res,next){
     }
 };
 
+user.updateUserStatusByToken = async function(req,res,next){
+    try{
+
+        //Default message
+        res.set('Content-Type', 'application/json');
+        var messageStatus,messageText;
+        //Parsing Token
+        var token = (typeof(req.body.token)!== 'undefined')?req.body.token:false;
+
+        // console.log(token);
+
+        await user.getUserByToken(token)
+        .then(async function(userData){
+
+            var userStatus = ((req.body.status)&&(typeof(req.body.status))!== 'undefined')?req.body.status:false;
+        
+            if (userStatus){
+
+                userObject={
+                    "status":userStatus,
+                }
+
+                var userEmail = (JSON.parse(userData)).email;
+                var updateResult = await userDAO.updateUser(userEmail,userObject);
+            
+                if (updateResult.type=='success'){
+
+                    messageStatus = 200;
+                    messageText = {
+                        'type':'success',
+                        'data': 'User Updated Successfully'
+                    };
+
+                }else{
+                    messageStatus = 500;
+                    messageText = {
+                        'type':'error',
+                        'data': 'problem with updating results!'
+                    };
+                }
+
+            }else{
+                messageStatus = 500;
+                messageText = {
+                    'type':'error',
+                    'data': 'Input field Problem'
+                };
+            }
+
+            //Response
+            res.status(messageStatus).send(messageText);
+
+        })
+        .catch(async function(err){
+            messageStatus = 500;
+            messageText = {
+                'type':'error',
+                'data': err
+            };
+            //Response
+            res.status(messageStatus).send(messageText);
+        });
+    }catch(e){
+        const error = new Error(e.message);
+        error.statusCode = 501;
+        next(error);
+    }
+};
+
 user.updateUserAddressByToken = async function(req,res,next){
     try{
 
@@ -246,6 +315,8 @@ user.updateUserAddressByToken = async function(req,res,next){
         //Parsing Token
         var token = (typeof(req.body.token)!== 'undefined')?req.body.token:false;
 
+        // console.log(token);
+
         await user.getUserByToken(token)
         .then(async function(userData){
 
@@ -253,12 +324,13 @@ user.updateUserAddressByToken = async function(req,res,next){
             var userCountry = ((req.body.country)&&(typeof(req.body.country))!== 'undefined')?req.body.country:false;
             var userStreetNumber = ((req.body.streetNumber)&&(typeof(req.body.streetNumber)!== 'undefined'))?req.body.streetNumber:false;
             var userStreetName = ((req.body.streetName)&&(typeof(req.body.streetName)!== 'undefined'))?req.body.streetName:false;
-            var userUnit = ((req.body.unit)&&(typeof(req.body.unit)!== 'undefined'))?req.body.unit:false;
+            var userUnit = ((req.body.unit)&&(typeof(req.body.unit)!== 'undefined'))?req.body.unit:"";
             var userProvince = ((req.body.province)&&(typeof(req.body.province)!== 'undefined'))?req.body.province:false;
             var userZipCode = ((req.body.zipCode)&&(typeof(req.body.zipCode)!== 'undefined'))?req.body.zipCode:false;
 
-            if (userCountry && userStreetNumber && userStreetName && userUnit && userProvince && userZipCode){
-
+            if (userCountry && userStreetNumber && userStreetName && userProvince && userZipCode){
+            
+                // console.log("data Valid");
 
                 var addressObject = {};
                 addressObject[addressType] = {
@@ -271,11 +343,15 @@ user.updateUserAddressByToken = async function(req,res,next){
 
                 }
 
+                // console.log(addressObject);
+
                 var userEmail = (JSON.parse(userData)).email;
                 
                 
                 var updateResult = await userDAO.updateUser(userEmail,addressObject);
                 
+                // console.log(userData);
+                // console.log(updateResult);
                 
 
                 if (updateResult.type=='success'){
