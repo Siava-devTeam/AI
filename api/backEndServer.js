@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 var user = require("./routes/user.route");
 var publicCTRL = require("./controllers/public.controller");
 var path = require('path');
-var config = require('./config');
+var config = require('../config');
 var morgan;
 
 // app
