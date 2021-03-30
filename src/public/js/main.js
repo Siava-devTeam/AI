@@ -33,7 +33,7 @@ app.showModal = function(type,title,message){
     var modalMessage = document.getElementsByClassName('messageText')[0];
     var modalButton = document.getElementsByClassName('modalButton')[0];
     modalImage.style.backgroundImage = (type == 'error') ? errorImage : checkImage;
-    modalImage.style.borderColor = (type == 'error') ? errorColor : checkImage;
+    modalImage.style.borderColor = (type == 'error') ? errorColor : SuccessColor;
     modalTitle.innerText = title;
     modalMessage.innerText = message;
     modalButton.style.backgroundColor = (type == 'error') ? primaryColor : primaryColor;
