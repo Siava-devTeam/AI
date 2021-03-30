@@ -3295,13 +3295,16 @@ body {
     }
 
     & .messageTitle {
-        @extend .display-flex, .flex-column, .justify-content-center, .align-items-center;
+      @extend .display-flex, .flex-column, .justify-content-center, .align-items-center;
       @extend .col-12, .p-2, .text-lg, .bold-500;
+      color:$textbox-placeHolder-color;
+
     }
 
     & .messageText {
       @extend .display-flex, .flex-column, .justify-content-center, .align-items-center;
       @extend .col-12, .text-sm;
+      color:$textbox-placeHolder-color;
     }
 
     & .modalButton {
