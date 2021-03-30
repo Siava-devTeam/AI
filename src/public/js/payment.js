@@ -46,7 +46,7 @@ payment.handleUserAddressSubmission = function(){
                     timeout: 1000 * 5,
                 })
                 .then(function(res){
-                    app.showModal('success','Congratulations!',`Registration Completed!`);
+                    // app.showModal('success','Congratulations!',`Registration Completed!`);
                     window.localStorage.removeItem('aiAppData');
                     window.location.href = base+"/signin.html";
                     

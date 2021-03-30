@@ -105,7 +105,7 @@ profileBillingAddress.handleUserAddressSubmission = function(){
                 data:formData
             })
             .then(function(res){
-                app.showModal('success','Congrats!','User information updated successfully');
+                // app.showModal('success','Congrats!','User information updated successfully');
                 window.location.href = base+"/payment.html";
 
             }).catch(function(err){
