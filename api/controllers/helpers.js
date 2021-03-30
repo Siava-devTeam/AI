@@ -57,27 +57,57 @@ helpers.sendConfirmationMail = async function(link, userInfo){
             color: blue;width: 100%;`;
         
         //Mail Body
+        // const mailBody=`
+        // <table  cellspacing="0" cellpadding="0" style="${mailWrapperStyle}">
+        //     <tr style="${mailTrow}">
+        //         <td  style="${mailHeadStyle}">Welcome to Automated Immigration System</td>
+        //     </tr>
+        //     <tr style="${mailTrow}">
+        //         <td style="${mailBodyStyle}">
+        //             <table style="${mailBodyStyle}" cellspacing="0" cellpadding="5rem 0">
+        //                 <tr style="${mailTrow}">
+        //                     <td  style="${line1Style}">
+        //                         Please confirm your email by clicking on following link: 
+        //                     </td>
+        //                 </tr>
+        //                 <tr style="${mailTrow}">
+        //                     <td style="${line2Style}">
+        //                         (In case of any problem, copy and paste the address in your browser's address bar)
+        //                     </td>
+        //                 </tr>
+        //                 <tr style="${mailTrow}">
+        //                     <td>
+        //                         <a style="${linkStyle}" href="${link}" target="_blank">${link}</a>
+        //                     </td>
+        //                 </tr>
+        //             </table>
+        //         </td>
+        //     </tr>
+        // </table>`;
+
         const mailBody=`
-        <table  cellspacing="0" cellpadding="0" style="${mailWrapperStyle}">
-            <tr style="${mailTrow}">
-                <td  style="${mailHeadStyle}">Welcome to Automated Immigration System</td>
+        <link rel="stylesheet" href="${config.base}/css/mailTemplate.css">
+        <table class="pageWrapper">
+            <tr class="tblRow">
+                <td class="topSpacer"></td>
             </tr>
-            <tr style="${mailTrow}">
-                <td style="${mailBodyStyle}">
-                    <table style="${mailBodyStyle}" cellspacing="0" cellpadding="5rem 0">
-                        <tr style="${mailTrow}">
-                            <td  style="${line1Style}">
-                                Please confirm your email by clicking on following link: 
+            <tr class="tblRow">
+                <td>
+                    <table class="frmWrapper">
+                        <tr class="tblRow">
+                            <td class="frmLogo">
+                                <img src="./images/aiRect.svg">
                             </td>
                         </tr>
-                        <tr style="${mailTrow}">
-                            <td style="${line2Style}">
-                                (In case of any problem, copy and paste the address in your browser's address bar)
-                            </td>
+                        <tr class="tblRow">
+                            <td class="frmTitle">Welcome to Automated Immigration System</td>
                         </tr>
-                        <tr style="${mailTrow}">
-                            <td>
-                                <a style="${linkStyle}" href="${link}" target="_blank">${link}</a>
+                        <tr class="tblRow">
+                            <td class="frmText">Please confirm your email by clicking on following link</td>
+                        </tr>
+                        <tr class="tblRow">
+                            <td class="frmButton">
+                                <a class="formButton" href="${link}" target="_blank">Continue Registration</button>
                             </td>
                         </tr>
                     </table>
