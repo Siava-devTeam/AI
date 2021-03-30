@@ -21,6 +21,9 @@ app.disappear = function(div){
 };
 //NOT COMPLETE YET
 app.showModal = function(type,title,message){
+    var primaryColor = "#60A5FA";
+    var errorColor = "#DC2626";
+    var SuccessColor = "#059669";
     document.getElementsByClassName('modalWrapper')[0].style.display='flex';
     document.getElementsByClassName('appWrapper')[0].style.opacity='0%';
     var checkImage = "url('../images/check.svg')"
@@ -30,11 +33,11 @@ app.showModal = function(type,title,message){
     var modalMessage = document.getElementsByClassName('messageText')[0];
     var modalButton = document.getElementsByClassName('modalButton')[0];
     modalImage.style.backgroundImage = (type == 'error') ? errorImage : checkImage;
-    modalImage.style.borderColor = (type == 'error') ? "#DC2626" : "#059669";
+    modalImage.style.borderColor = (type == 'error') ? errorColor : checkImage;
     modalTitle.innerText = title;
     modalMessage.innerText = message;
-    modalButton.style.backgroundColor = (type == 'error') ? "#DC2626" : "#059669";
-    modalButton.style.borderColor = (type == 'error') ? "#DC2626" : "#059669";
+    modalButton.style.backgroundColor = (type == 'error') ? primaryColor : primaryColor;
+    modalButton.style.borderColor = (type == 'error') ? primaryColor : primaryColor;
 };
 
 app.closeModal = function(){

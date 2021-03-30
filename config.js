@@ -26,7 +26,7 @@ config.backEnd={}
 config.backEnd.development={
     "httpPort":5200,
     "httpsPort":5400,
-    "base":"http://localhost:5200/",
+    "base":"http://localhost:5200",
     "mail":{
         "host": 'mail.automatedimmigration.com',
         "port": 465,
@@ -46,7 +46,7 @@ config.backEnd.development={
 config.backEnd.production={
     "httpPort":6200,
     "httpsPort":6400,
-    "base":"",
+    "base":"http://automatedimmigration.herokuapp.com",
     "mail":{
         "host": 'mail.automatedimmigration.com',
         "port": 465,

@@ -15,7 +15,7 @@ var nodeEnvironment = typeof(process.env.NODE_ENV)!= undefined ? process.env.NOD
 nodeEnvironment = (['development','production'].indexOf(nodeEnvironment))>-1 ? nodeEnvironment : 'development';
 
 //APP
-var app = (programmingEnvironment=='frontEnd') ? require('./src/server') : require('./api/server');
+var app = (programmingEnvironment=='frontEnd') ? require('./src/frontEndServer') : require('./api/backEndServer');
 
 // HTTP Server
 const httpServer = http.createServer(app);

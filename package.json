@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "NODE_ENV=production PROG_ENV=backEnd node index.js",
     "backEndDev": "NODE_ENV=development PROG_ENV=backEnd nodemon index.js",
     "frontEndDev": "NODE_ENV=development PROG_ENV=frontEnd nodemon index.js"
   },

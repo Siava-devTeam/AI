@@ -93,7 +93,8 @@ signup.handleRegistration = function(){
                 data:formData
             })
             .then(function(res){
-                app.showModal('success','Congrats!','User Registered successfully')
+                app.showModal('success','Congrats!','User Registered successfully.'+ 
+                'We have sent you an Email. Please confirm your email and continue the registration process.');
 
             }).catch(function(err){
                 if (typeof(err.response)=="undefined"){

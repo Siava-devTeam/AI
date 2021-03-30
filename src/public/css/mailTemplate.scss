@@ -1,0 +1,151 @@
+
+@function colWidth($col_num) {
+    $result: 100% * ($col_num/12);
+    @return $result;
+  }
+
+$primary: #60A5FA;
+$textbox-placeHolder-color:#9CA3AF;
+$web-background:#F3F4F6;
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+table{
+    padding: 0px;
+    // border-collapse: collapse;
+}
+
+body {
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 1rem;
+    line-height: 1.5rem;
+    display: table;
+    margin: 0;
+    width: 100vw;
+    background-color: $web-background;
+  }
+
+  .tblRow{
+      width: 100%;
+  }
+  .topSpacer{
+      width: 100%;
+      height: 10vh;
+  }
+  .pageWrapper{
+    text-align: center;
+    width: 100%;
+
+    & .frmWrapper{
+        text-align: center;
+        width: 100%;
+        background-color: #fff;
+        // width:colWidth(7);
+        width:140px;
+        padding: 1.25rem;
+        margin: auto;
+
+        & .frmLogo{
+            padding: 0.75rem 1rem;
+            // height: 50px;
+
+            & img{
+                height:100px;
+            }
+        }
+
+        & .frmTitle{
+            width: 100%;
+            color: $primary;
+            font-size: 1.25rem;
+            line-height: 1.75rem;
+            padding: 0.75rem 1rem;
+        }
+
+        & .frmText{
+            width: 100%;
+            color: $textbox-placeHolder-color;
+            font-size: 1rem;
+            line-height: 1.25rem;
+            padding: 0.75rem 1rem;
+        }
+
+        & .frmButton{
+            width: 100%;
+            padding: 1rem 0rem;
+
+            & .formButton{
+                background-color: $primary;
+                border: 2px $primary solid;
+                color: #fff;
+                padding: .5rem 1rem;
+                font-size: 1.25rem;
+                line-height: 1.5;
+                border-radius: .3rem;
+                text-decoration: none;
+            }
+        }
+        
+    }
+  }
+
+  @media (min-width: 1025px) {}
+@media (min-width: 767px) and (max-width: 1024px) {
+
+    .pageWrapper{
+    
+        & .frmWrapper{
+
+            & .frmTitle{
+                font-size: 1.20rem;
+            }
+    
+            & .frmText{
+                font-size: 0.85rem;
+                line-height: 1.20rem;
+            }
+    
+            & .frmButton{
+    
+                & .formButton{
+                    font-size: 1.20rem;
+                }
+            }
+            
+        }
+    }
+}
+@media (max-width: 766px) {
+    body{
+        background-color: #fff;
+    }
+    .pageWrapper{
+    
+        & .frmWrapper{
+            width: colWidth(12);
+
+            & .frmTitle{
+                font-size: 1rem;
+            }
+    
+            & .frmText{
+                font-size: 0.75rem;
+                line-height: 1rem;
+            }
+    
+            & .frmButton{
+    
+                & .formButton{
+                    font-size: 1rem;
+                }
+            }
+            
+        }
+    }
+}
