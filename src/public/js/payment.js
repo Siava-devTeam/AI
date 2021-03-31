@@ -86,6 +86,9 @@ app.init = function(){
     app.setModalCloseButton();
     if (payment.validatePage()){
         payment.setFormButton();
+    }else{
+        var base = window.location.origin;
+        window.location.href = base+"/signin.html";
     }
 };
 

@@ -114,7 +114,9 @@ app.init = function(){
     profileAddress.setRegionCountryState();
     if (profileAddress.validatePage()){
         profileAddress.setFormButton();
-
+    }else{
+        var base = window.location.origin;
+        window.location.href = base+"/signin.html";
     }
 };
 
