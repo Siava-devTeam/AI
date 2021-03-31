@@ -1,6 +1,7 @@
 const nodemailer = require('nodemailer');
 const config = require('../../config');
 const bcrypt = require('bcrypt');
+const path = require('path');
 
 helpers={};
 
@@ -24,90 +25,77 @@ helpers.sendConfirmationMail = async function(link, userInfo){
     try{
         
         //Mail Style
-        var mailWrapperStyle=`
-            width:100%;
-            border:none;
-            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-            box-sizing: border-box;`;
-        var mailHeadStyle=`
-            width: 100%;
-            height: 10vh;
-            font-size: 1.4rem;
-            text-align: center;
-            padding: 1rem;
-            background-color: teal;
-            color: #eee;`;
-        var mailBodyStyle=`
-            padding: 1rem;
-            width: 100%;
-            font-size: 1rem;
-            background-color: #eee;
-            text-align: center;`;
-        var mailTrow=`
-            width:100%;`;
-        var line1Style=`
-            font-size:1.1rem;
-            font-weight: 400px;
-            width: 100%;`;
-        var line2Style=`
-            font-size:0.8rem;
-            font-weight: 400px;
-            width: 100%;`;
-        var linkStyle=`
-            color: blue;width: 100%;`;
+        const pageWrapper = `
+        line-height: 1.5rem;
+        display: table;
+        margin: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: #F3F4F6;
+        text-align: center;`;
+
+        const tblRow = `width: 100%;`;
         
-        //Mail Body
-        // const mailBody=`
-        // <table  cellspacing="0" cellpadding="0" style="${mailWrapperStyle}">
-        //     <tr style="${mailTrow}">
-        //         <td  style="${mailHeadStyle}">Welcome to Automated Immigration System</td>
-        //     </tr>
-        //     <tr style="${mailTrow}">
-        //         <td style="${mailBodyStyle}">
-        //             <table style="${mailBodyStyle}" cellspacing="0" cellpadding="5rem 0">
-        //                 <tr style="${mailTrow}">
-        //                     <td  style="${line1Style}">
-        //                         Please confirm your email by clicking on following link: 
-        //                     </td>
-        //                 </tr>
-        //                 <tr style="${mailTrow}">
-        //                     <td style="${line2Style}">
-        //                         (In case of any problem, copy and paste the address in your browser's address bar)
-        //                     </td>
-        //                 </tr>
-        //                 <tr style="${mailTrow}">
-        //                     <td>
-        //                         <a style="${linkStyle}" href="${link}" target="_blank">${link}</a>
-        //                     </td>
-        //                 </tr>
-        //             </table>
-        //         </td>
-        //     </tr>
-        // </table>`;
+        const frmWrapper = `
+        text-align: center;
+        background-color: #fff;
+        width:500px;
+        padding: 1.25rem;
+        margin: auto;`;
+        
+        const frmLogo = `
+        padding: 0.75rem 1rem;
+        width: 100%;`;
+        
+        const frmLogoImg =`width:400px;`;
+
+        const frmTitle = `
+        width: 100%;
+        color: #60A5FA;
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+        padding: 0.75rem 1rem;`;
+        
+        const frmText = `
+        width: 100%;
+        color: #9CA3AF;
+        font-size: 1rem;
+        line-height: 1.25rem;
+        padding: 0.75rem 1rem;`;
+        
+        const frmButton = `
+        width: 100%;
+        padding: 1rem 0rem;`;
+        
+        const formButton = `
+        background-color: #60A5FA;
+        border: 2px #60A5FA solid;
+        color: #fff;
+        padding: .5rem 1rem;
+        font-size: 1.25rem;
+        line-height: 1.5;
+        border-radius: .3rem;
+        text-decoration: none;`;
 
         const mailBody=`
-        <link rel="stylesheet" href="${config.base}/css/mailTemplate.css">
-        <table class="pageWrapper">
-            <tr class="tblRow">
-                <td class="topSpacer"></td>
-            </tr>
-            <tr class="tblRow">
+        <table style="${pageWrapper}">
+            <tr style="${tblRow}">
                 <td>
-                    <table class="frmWrapper">
-                        <tr class="tblRow">
-                            <td class="frmLogo">
-                                <img src="./images/aiRect.svg">
+                    <table style="${frmWrapper}">
+                        <tr style="${tblRow}">
+                            <td style="${frmLogo}">
+                            <img style="${frmLogoImg}" src="cid:confirmationPagelogo"/>
                             </td>
                         </tr>
-                        <tr class="tblRow">
-                            <td class="frmTitle">Welcome to Automated Immigration System</td>
+                        <tr style="${tblRow}">
+                            <td style="${frmTitle}">Welcome to Automated Immigration System</td>
                         </tr>
-                        <tr class="tblRow">
-                            <td class="frmText">Please confirm your email by clicking on following link</td>
+                        <tr style="${tblRow}">
+                            <td style="${frmText}">Please confirm your email by clicking on following link</td>
                         </tr>
-                        <tr class="tblRow">
-                            <td class="frmButton">
-                                <a class="formButton" href="${link}" target="_blank">Continue Registration</button>
+                        <tr style="${tblRow}">
+                            <td style="${frmButton}">
+                                <a style="${formButton}" href="${link}" target="_blank">Continue Registration</button>
                             </td>
                         </tr>
                     </table>
@@ -125,6 +113,16 @@ helpers.sendConfirmationMail = async function(link, userInfo){
             to: userInfo.email,
             subject: `Please Confirm you email ${userInfo.firstName}`,
             html:mailBody,
+            attachments: [
+    
+                {
+                  filename: 'aiRect.png',
+                  path: path.join(__dirname,'../','../','src','public','images','aiRect.png'),
+                  cid: 'confirmationPagelogo',
+    
+                },
+    
+            ]
         });
 
         return({

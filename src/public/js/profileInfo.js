@@ -183,6 +183,9 @@ app.init = function(){
     if (profileInfo.validatePage()){
         profileInfo.setFormButton();
         profileInfo.loadUserInfo();
+    }else{
+        var base = window.location.origin;
+        window.location.href = base+"/signin.html";
     }
     const elem = document.querySelector('input[name="dob"]');
     const datepicker = new Datepicker(elem, {});

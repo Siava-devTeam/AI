@@ -24,77 +24,45 @@ profileBillingAddress.validateRequired = function(filedId){
 };
 
 profileBillingAddress.validateForm = function(callback){
-    if (profileBillingAddress.validateRequired('txtCountry')){
-        if (profileBillingAddress.validateRequired('txtStreetNumber')){
-            if (profileBillingAddress.validateRequired('txtStreetName')){
-                if (profileBillingAddress.validateRequired('txtProvince')){
-                    if (profileBillingAddress.validateRequired('txtZip')){
-                        //SUBMIT FORM
-                        callback ("valid","valid");
-
-                    }else{
-                        callback('Zip Code Field', "Zip Code cannot be empty!")
-                    }
+    if (profileBillingAddress.validateRequired('selRegion')){
+        if (profileBillingAddress.validateRequired('selCountry')){
+            if (profileBillingAddress.validateRequired('txtAddress1')){
+                if (profileBillingAddress.validateRequired('txtZip')){
+                    callback ("valid","valid");
                 }else{
-                    callback('Province Field', "Province cannot be empty!");
+                    callback('Zip code empty', "Please type-in your zip code!");
                 }
             }else{
-                callback('Street Name Field', "Street Number  cannot be empty!")
+                callback('Address Empty', "Please type-in your address!")
             }
         }else{
-            callback('Street Number Field', "Street Number  cannot be empty!")
+            callback('Country Empty', "Please Choose a country!")
         }
     }else{
-        callback('Country Field', "Country cannot be empty!")
+        callback('Region Empty', "Please Choose your region!")
     }
 
 };
 
-profileBillingAddress.validateForm = function(callback){
-    if (profileBillingAddress.validateRequired('txtCountry')){
-        if (profileBillingAddress.validateRequired('txtStreetNumber')){
-            if (profileBillingAddress.validateRequired('txtStreetName')){
-                if (profileBillingAddress.validateRequired('txtProvince')){
-                    if (profileBillingAddress.validateRequired('txtZip')){
-                        //SUBMIT FORM
-                        callback ("valid","valid");
-
-                    }else{
-                        callback('Zip Code Field', "Zip Code cannot be empty!")
-                    }
-                }else{
-                    callback('Province Field', "Province cannot be empty!");
-                }
-            }else{
-                callback('Street Name Field', "Street Number  cannot be empty!")
-            }
-        }else{
-            callback('Street Number Field', "Street Number  cannot be empty!")
-        }
-    }else{
-        callback('Country Field', "Country cannot be empty!")
-    }
-
-};
 profileBillingAddress.handleUserAddressSubmission = function(){
     profileBillingAddress.validateForm(function(title, message){
         if (title == 'valid'){
-            var userCountry = document.getElementById('txtCountry').value.trim();
-            var userStreetNumber = document.getElementById('txtStreetNumber').value.trim();
-            var userStreetName =  document.getElementById('txtStreetName').value.trim();
-            var userUnit =  document.getElementById('txtUnit').value.trim();
-            var userProvince =  document.getElementById('txtProvince').value.trim();
+            var userRegion = document.getElementById('selRegion').value.trim();
+            var userCountry = document.getElementById('selCountry').value.trim();
+            var userState =  document.getElementById('selState').value.trim();
+            var userAddress1 =  document.getElementById('txtAddress1').value.trim();
+            var userAddress2 =  document.getElementById('txtAddress2').value.trim();
             var userZipCode =  document.getElementById('txtZip').value.trim();
 
             var pageToken = JSON.parse(window.localStorage.getItem('aiAppData'));
             var formData={
-                'type':'billingAddress',
+                'type':'homeAddress',
                 'token': pageToken['regToken'],
+                'region':userRegion,
                 'country':userCountry,
-                'streetNumber':userStreetNumber,
-                'streetName':userStreetName,
-                'unit':userUnit,
-                'province':userProvince,
+                'state':userState,
+                'address1':userAddress1,
+                'address2':userAddress2,
                 'zipCode':userZipCode,
             };
 
@@ -132,41 +100,45 @@ profileBillingAddress.setFormButton = function(){
 
 profileBillingAddress.setTextField = function(fieldId,fieldValue){
     var field = document.getElementById(fieldId);
-    field.focus();
     field.value = fieldValue;
-    field.blur();
 };
 profileBillingAddress.setInitialFormFields = function(data){
 
-    profileBillingAddress.setTextField('txtCountry',data.country);
-    profileBillingAddress.setTextField('txtProvince',data.province);
-    profileBillingAddress.setTextField('txtStreetName',data.streetName);
-    profileBillingAddress.setTextField('txtStreetNumber',data.streetNumber);
-    profileBillingAddress.setTextField('txtUnit',data.unit);
+    profileBillingAddress.setTextField('selRegion',data.region);
+    var regionField = document.getElementById('selRegion');
+    set_country();
+
+    profileBillingAddress.setTextField('selCountry',data.country);
+    var countryField = document.getElementById('selCountry');
+    set_city_state();
+
+    profileBillingAddress.setTextField('selState',data.state);
+    profileBillingAddress.setTextField('txtAddress1',data.address1);
+    profileBillingAddress.setTextField('txtAddress2',data.address2);
     profileBillingAddress.setTextField('txtZip',data.zipCode);
     
 };
 
-profileBillingAddress.loadUserInfo = function(){
+
+profileBillingAddress.loadUserInfo = async function(){
     var aiAppData = JSON.parse(window.localStorage.getItem('aiAppData'))
     var token = aiAppData['regToken'];
     
     var base = window.location.origin;
-    axios({
+    await axios({
         method: "get",
         url: `${base}/api/v1/user/getAddressByToken?t=${token}`,
         timeout: 1000 * 5, // Wait for 5 seconds
     })
-    .then(function(res){
+    .then(async function(res){
         var userData = res.data.data;
         // aiAppData['email'] = userData.email;
         // window.localStorage.setItem('aiAppData',JSON.stringify(aiAppData));
-        profileBillingAddress.setInitialFormFields(userData);
-        console.log(userData);
+        await profileBillingAddress.setInitialFormFields(userData);
         
     }).catch(function(err){
+        console.log(err.response);
         if (typeof(err.response)=="undefined"){
-            console.log(err.response);
             app.showModal('error','Something went wrong!',"Request timeout!");
         }else{
             app.showModal('error','Something went wrong!',err.response.data.data);
@@ -174,12 +146,40 @@ profileBillingAddress.loadUserInfo = function(){
     });
 };
 
+profileBillingAddress.handleCheckbox = async function(){
+    var frmCheckBox = document.getElementById('addressCheck');
+    if (frmCheckBox.checked){
+        await profileBillingAddress.loadUserInfo();
+    }
+};
+
+profileBillingAddress.setCheckBox = function(){
+    var frmCheckBox = document.getElementById('addressCheck');
+    frmCheckBox.addEventListener('change',function(){
+        profileBillingAddress.handleCheckbox();
+    });
+}
+
+profileBillingAddress.setRegionCountryState = function(){
+    var regionSelect = document.getElementById('selRegion');
+    regionSelect.addEventListener('change',function(){
+        set_country();
+    });
+    var countrySelect  = document.getElementById('selCountry');
+    countrySelect.addEventListener('change',function(){
+        set_city_state();
+    });
+};
+
 app.init = function(){
     app.setModalCloseButton();
-    // app.setTexBoxGroups();
+    profileBillingAddress.setRegionCountryState();
     if (profileBillingAddress.validatePage()){
         profileBillingAddress.setFormButton();
-        profileBillingAddress.loadUserInfo();
+        profileBillingAddress.setCheckBox();
+    }else{
+        var base = window.location.origin;
+        window.location.href = base+"/signin.html";
     }
 };
 

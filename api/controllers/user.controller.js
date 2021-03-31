@@ -8,8 +8,8 @@ var user={};
 // TO DO on this page
 /*
     1.add projection when reading a file from Database
-    2.i user.exist:
-        ->Resend Email if initReg
+    2.if user.exist:
+        ->Resend Email if initReg DONE!
         ->redirect to signin if paid
 
 */
@@ -321,26 +321,25 @@ user.updateUserAddressByToken = async function(req,res,next){
         .then(async function(userData){
 
             var addressType = ((req.body.type)&&(typeof(req.body.type))!== 'undefined')?req.body.type:false;
-            var userCountry = ((req.body.country)&&(typeof(req.body.country))!== 'undefined')?req.body.country:false;
-            var userStreetNumber = ((req.body.streetNumber)&&(typeof(req.body.streetNumber)!== 'undefined'))?req.body.streetNumber:false;
-            var userStreetName = ((req.body.streetName)&&(typeof(req.body.streetName)!== 'undefined'))?req.body.streetName:false;
-            var userUnit = ((req.body.unit)&&(typeof(req.body.unit)!== 'undefined'))?req.body.unit:"";
-            var userProvince = ((req.body.province)&&(typeof(req.body.province)!== 'undefined'))?req.body.province:false;
+            var userRegion = ((req.body.region)&&(typeof(req.body.region))!== 'undefined')?req.body.region:false;
+            var userCountry = ((req.body.country)&&(typeof(req.body.country)!== 'undefined'))?req.body.country:false;
+            var userState = ((req.body.state)&&(typeof(req.body.state)!== 'undefined'))?req.body.state:"";
+            var userAddress1 = ((req.body.address1)&&(typeof(req.body.address1)!== 'undefined'))?req.body.address1:false;
+            var userAddress2 = ((req.body.address2)&&(typeof(req.body.address2)!== 'undefined'))?req.body.address2:"";
             var userZipCode = ((req.body.zipCode)&&(typeof(req.body.zipCode)!== 'undefined'))?req.body.zipCode:false;
 
-            if (userCountry && userStreetNumber && userStreetName && userProvince && userZipCode){
+            if (userRegion && userCountry && userAddress1 && userZipCode){
             
                 // console.log("data Valid");
 
                 var addressObject = {};
                 addressObject[addressType] = {
+                    'region':userRegion,
                     'country':userCountry,
-                    'streetNumber':userStreetNumber,
-                    'streetName':userStreetName,
-                    'unit':userUnit,
-                    'province':userProvince,
+                    'state':userState,
+                    'address1':userAddress1,
+                    'address2':userAddress2,
                     'zipCode':userZipCode,
-
                 }
 
                 // console.log(addressObject);
@@ -535,48 +534,27 @@ user.initialRegistration = async function(req,res,next){
                 //redirect to signin if paid
                 // ---------------------------------------???
 
-                //Resend Email
-                var token;
-                var tokenData = await tokenDAO.getTokenByEmail(userEmail);
-                if ((tokenData.type=='success') && (tokenData.data)){
-                    token = tokenData.data.token;
-                    //===========
-                    //Send Email
-                    var outgoingEmail=await helpers.sendConfirmationMail(`${config.base}/profileInfo.html?t=${token}`,userObject);
-                    if (outgoingEmail.type=='success'){
-                        messageStatus = 200;
-                        messageText={
-                            'type':'success',
-                            'data':'You have profile with us. We have sent you an Email. Please confirm your email and continue the registration process.'
-                        };
-                    }else{
-                        messageStatus = 500;
-                        messageText={
-                            'type':'error',
-                            'data':outgoingEmail.data
-                        };
-                    }
-                    //=============
-
+                // console.log(userData.data.status);
+                if (userData.data.status=='paid'){
+                    messageStatus = 200;
+                    messageText={
+                        'type':'success',
+                        'data':'paid'
+                    };
                 }else{
-                    token = await helpers.createToken(20);
-
-                    //======================
-                    var tokenInfo={
-                        "email":userEmail,
-                        "token":token,
-                    }
-
-                    var insertTokenData = await tokenDAO.addToken(tokenInfo);
-                    if (insertTokenData.type=='success'){
-
-                        //Send Email
-                        var outgoingEmail=await helpers.sendConfirmationMail(`${config.base}/profileinfo.html?t=${token}`,userObject);
+                    //Resend Email
+                    var token;
+                    var tokenData = await tokenDAO.getTokenByEmail(userEmail);
+                    if ((tokenData.type=='success') && (tokenData.data)){
+                        token = tokenData.data.token;
+                        //===========
+                        // Send Email
+                        var outgoingEmail=await helpers.sendConfirmationMail(`${config.base}/profileInfo.html?t=${token}`,userObject);
                         if (outgoingEmail.type=='success'){
                             messageStatus = 200;
                             messageText={
                                 'type':'success',
-                                'data':'You have a profile wit us. We have sent you an Email. Please confirm your email and continue the registration process.'
+                                'data':'You have profile with us. We have sent you an Email. Please confirm your email and continue the registration process.'
                             };
                         }else{
                             messageStatus = 500;
@@ -585,18 +563,49 @@ user.initialRegistration = async function(req,res,next){
                                 'data':outgoingEmail.data
                             };
                         }
+                        //=============
 
                     }else{
-                        messageStatus = 500;
-                        messageText={
-                            'type':'error',
-                            'data':insertTokenData.data
-                        };
-                    }
+                        token = await helpers.createToken(20);
 
-                    //====================
-                    
+                        //======================
+                        var tokenInfo={
+                            "email":userEmail,
+                            "token":token,
+                        }
+
+                        var insertTokenData = await tokenDAO.addToken(tokenInfo);
+                        if (insertTokenData.type=='success'){
+
+                            //Send Email
+                            var outgoingEmail=await helpers.sendConfirmationMail(`${config.base}/profileinfo.html?t=${token}`,userObject);
+                            if (outgoingEmail.type=='success'){
+                                messageStatus = 200;
+                                messageText={
+                                    'type':'success',
+                                    'data':'You have a profile wit us. We have sent you an Email. Please confirm your email and continue the registration process.'
+                                };
+                            }else{
+                                messageStatus = 500;
+                                messageText={
+                                    'type':'error',
+                                    'data':outgoingEmail.data
+                                };
+                            }
+
+                        }else{
+                            messageStatus = 500;
+                            messageText={
+                                'type':'error',
+                                'data':insertTokenData.data
+                            };
+                        }
+
+                        //====================
+                        
+                    }
                 }
+                
             }
 
         }else{

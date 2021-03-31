@@ -2130,7 +2130,7 @@
   padding: 1rem;
 }
 
-.p-5, .formWrapper .formHeader, .formWrapper .formBody {
+.p-5, .formWrapper {
   padding: 1.25rem;
 }
 
@@ -2259,7 +2259,7 @@
   padding-bottom: 0.5rem;
 }
 
-.px-2, .formWrapper, .formWrapper .formBody .formSelectGroup, .formWrapper .formBody .formTextGroup {
+.px-2, .formWrapper .formBody .addressCheck, .formWrapper .formBody .formSelectGroup, .formWrapper .formBody .formTextGroup {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
@@ -2284,7 +2284,7 @@
   padding-right: 1rem;
 }
 
-.py-5, .formWrapper {
+.py-5 {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
 }
@@ -2624,7 +2624,7 @@
   padding-left: 1rem;
 }
 
-.pt-5 {
+.pt-5, .formWrapper .formBody {
   padding-top: 1.25rem;
 }
 
@@ -2632,7 +2632,7 @@
   padding-right: 1.25rem;
 }
 
-.pb-5 {
+.pb-5, .formWrapper .formHeader {
   padding-bottom: 1.25rem;
 }
 
@@ -3060,7 +3060,7 @@
   display: inline-flex;
 }
 
-.flex-row, .formWrapper .frow {
+.flex-row, .formWrapper .frow, .formWrapper .formBody .formSelectGroup {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -3074,7 +3074,7 @@
           flex-direction: row-reverse;
 }
 
-.flex-column, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .messageText, .modalWrapper .messageWrapper .modalButton, body, .appWrapper, .formWrapper, .formWrapper .formHeader, .formWrapper .formBody, .formWrapper .formBody .formTitle, .formWrapper .formBody .formSelectGroup, .formWrapper .formBody .formTextGroup {
+.flex-column, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .messageText, .modalWrapper .messageWrapper .modalButton, body, .appWrapper, .formWrapper, .formWrapper .formHeader, .formWrapper .formBody, .formWrapper .formBody .formTitle, .formWrapper .formBody .formTextGroup {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -3103,7 +3103,7 @@
       flex-wrap: nowrap;
 }
 
-.align-items-start, .formWrapper .formBody .formSelectGroup, .formWrapper .formBody .formTextGroup {
+.align-items-start, .formWrapper .formBody .formTextGroup {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
@@ -3115,7 +3115,7 @@
           align-items: flex-end;
 }
 
-.align-items-center, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .messageText, .modalWrapper .messageWrapper .modalButton, body, .appWrapper, .formWrapper .frow, .formWrapper .formHeader, .formWrapper .formBody, .formWrapper .formBody .formTitle {
+.align-items-center, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .messageText, .modalWrapper .messageWrapper .modalButton, body, .appWrapper, .formWrapper .frow, .formWrapper .formHeader, .formWrapper .formBody, .formWrapper .formBody .formTitle, .formWrapper .formBody .formSelectGroup {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -3211,7 +3211,7 @@
   justify-items: stretch;
 }
 
-.justify-content-start {
+.justify-content-start, .formWrapper .formBody .formSelectGroup {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
@@ -3223,7 +3223,7 @@
           justify-content: flex-end;
 }
 
-.justify-content-center, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .messageText, .modalWrapper .messageWrapper .modalButton, body, .appWrapper, .formWrapper .frow, .formWrapper .formHeader, .formWrapper .formBody, .formWrapper .formBody .formTitle, .formWrapper .formBody .formSelectGroup, .formWrapper .formBody .formTextGroup {
+.justify-content-center, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .messageText, .modalWrapper .messageWrapper .modalButton, body, .appWrapper, .formWrapper .frow, .formWrapper .formHeader, .formWrapper .formBody, .formWrapper .formBody .formTitle, .formWrapper .formBody .formTextGroup {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -3398,7 +3398,6 @@ body {
 
 .formWrapper .formHeader {
   color: #60A5FA;
-  height: 60px;
 }
 
 .formWrapper .formHeader img {
@@ -3406,6 +3405,24 @@ body {
 }
 
 .formWrapper .formBody .formTitle {
+  color: #60A5FA;
+}
+
+.formWrapper .formBody .addressCheck {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   color: #60A5FA;
 }
 
