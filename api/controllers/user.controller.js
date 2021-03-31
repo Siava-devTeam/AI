@@ -534,48 +534,27 @@ user.initialRegistration = async function(req,res,next){
                 //redirect to signin if paid
                 // ---------------------------------------???
 
-                //Resend Email
-                var token;
-                var tokenData = await tokenDAO.getTokenByEmail(userEmail);
-                if ((tokenData.type=='success') && (tokenData.data)){
-                    token = tokenData.data.token;
-                    //===========
-                    //Send Email
-                    var outgoingEmail=await helpers.sendConfirmationMail(`${config.base}/profileInfo.html?t=${token}`,userObject);
-                    if (outgoingEmail.type=='success'){
-                        messageStatus = 200;
-                        messageText={
-                            'type':'success',
-                            'data':'You have profile with us. We have sent you an Email. Please confirm your email and continue the registration process.'
-                        };
-                    }else{
-                        messageStatus = 500;
-                        messageText={
-                            'type':'error',
-                            'data':outgoingEmail.data
-                        };
-                    }
-                    //=============
-
+                // console.log(userData.data.status);
+                if (userData.data.status=='paid'){
+                    messageStatus = 200;
+                    messageText={
+                        'type':'success',
+                        'data':'paid'
+                    };
                 }else{
-                    token = await helpers.createToken(20);
-
-                    //======================
-                    var tokenInfo={
-                        "email":userEmail,
-                        "token":token,
-                    }
-
-                    var insertTokenData = await tokenDAO.addToken(tokenInfo);
-                    if (insertTokenData.type=='success'){
-
-                        //Send Email
-                        var outgoingEmail=await helpers.sendConfirmationMail(`${config.base}/profileinfo.html?t=${token}`,userObject);
+                    //Resend Email
+                    var token;
+                    var tokenData = await tokenDAO.getTokenByEmail(userEmail);
+                    if ((tokenData.type=='success') && (tokenData.data)){
+                        token = tokenData.data.token;
+                        //===========
+                        // Send Email
+                        var outgoingEmail=await helpers.sendConfirmationMail(`${config.base}/profileInfo.html?t=${token}`,userObject);
                         if (outgoingEmail.type=='success'){
                             messageStatus = 200;
                             messageText={
                                 'type':'success',
-                                'data':'You have a profile wit us. We have sent you an Email. Please confirm your email and continue the registration process.'
+                                'data':'You have profile with us. We have sent you an Email. Please confirm your email and continue the registration process.'
                             };
                         }else{
                             messageStatus = 500;
@@ -584,18 +563,49 @@ user.initialRegistration = async function(req,res,next){
                                 'data':outgoingEmail.data
                             };
                         }
+                        //=============
 
                     }else{
-                        messageStatus = 500;
-                        messageText={
-                            'type':'error',
-                            'data':insertTokenData.data
-                        };
-                    }
+                        token = await helpers.createToken(20);
 
-                    //====================
-                    
+                        //======================
+                        var tokenInfo={
+                            "email":userEmail,
+                            "token":token,
+                        }
+
+                        var insertTokenData = await tokenDAO.addToken(tokenInfo);
+                        if (insertTokenData.type=='success'){
+
+                            //Send Email
+                            var outgoingEmail=await helpers.sendConfirmationMail(`${config.base}/profileinfo.html?t=${token}`,userObject);
+                            if (outgoingEmail.type=='success'){
+                                messageStatus = 200;
+                                messageText={
+                                    'type':'success',
+                                    'data':'You have a profile wit us. We have sent you an Email. Please confirm your email and continue the registration process.'
+                                };
+                            }else{
+                                messageStatus = 500;
+                                messageText={
+                                    'type':'error',
+                                    'data':outgoingEmail.data
+                                };
+                            }
+
+                        }else{
+                            messageStatus = 500;
+                            messageText={
+                                'type':'error',
+                                'data':insertTokenData.data
+                            };
+                        }
+
+                        //====================
+                        
+                    }
                 }
+                
             }
 
         }else{
