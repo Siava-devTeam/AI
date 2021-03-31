@@ -23,28 +23,22 @@ profileAddress.validateRequired = function(filedId){
     return true;
 };
 profileAddress.validateForm = function(callback){
-    if (profileAddress.validateRequired('txtCountry')){
-        if (profileAddress.validateRequired('txtStreetNumber')){
-            if (profileAddress.validateRequired('txtStreetName')){
-                if (profileAddress.validateRequired('txtProvince')){
-                    if (profileAddress.validateRequired('txtZip')){
-                        //SUBMIT FORM
-                        callback ("valid","valid");
-
-                    }else{
-                        callback('Zip Code Field', "Zip Code cannot be empty!")
-                    }
+    if (profileAddress.validateRequired('selRegion')){
+        if (profileAddress.validateRequired('selCountry')){
+            if (profileAddress.validateRequired('txtAddress1')){
+                if (profileAddress.validateRequired('txtZip')){
+                    callback ("valid","valid");
                 }else{
-                    callback('Province Field', "Province cannot be empty!");
+                    callback('Zip code empty', "Please type-in your zip code!");
                 }
             }else{
-                callback('Street Name Field', "Street Number  cannot be empty!")
+                callback('Address Empty', "Please type-in your address!")
             }
         }else{
-            callback('Street Number Field', "Street Number  cannot be empty!")
+            callback('Country Empty', "Please Choose a country!")
         }
     }else{
-        callback('Country Field', "Country cannot be empty!")
+        callback('Region Empty', "Please Choose your region!")
     }
 
 };
@@ -52,22 +46,22 @@ profileAddress.validateForm = function(callback){
 profileAddress.handleUserAddressSubmission = function(){
     profileAddress.validateForm(function(title, message){
         if (title == 'valid'){
-            var userCountry = document.getElementById('txtCountry').value.trim();
-            var userStreetNumber = document.getElementById('txtStreetNumber').value.trim();
-            var userStreetName =  document.getElementById('txtStreetName').value.trim();
-            var userUnit =  document.getElementById('txtUnit').value.trim();
-            var userProvince =  document.getElementById('txtProvince').value.trim();
+            var userRegion = document.getElementById('selRegion').value.trim();
+            var userCountry = document.getElementById('selCountry').value.trim();
+            var userState =  document.getElementById('selState').value.trim();
+            var userAddress1 =  document.getElementById('txtAddress1').value.trim();
+            var userAddress2 =  document.getElementById('txtAddress2').value.trim();
             var userZipCode =  document.getElementById('txtZip').value.trim();
 
             var pageToken = JSON.parse(window.localStorage.getItem('aiAppData'));
             var formData={
                 'type':'homeAddress',
                 'token': pageToken['regToken'],
+                'region':userRegion,
                 'country':userCountry,
-                'streetNumber':userStreetNumber,
-                'streetName':userStreetName,
-                'unit':userUnit,
-                'province':userProvince,
+                'state':userState,
+                'address1':userAddress1,
+                'address2':userAddress2,
                 'zipCode':userZipCode,
             };
 
@@ -104,11 +98,23 @@ profileAddress.setFormButton = function(){
     });
 };
 
+profileAddress.setRegionCountryState = function(){
+    var regionSelect = document.getElementById('selRegion');
+    regionSelect.addEventListener('change',function(){
+        set_country();
+    });
+    var countrySelect  = document.getElementById('selCountry');
+    countrySelect.addEventListener('change',function(){
+        set_city_state();
+    });
+};
+
 app.init = function(){
     app.setModalCloseButton();
-    // app.setTexBoxGroups();
+    profileAddress.setRegionCountryState();
     if (profileAddress.validatePage()){
         profileAddress.setFormButton();
+
     }
 };
 

@@ -36,45 +36,59 @@
                     </div>
                 </div>
                 <div class="frow">
+                    <div class="addressCheck">
+                        <input type="checkbox" id="addressCheck" onchange="profileBillingAddress.handleCheckbox()">
+                        Same as home address
+                    </div>
+                </div>
+                <div class="frow">
                     <!-- Left Field -->
+                    <div class="formSelectGroup">
+                        <select id="selRegion" class="formSelect" onchange="set_country()">
+                            <option value="" selected="selected">SELECT REGION</option>
+                            <option value=""></option>
+                            <option value="Africa">Africa</option>
+                            <option value="Antarctica">Antarctica</option>
+                            <option value="Asia">Asia</option>
+                            <option value="Australia/Oceania">Australia/Oceania</option>
+                            <option value="Caribbean">Caribbean</option>
+                            <option value="Central America">Central America</option>
+                            <option value="Europe">Europe</option>
+                            <option value="Islands">Islands</option>
+                            <option value="Middle East">Middle East</option>
+                            <option value="North America">North America</option>
+                            <option value="South America">South America</option>
+                        </select>
+                    </div>
+                    <!-- Right Field -->
                     <div class="formTextGroup">
                         <!-- <div class="formLabel">Street Number</div> -->
-                        <input class="formTextbox" type="text" id="txtStreetNumber" 
-                        name="txtStreetNumber" placeholder="Street Number"/>
-                    </div>
-                    <!-- Right Field -->
-                    <div class="formTextGroup">
-                        <!-- <div class="formLabel">Country</div> -->
-                        <input class="formTextbox" type="text" id="txtCountry" 
-                        name="txtCountry" placeholder="Country"/>
+                        <input class="formTextbox" type="text" id="txtAddress1" 
+                        name="txtStreetInfo" placeholder="Address Line 1 ..."/>
                     </div>
                 </div>
                 <div class="frow">
                     <!-- Left Field -->
-                    <div class="formTextGroup">
-                        <!-- <div class="formLabel">Street Name</div> -->
-                        <input class="formTextbox" type="text" id="txtStreetName" 
-                        name="txtStreetName" placeholder="Street Name"/>
+                    <div class="formSelectGroup">
+                        <select id="selCountry"  class="formSelect" onchange="set_city_state()"></select>
                     </div>
                     <!-- Right Field -->
-                    <div class="formTextGroup">
-                        <!-- <div class="formLabel">Province</div> -->
-                        <input class="formTextbox" type="text" id="txtProvince" 
-                        name="txtProvince" placeholder="Province"/>
-                    </div>
-                </div>
-                <div class="frow">
-                    <!-- Left Field -->
                     <div class="formTextGroup">
                         <!-- <div class="formLabel">Unit, Suite ... </div> -->
-                        <input class="formTextbox" type="text" id="txtUnit" 
-                        name="txtUnit" placeholder="Unit, Suite ... "/>
+                        <input class="formTextbox" type="text" id="txtAddress2" 
+                        name="txtUnit"  placeholder="Address Line 2 ..."/>
+                    </div>
+                </div>
+                <div class="frow">
+                    <!-- Left Field -->
+                    <div class="formSelectGroup">
+                        <select id="selState" class="formSelect"></select>
                     </div>
                     <!-- Right Field -->
                     <div class="formTextGroup">
                         <!-- <div class="formLabel">Zip Code</div> -->
                         <input class="formTextbox" type="text" id="txtZip" 
-                        name="txtZip" placeholder="Zip Code"/>
+                        name="txtZip" placeholder="Zip/Postal Code"/>
                     </div>
                 </div>
                 <div class="frow">
@@ -86,5 +100,6 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/profileBillingAddress.js"></script>
+    <script type="text/javascript" src="js/city_state.js"></script>
 </body>
 </html>
