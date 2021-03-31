@@ -7,7 +7,7 @@ body{
 
 .vrow{
     @extend .display-flex, .flex-column;
-    @extend .col-12, .py-1;
+    @extend .col-12, .p-1;
 }
 
 .appWrapper{
@@ -27,9 +27,18 @@ body{
         @extend .text-2xl,.p-5;
     }
 
+    // & .headerImage{
+    //     @extend .display-flex, .flex-column;
+    //     @extend .pb-5;
+    // }
     & .headerImage{
-        @extend .display-flex, .flex-column;
-        @extend .py-5;
+        color: $primary;
+        @extend .display-flex, .flex-column, .justify-content-center, .align-items-center; 
+        @extend .text-2xl, .pb-5, .col-12;
+
+        & img{
+            height: 60px;
+        }
     }
 
     & .formTextGroup{

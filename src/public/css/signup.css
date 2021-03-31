@@ -91,7 +91,7 @@
   width: 91.66667%;
 }
 
-.col-12, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .messageText, .modalWrapper .messageWrapper .modalButton, .vrow, .formWrapper .formTextGroup, .formWrapper .formTextGroup .formTextbox, .formWrapper .formTextGroup .iti, .formWrapper .formSubtitle {
+.col-12, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .messageText, .modalWrapper .messageWrapper .modalButton, .vrow, .formWrapper .headerImage, .formWrapper .formTextGroup, .formWrapper .formTextGroup .formTextbox, .formWrapper .formTextGroup .iti, .formWrapper .formSubtitle {
   width: 100%;
 }
 
@@ -133,7 +133,7 @@
   line-height: 1.75rem;
 }
 
-.text-2xl, .formWrapper .header {
+.text-2xl, .formWrapper .header, .formWrapper .headerImage {
   font-size: 1.5rem;
   line-height: 2rem;
 }
@@ -2114,7 +2114,7 @@
   padding: 0px;
 }
 
-.p-1, .formWrapper .formSubtitle {
+.p-1, .vrow, .formWrapper .formSubtitle {
   padding: 0.25rem;
 }
 
@@ -2244,7 +2244,7 @@
   padding-right: 0px;
 }
 
-.py-1, .vrow {
+.py-1 {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
 }
@@ -2284,7 +2284,7 @@
   padding-right: 1rem;
 }
 
-.py-5, .formWrapper .headerImage {
+.py-5 {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
 }
@@ -2632,7 +2632,7 @@
   padding-right: 1.25rem;
 }
 
-.pb-5 {
+.pb-5, .formWrapper .headerImage {
   padding-bottom: 1.25rem;
 }
 
@@ -3115,7 +3115,7 @@
           align-items: flex-end;
 }
 
-.align-items-center, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .messageText, .modalWrapper .messageWrapper .modalButton, body, .appWrapper, .formWrapper .header, .formWrapper .formSubtitle {
+.align-items-center, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .messageText, .modalWrapper .messageWrapper .modalButton, body, .appWrapper, .formWrapper .header, .formWrapper .headerImage, .formWrapper .formSubtitle {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -3223,7 +3223,7 @@
           justify-content: flex-end;
 }
 
-.justify-content-center, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .messageText, .modalWrapper .messageWrapper .modalButton, body, .appWrapper, .formWrapper .header, .formWrapper .formTextGroup, .formWrapper .formSubtitle {
+.justify-content-center, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .messageText, .modalWrapper .messageWrapper .modalButton, body, .appWrapper, .formWrapper .header, .formWrapper .headerImage, .formWrapper .formTextGroup, .formWrapper .formSubtitle {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -3398,6 +3398,14 @@ body {
 
 .formWrapper .header {
   color: #60A5FA;
+}
+
+.formWrapper .headerImage {
+  color: #60A5FA;
+}
+
+.formWrapper .headerImage img {
+  height: 60px;
 }
 
 .formWrapper .formTextGroup {

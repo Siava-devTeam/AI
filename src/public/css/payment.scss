@@ -13,7 +13,7 @@ body{
 .formWrapper{
     background-color: $white-900;
     @extend .display-flex, .flex-column;
-    @extend .col-7, .text-sm, .px-2, .py-5;
+    @extend .col-7, .text-sm, .p-5;
 
     & .frow{
         @extend .display-flex, .flex-row, .justify-content-center, .align-items-center;
@@ -23,8 +23,7 @@ body{
     & .formHeader{
         color: $primary;
         @extend .display-flex, .flex-column, .justify-content-center, .align-items-center; 
-        @extend .text-2xl, .p-5, .col-12;
-        height: 60px;
+        @extend .text-2xl, .pb-5, .col-12;
 
         & img{
             height: 60px;
@@ -33,7 +32,7 @@ body{
 
     & .formBody{
         @extend .display-flex, .flex-column, .justify-content-center, .align-items-center; 
-        @extend .p-5, .col-12;
+        @extend .pt-5, .col-12;
 
         & .formTitle{
             color: $primary;

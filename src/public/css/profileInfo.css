@@ -2130,7 +2130,7 @@
   padding: 1rem;
 }
 
-.p-5, .formWrapper .formHeader, .formWrapper .formBody {
+.p-5, .formWrapper {
   padding: 1.25rem;
 }
 
@@ -2259,7 +2259,7 @@
   padding-bottom: 0.5rem;
 }
 
-.px-2, .formWrapper, .formWrapper .formBody .addressCheck, .formWrapper .formBody .formSelectGroup, .formWrapper .formBody .formTextGroup {
+.px-2, .formWrapper .formBody .addressCheck, .formWrapper .formBody .formSelectGroup, .formWrapper .formBody .formTextGroup {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
@@ -2284,7 +2284,7 @@
   padding-right: 1rem;
 }
 
-.py-5, .formWrapper {
+.py-5 {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
 }
@@ -2624,7 +2624,7 @@
   padding-left: 1rem;
 }
 
-.pt-5 {
+.pt-5, .formWrapper .formBody {
   padding-top: 1.25rem;
 }
 
@@ -2632,7 +2632,7 @@
   padding-right: 1.25rem;
 }
 
-.pb-5 {
+.pb-5, .formWrapper .formHeader {
   padding-bottom: 1.25rem;
 }
 
@@ -3398,7 +3398,6 @@ body {
 
 .formWrapper .formHeader {
   color: #60A5FA;
-  height: 60px;
 }
 
 .formWrapper .formHeader img {
