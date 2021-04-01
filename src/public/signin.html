@@ -30,29 +30,20 @@
                 <div class="vrow">
                     <div class="formTextGroup">
                         <!-- <div class="formLabel">Email</div> -->
-                        <input class="formTextbox" type="text" placeholder="Email"/>
+                        <input class="formTextbox" type="text" placeholder="Email" id="txtEmail"/>
                     </div>
                 </div>
                 <div class="vrow">
                     <div class="formTextGroup">
                         <!-- <div class="formLabel">Password</div> -->
-                        <input class="formTextbox" type="password" placeholder="Password"/>
+                        <input class="formTextbox" type="password" placeholder="Password" id="txtPassword"/>
                         <div class="passwordEye">
                             <img src="images/eyeSlash.svg" class="passwordEyeImage"/>
                         </div>
                     </div>
                 </div>
                 <div class="vrow">
-                    <button class="formButton">Continue</button>
-                </div>
-                <div class="vrow">
-                    <div class="lineTextGroup">
-                        <div class="line"></div>
-                        <div class="lineText">or</div>
-                    </div>
-                </div>
-                <div class="vrow">
-                    <button class="formButtonGoogle">Sign in with Google</button>
+                    <button class="formButton" id="btnSignin">Sign in</button>
                 </div>
             </div>
             <div class="vrow">
@@ -60,10 +51,15 @@
                     Don't have an account? 
                     <div class="formLink" destination="signup">Sign Up</div>
                 </div>
+                <div class="formSubtitle">
+                    Problem signing in? 
+                    <div class="formLink" destination="forgotPassword">Reset Password</div>
+                </div>
             </div>
         </div>
     </div>
 
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/signin.js"></script>
 </body>
