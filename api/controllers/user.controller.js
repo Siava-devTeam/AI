@@ -1,7 +1,9 @@
 var userDAO = require('../DAO/user.DAO');
 var tokenDAO = require('../DAO/token.DAO');
+var sessionDAO = require('../DAO/session.DAO');
 var helpers = require('./helpers');
 var config = require('../../config');
+var jwt = require('jsonwebtoken');
 
 var user={};
 
@@ -626,4 +628,201 @@ user.initialRegistration = async function(req,res,next){
     }
 };
 
+user.userSignin = async function(req,res,next){
+    try{
+        //Default message
+        res.set('Content-Type', 'application/json');
+        var messageStatus = 200;
+        var messageText = {
+            'type':'success',
+            'data':"user signed-in successfully"
+        };
+
+        //Sanity Check 
+        var userEmail = (typeof(req.body.email)!== 'undefined')?req.body.email:false;
+        var userPassword = (typeof(req.body.password)!== 'undefined')?req.body.password:false;
+        
+        if (userEmail && userPassword){
+            //Get user By Email
+            var userData = await userDAO.getUser(userEmail);
+            if ((userData.type=='success') && (userData.data)){
+                
+                var currentPassword = userData.data.password;
+                var passwordCheck = await helpers.comparePasswords(userPassword,currentPassword);
+
+                if (passwordCheck){
+                    //If pass works!
+                    //Sign the object + timing
+                    var signature = await helpers.signToken({"email":userEmail});
+                    
+                    var sessionObject={
+                        "email":userEmail,
+                        "session":signature
+                    }
+                    //SAVE TO SESSION DB FIRST
+                    //If another session exist, delete session
+                    //add new one
+                    var sessionData = await sessionDAO.getSessionByEmail(userEmail);
+                    if ((sessionData.type=='success') && (!sessionData.data)){
+                        
+                        var insertSessionData = await sessionDAO.addSession(sessionObject);
+                        if (insertSessionData.type=='success'){
+
+                            messageStatus = 200;
+                            messageText={
+                                'type':'success',
+                                'data':signature
+                            };
+
+                        }else{
+                            messageStatus = 500;
+                            messageText={
+                                'type':'error',
+                                'data':'Problem with saving session data'
+                            };
+                        }
+
+                    }else{
+
+                        //delete session
+                        var deleteSessionResults = await sessionDAO.deleteSessionByEmail(userEmail);
+                        if (deleteSessionResults.type=='success'){
+
+                            var insertSessionData = await sessionDAO.addSession(sessionObject);
+                            if (insertSessionData.type=='success'){
+
+                                messageStatus = 200;
+                                messageText={
+                                    'type':'success',
+                                    'data':signature
+                                };
+
+                            }else{
+                                messageStatus = 500;
+                                messageText={
+                                    'type':'error',
+                                    'data':'Problem with saving session data'
+                                };
+                            }
+
+                        }else{
+
+                            messageStatus = 500;
+                            messageText={
+                                'type':'error',
+                                'data':'Problem with deleting old session'
+                            };
+
+                        }
+                    }
+
+                }else{
+                    //ELSE message back
+                    messageStatus = 500;
+                    messageText={
+                        'type':'error',
+                        'data':'Password is not correct!'
+                    };
+                }
+
+            }else{
+                //ELSE message back
+                messageStatus = 500;
+                messageText={
+                    'type':'error',
+                    'data':'User does not exist!'
+                };
+            }
+
+        }else{
+            //ELSE message back
+            messageStatus = 400;
+            messageText={
+                'type':'error',
+                'data':'Missing Email or Password! Problem with input Fields!'
+            };
+        }
+
+        //Response
+        res.status(messageStatus).send(messageText);
+    }catch(e){
+        const error = new Error(e.message);
+        error.statusCode = 501;
+        next(error);
+    }
+};
+
+user.checkSession = async function(req,res,next){
+    try{
+        //Default message
+        res.set('Content-Type', 'application/json');
+
+        var sessionToken = (req.headers.authorization)
+        sessionToken = sessionToken.trim();
+        sessionToken = typeof(sessionToken)!='undefined'? sessionToken: false;
+        sessionToken = (sessionToken!="" && sessionToken)?sessionToken:false;
+
+        if (sessionToken){
+            helpers.verifyToken(sessionToken, async function(tokenResponse){
+                // console.log(tokenResponse);
+    
+                if (tokenResponse){
+    
+                    var sessionData = await sessionDAO.getSessionBySession(sessionToken);
+                    if ((sessionData.type=='success') && (sessionData.data)){
+                        
+                        // console.log('found it!');
+                        
+                        var messageStatus = 200;
+                        var messageText = {
+                            'type':'success',
+                            'data':"Token Valid!"
+                        };
+    
+                    }else{
+    
+                        var messageStatus = 400;
+                        var messageText = {
+                            'type':'error',
+                            'data':"Invalid Session"
+                        };
+    
+                    }
+    
+                }else{
+    
+                    var messageStatus = 400;
+                    var messageText = {
+                        'type':'error',
+                        'data':"Invalid Session Token"
+                    };
+                    
+                }
+                // Response
+                res.status(messageStatus).send(messageText);
+            })
+        }else{
+            //Response
+            var messageStatus = 400;
+            var messageText = {
+                'type':'error',
+                'data':"session not Valid!"
+            };
+            res.status(messageStatus).send(messageText);
+        }
+
+        //Response
+        // var messageStatus = 200;
+        // var messageText = {
+        //     'type':'success',
+        //     'data':"Token Valid!"
+        // };
+        // res.status(messageStatus).send(messageText);
+
+    }catch(e){
+        const error = new Error(e.message);
+        error.statusCode = 501;
+        next(error);
+    }
+};
 module.exports = user;
