@@ -3,6 +3,7 @@ var config = require('./config');
 var MongoClient = require('mongodb').MongoClient;
 var userDAO = require('./api/DAO/user.DAO');
 var tokenDAO = require('./api/DAO/token.DAO');
+var sessionDAO = require('./api/DAO/session.DAO');
 
 const port = process.env.PORT || config.httpPort;
 
@@ -41,6 +42,7 @@ MongoClient.connect(
         //Connect to User collection
         await userDAO.injectDB(client);
         await tokenDAO.injectDB(client);
+        await sessionDAO.injectDB(client);
       
     //HTTP Server
     httpServer.listen(port, () => {

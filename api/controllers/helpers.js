@@ -2,6 +2,7 @@ const nodemailer = require('nodemailer');
 const config = require('../../config');
 const bcrypt = require('bcrypt');
 const path = require('path');
+var jwt = require('jsonwebtoken');
 
 helpers={};
 
@@ -170,4 +171,35 @@ helpers.hashPassword = async function(password){
 
     return hashedPassword
 };
+
+helpers.comparePasswords = async function(pass1,original){
+    return await bcrypt.compare(pass1, original);
+};
+
+helpers.signToken = async function(incomingData){
+    //Signs for an hour
+    return jwt.sign(
+        {
+          data:incomingData,
+        },
+        config.key,{ expiresIn: '1h' }
+    );
+};
+helpers.verifyToken = function(incomingData,callback){
+    try{
+        return jwt.verify(incomingData, config.key, (error, res) => {
+            if (error) {
+                callback (false);
+            }else{
+                return callback(res);
+            }
+        })
+    }catch(e){
+        callback(false);
+    }
+
+    
+};
+
+
 module.exports = helpers;

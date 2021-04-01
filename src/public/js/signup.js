@@ -59,13 +59,13 @@ signup.validateForm = function(callback){
                     callback('Phone Format', "Please Type-in a Valid Phone Number!");
                 }
             }else{
-                callback('Email Format', "Please Type-in a Valid Email!")
+                callback('Email Format', "Please Type-in a Valid Email!");
             }
         }else{
-            callback('Lastname Format', "Lastname cannot be empty!")
+            callback('Lastname Format', "Lastname cannot be empty!");
         }
     }else{
-        callback('Firstname Format', "Firstname cannot be empty!")
+        callback('Firstname Format', "Firstname cannot be empty!");
     }
 
 };
