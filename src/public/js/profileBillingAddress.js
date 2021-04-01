@@ -56,7 +56,7 @@ profileBillingAddress.handleUserAddressSubmission = function(){
 
             var pageToken = JSON.parse(window.localStorage.getItem('aiAppData'));
             var formData={
-                'type':'homeAddress',
+                'type':'billingAddress',
                 'token': pageToken['regToken'],
                 'region':userRegion,
                 'country':userCountry,
