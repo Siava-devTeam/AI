@@ -13,5 +13,7 @@ router.route("/getAddressByToken").get(userCtl.getAddressByToken);
 router.route("/deleteUserToken").delete(userCtl.deleteUserToken);
 router.route("/updateUserAddressByToken").put(userCtl.updateUserAddressByToken);
 router.route("/updateUserStatusByToken").put(userCtl.updateUserStatusByToken);
+router.route("/forgotPassword").post(userCtl.forgotPassword);
+router.route("/resetPassword").post(userCtl.resetPassword);
 
 module.exports = router;

@@ -19,6 +19,15 @@ dashboard.sessionExist = function(){
     return false;
 };
 
+dashboard.setProfileName = function(){
+    var aiAppData = window.localStorage.getItem('aiAppData');
+    if(aiAppData){
+        var data = JSON.parse(aiAppData);
+        var profileName = `${data.firstName} ${data.lastName}`;
+        document.getElementById('profileName').innerText = profileName;
+    }
+};
+
 dashboard.validateSession =async function(){
     if (dashboard.sessionExist()){
         var aiAppData = window.localStorage.getItem('aiAppData');
@@ -32,7 +41,7 @@ dashboard.validateSession =async function(){
             headers:{"authorization":session}
         })
         .then(function(res){
-            // console.log(res.data);
+            console.log(res.data.data);
             // app.showModal('success', 'DONE!',"server Response not Valid!");
             // var data  = (typeof(res.data.data)=="undefined")?false:res.data.data;
             // if (signIn.validateServerResponse(data)){
@@ -43,6 +52,9 @@ dashboard.validateSession =async function(){
             // };
 
             dashboard.sessionValid=true;
+            aiAppDataObject['firstName'] = res.data.data.firstName;
+            aiAppDataObject['lastName'] = res.data.data.lastName;
+            window.localStorage.setItem('aiAppData',JSON.stringify(aiAppDataObject));
         }).catch(function(err){
             // if (typeof(err.response)=="undefined"){
             //     app.showModal('error','Something went wrong!',"Request timeout!");
@@ -80,8 +92,9 @@ app.init = async function(){
     await dashboard.validateSession();
 
     if (dashboard.sessionValid){
-        
         dashboard.setLogoutButton();
+        dashboard.setProfileName();
+
     }else{
         var base = window.location.origin;
         window.location.href = base+"/signin.html";
