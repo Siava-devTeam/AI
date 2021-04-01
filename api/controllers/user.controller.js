@@ -653,9 +653,15 @@ user.userSignin = async function(req,res,next){
                 if (passwordCheck){
                     //If pass works!
                     //Sign the object + timing
-                    var signature = await helpers.signToken({"email":userEmail});
+                    var signature = await helpers.signToken({
+                        "firstName":userData.data.firstName,
+                        "lastName":userData.data.lastName,
+                        "email":userEmail,
+                    });
                     
                     var sessionObject={
+                        "firstName":userData.data.firstName,
+                        "lastName":userData.data.lastName,
                         "email":userEmail,
                         "session":signature
                     }
@@ -767,7 +773,8 @@ user.checkSession = async function(req,res,next){
                 // console.log(tokenResponse);
     
                 if (tokenResponse){
-    
+                    // console.log(tokenResponse);
+
                     var sessionData = await sessionDAO.getSessionBySession(sessionToken);
                     if ((sessionData.type=='success') && (sessionData.data)){
                         
@@ -776,7 +783,10 @@ user.checkSession = async function(req,res,next){
                         var messageStatus = 200;
                         var messageText = {
                             'type':'success',
-                            'data':"Token Valid!"
+                            'data':{
+                                "firstName":tokenResponse.data.firstName,
+                                "lastName":tokenResponse.data.lastName
+                            }
                         };
     
                     }else{
@@ -825,4 +835,234 @@ user.checkSession = async function(req,res,next){
         next(error);
     }
 };
+
+user.forgotPassword = async function(req,res,next){
+    try{
+        //Default message
+        res.set('Content-Type', 'application/json');
+        var messageStatus = 200;
+        var messageText = {
+            'type':'success',
+            'data':"initial registration done!"
+        };
+         
+        //Sanity Check
+         var userEmail = (typeof(req.body.email)!== 'undefined')?req.body.email:false;
+ 
+         if (userEmail){
+ 
+             //Create User object
+             userObject={
+                "email":userEmail,
+             }
+
+             var userData = await userDAO.getUser(userEmail);
+            if ((userData.type=='success') && (userData.data)){
+                
+                //Adding First Name to userObject
+                userObject["firstName"] = userData.data.firstName;
+
+                //Check if this user currently has some tokens
+                var tokenData = await tokenDAO.getTokenByEmail(userEmail);
+                if ((tokenData.type=='success') && (!tokenData.data)){
+
+                    // Send reset Pass Email---------------------------------------
+                    var token = await helpers.createToken(20);
+                    //Save Token
+                    if (token){
+                        var tokenInfo={
+                            "email":userEmail,
+                            "token":token,
+                        }
+
+                        var insertTokenData = await tokenDAO.addToken(tokenInfo);
+                        if (insertTokenData.type=='success'){
+
+                            //Send Email
+                            var outgoingEmail=await helpers.sendMailGeneral(`${config.base}/resetPassword.html?t=${token}`,userObject,"resetPass");
+                            if (outgoingEmail.type=='success'){
+                                messageStatus = 200;
+                                messageText={
+                                    'type':'success',
+                                    'data':'We sent you a link to your email. Use that to reset your password!'
+                                };
+                            }else{
+                                messageStatus = 500;
+                                messageText={
+                                    'type':'error',
+                                    'data':outgoingEmail.data
+                                };
+                            }
+
+                        }else{
+                            messageStatus = 500;
+                            messageText={
+                                'type':'error',
+                                'data':insertTokenData.data
+                            };
+                        }
+
+                    }else{
+                        messageStatus = 500;
+                        messageText={
+                            'type':'error',
+                            'data':"Problem with creating token!"
+                        }
+                    }
+
+                }else{
+
+                    var token = tokenData.data.token;
+                    // console.log(token);
+
+                    //Send Email
+                    var outgoingEmail=await helpers.sendMailGeneral(`${config.base}/resetPassword.html?t=${token}`,userObject,"resetPass");
+                    if (outgoingEmail.type=='success'){
+                        messageStatus = 200;
+                        messageText={
+                            'type':'success',
+                            'data':'We sent you a link to your email. Use that to reset your password!'
+                        };
+                    }else{
+                        messageStatus = 500;
+                        messageText={
+                            'type':'error',
+                            'data':outgoingEmail.data
+                        };
+                    }
+
+
+                }
+
+            }else{
+                messageStatus = 400;
+                messageText={
+                    'type':'error',
+                    'data':'You don\'t have an account with us. Please Register first!'
+                };
+            }
+
+
+         }else{
+            messageStatus = 400;
+            messageText={
+                'type':'error',
+                'data':'Missing Email! Problem with input Fields!'
+            };
+        }
+        //Response
+        res.status(messageStatus).send(messageText);
+    }
+    catch(e){
+        const error = new Error(e.message);
+        error.statusCode = 501;
+        next(error);
+    }
+};
+
+user.resetPassword = async function(req,res,next){
+    try{
+        //Default message
+        res.set('Content-Type', 'application/json');
+        var messageStatus, messageText;
+
+        // req.body { token: 'zy7e2lfkmzwztdysfvbj', password: '324' }
+
+        var token = (typeof(req.body.token)!== 'undefined')?req.body.token:false;
+        var userPassword = (typeof(req.body.password)!== 'undefined')?req.body.password:false;
+
+        if (token && userPassword){
+
+            await user.getUserByToken(token)
+            .then(async function(userData){
+
+                // if(userDateOfBirth && userLicenceNumber && 
+                //     userCompanyName && userPassword && userPlan){
+
+                var userEmail = (JSON.parse(userData)).email;
+
+                var hashedPassword = await helpers.hashPassword(userPassword);
+
+                if(hashedPassword){
+                    var userObject = {
+                        'password':hashedPassword
+                    }
+                    
+                    var updateResult = await userDAO.updateUser(userEmail,userObject);
+
+                    if (updateResult.type=='success'){
+                        //delete the token from database
+                        var deleteResults = await tokenDAO.deleteToken(token);
+                        if (deleteResults.type=='success'){
+                        
+                            // console.log(deleteResults);
+
+                            messageStatus = 200;
+                            messageText = {
+                                'type':'success',
+                                'data': 'user deleted successfully'
+                            };
+
+                        }else{
+                            messageStatus = 500;
+                            messageText = {
+                                'type':'error',
+                                'data': 'Problem with deleting the token!'
+                            };
+                        }
+
+                    }else{
+                        messageStatus = 500;
+                        messageText = {
+                            'type':'error',
+                            'data': 'problem with updating results!'
+                        };
+                    }
+                    
+                }else{
+                    messageStatus = 500;
+                    messageText = {
+                        'type':'error',
+                        'data': 'problem with hashing password!'
+                    };
+                }
+
+            // }else{
+            //     messageStatus = 500;
+            //     messageText = {
+            //         'type':'error',
+            //         'data': 'Input field Problem'
+            //     };
+            // }
+
+            //Response
+            res.status(messageStatus).send(messageText);
+            })
+            .catch(async function(err){
+                messageStatus = 500;
+                messageText = {
+                    'type':'error',
+                    'data': err
+                };
+                //Response
+                res.status(messageStatus).send(messageText);
+            });
+
+        }else{
+            messageStatus = 500;
+            messageText = {
+                'type':'error',
+                'data': 'Input field Problem'
+            };
+            //Response
+            res.status(messageStatus).send(messageText);
+        }
+    }
+    catch(e){
+        const error = new Error(e.message);
+        error.statusCode = 501;
+        next(error);
+    }
+};
+
 module.exports = user;
