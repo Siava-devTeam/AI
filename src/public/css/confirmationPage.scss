@@ -1,0 +1,150 @@
+@import 'main_extend';
+
+body{
+    background-color: $web-background;
+    @extend .display-flex, .flex-column, .justify-content-center, .align-items-center;   
+}
+
+.vrow{
+    @extend .display-flex, .flex-column;
+    @extend .col-12, .p-1;
+}
+
+.appWrapper{
+    @extend .display-flex, .flex-column, .justify-content-center, .align-items-center;
+    @extend .h-screen, .w-screen, .text-base;
+    @extend .transition-opacity;
+}
+
+.formWrapper{
+    background-color: $white-900;
+    @extend .display-flex, .flex-column;
+    @extend .col-4, .text-sm, .p-5;
+
+    & .header{
+        color: $primary;
+        @extend .display-flex, .flex-column, .justify-content-center, .align-items-center; 
+        @extend .text-2xl,.p-5;
+    }
+
+    // & .headerImage{
+    //     @extend .display-flex, .flex-column;
+    //     @extend .pb-5;
+    // }
+    & .headerImage{
+        color: $primary;
+        @extend .display-flex, .flex-column, .justify-content-center, .align-items-center; 
+        @extend .text-2xl, .pb-5, .col-12;
+
+        & img{
+            height: 60px;
+        }
+    }
+
+    & .formTitle{
+        color: $primary;
+        @extend .display-flex, .flex-column, .justify-content-center, .align-items-center; 
+        @extend .text-xl, .col-12;
+    }
+
+    & .formMessage{
+        color:$textbox-placeHolder-color;
+        @extend .display-flex, .flex-column, .justify-content-start, .align-items-center; 
+        @extend .text-sm, .col-12, .py-3;
+    }
+
+
+    & .formButton, .formButtonGoogle{
+        background-color: $primary;
+        color: $white-900;
+        @extend .text-base, .p-2;
+        border-radius: 8px;
+        border: 2px $primary solid;
+
+        &:hover{
+            cursor: pointer;
+        }
+
+        &:focus{
+            outline: none;
+        }
+    }
+
+    & .formButtonGoogle{
+        color: $primary;
+        background-color:$white-900;
+
+        &:hover{
+            background-color: $primary;
+            color: $white-900;
+            cursor: pointer;
+        }
+
+        &:focus{
+            outline: none;
+        }
+    }
+
+    & .formSubtitle{
+        color: $primary;
+        @extend .display-flex, .flex-row, .justify-content-center;
+        @extend .col-12, .text-xss, .p-1;
+    }
+
+    & .formLink{
+        color: $primary;
+        @extend .text-xss, .ml-1;
+        text-decoration: underline;
+
+        &:hover{
+            cursor: pointer;
+        }
+    }
+
+    & .lineTextGroup{
+        @extend .display-flex, .flex-column, .justify-content-center, .align-items-center;
+        @extend .col-12, .py-2;
+        position:relative;
+
+        & .line{
+            @extend .col-12;
+            border: 1px solid $gray-300;
+        }
+
+        & .lineText{
+            background-color: $white-900;
+            color: $gray-300;
+            @extend .text-lg, .px-5;
+            position: absolute;
+            z-index: 10;
+        }
+    }
+
+}
+
+
+//RESPONSIVE
+//MEDIA QUERIES
+@media (min-width: 1025px) {}
+@media (min-width: 767px) and (max-width: 1024px) {
+    .formWrapper{
+        @include col-6();
+        @include text-sm();
+    }
+}
+@media (max-width: 766px) {
+    body{
+        background-color: $mobile-background;
+    }
+    .formWrapper{
+        @include text-sm();
+        @include col-11();
+        & .formSubtitle{
+            @include text-xss;
+        }
+    
+        & .formLink{
+            @include text-xss;
+        }
+    }
+}
