@@ -11,7 +11,7 @@ dashboard.sessionExist = function(){
     if (aiAppData){
         var aiAppDataObject = JSON.parse(aiAppData);
         if (aiAppDataObject.hasOwnProperty('session')){
-            console.log()
+            // console.log()
             return true;
         }
     }
@@ -41,7 +41,7 @@ dashboard.validateSession =async function(){
             headers:{"authorization":session}
         })
         .then(function(res){
-            console.log(res.data.data);
+            // console.log(res.data.data);
             // app.showModal('success', 'DONE!',"server Response not Valid!");
             // var data  = (typeof(res.data.data)=="undefined")?false:res.data.data;
             // if (signIn.validateServerResponse(data)){
@@ -71,23 +71,47 @@ dashboard.validateSession =async function(){
     // return false;
 };
 
+
 dashboard.setLogoutButton = function(){
     var btnLogout = document.getElementById('lnkLogout');
     btnLogout.addEventListener('click',function(){
-        var aiAppData = window.localStorage.getItem('aiAppData');
-        if (aiAppData){
-            var data = JSON.parse(window.localStorage.getItem('aiAppData'));
-            delete data.session;
-            window.localStorage.setItem('aiAppData',JSON.stringify(data));
-        }
+        dashboard.showModal2("Logging out!","Are you sure you want to leave the application?");
+        var modal2BtnConfirm = document.getElementById("modal2Confirm");
+        modal2BtnConfirm.addEventListener('click',function(){
+            var aiAppData = window.localStorage.getItem('aiAppData');
+            if (aiAppData){
+                var data = JSON.parse(window.localStorage.getItem('aiAppData'));
+                delete data.session;
+                window.localStorage.setItem('aiAppData',JSON.stringify(data));
+            }
 
-        var base = window.location.origin;
-        window.location.href = base+"/signin.html";
+            var base = window.location.origin;
+            window.location.href = base+"/signin.html";
+        });
+        
+    });
+};
+
+dashboard.showModal2 = function(title,message){
+    document.getElementsByClassName('modalWrapper')[0].style.display='none';
+    document.getElementsByClassName('modalWrapper2')[0].style.display='flex';
+    document.getElementsByClassName('appWrapper')[0].style.opacity='0%';
+    document.getElementById("modal2Title").innerText = title;
+    document.getElementById("modal2Text").innerText = message;
+};
+
+dashboard.setModal2CloseButton = function(){
+    var modal2BtnCancel = document.getElementById("modal2Cancel");
+    modal2BtnCancel.addEventListener('click',function(){
+        document.getElementsByClassName('modalWrapper')[0].style.display='none';
+        document.getElementsByClassName('modalWrapper2')[0].style.display='none';
+        document.getElementsByClassName('appWrapper')[0].style.opacity='100%';
     });
 };
 
 app.init = async function(){
     app.setModalCloseButton();
+    dashboard.setModal2CloseButton();
     // console.log(dashboard.validateSession())
     await dashboard.validateSession();
 
