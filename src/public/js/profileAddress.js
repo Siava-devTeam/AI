@@ -32,13 +32,13 @@ profileAddress.validateForm = function(callback){
                     callback('Zip code empty', "Please type-in your zip code!");
                 }
             }else{
-                callback('Address Empty', "Please type-in your address!")
+                callback('Address Empty', "Please type-in your address!");
             }
         }else{
-            callback('Country Empty', "Please Choose a country!")
+            callback('Country Empty', "Please Choose a country!");
         }
     }else{
-        callback('City Empty', "Please type-in your city!")
+        callback('City Empty', "Please type-in your city!");
     }
 
 };

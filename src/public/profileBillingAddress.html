@@ -46,21 +46,7 @@
                 <div class="frow">
                     <!-- Left Field -->
                     <div class="formSelectGroup">
-                        <select id="selRegion" class="formSelect" onchange="set_country()">
-                            <option value="" selected="selected">SELECT REGION</option>
-                            <option value=""></option>
-                            <option value="Africa">Africa</option>
-                            <option value="Antarctica">Antarctica</option>
-                            <option value="Asia">Asia</option>
-                            <option value="Australia/Oceania">Australia/Oceania</option>
-                            <option value="Caribbean">Caribbean</option>
-                            <option value="Central America">Central America</option>
-                            <option value="Europe">Europe</option>
-                            <option value="Islands">Islands</option>
-                            <option value="Middle East">Middle East</option>
-                            <option value="North America">North America</option>
-                            <option value="South America">South America</option>
-                        </select>
+                        <select id="selCountry"  class="formSelect"></select>
                     </div>
                     <!-- Right Field -->
                     <div class="formTextGroup">
@@ -72,7 +58,7 @@
                 <div class="frow">
                     <!-- Left Field -->
                     <div class="formSelectGroup">
-                        <select id="selCountry"  class="formSelect" onchange="set_city_state()"></select>
+                        <select id="selState" class="formSelect"></select>
                     </div>
                     <!-- Right Field -->
                     <div class="formTextGroup">
@@ -83,8 +69,10 @@
                 </div>
                 <div class="frow">
                     <!-- Left Field -->
-                    <div class="formSelectGroup">
-                        <select id="selState" class="formSelect"></select>
+                    <div class="formTextGroup">
+                        <!-- <div class="formLabel">Zip Code</div> -->
+                        <input class="formTextbox" type="text" id="txtCity" 
+                        name="txtCity" placeholder="City"/>
                     </div>
                     <!-- Right Field -->
                     <div class="formTextGroup">
