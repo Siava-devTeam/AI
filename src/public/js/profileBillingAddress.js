@@ -175,8 +175,8 @@ app.init = function(){
         profileBillingAddress.setFormButton();
         profileBillingAddress.setCheckBox();
     }else{
-        // var base = window.location.origin;
-        // window.location.href = base+"/signin.html";
+        var base = window.location.origin;
+        window.location.href = base+"/signin.html";
     }
 };
 

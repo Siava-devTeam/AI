@@ -116,8 +116,8 @@ app.init = function(){
         setAllCountries();
         profileAddress.setFormButton();
     }else{
-        // var base = window.location.origin;
-        // window.location.href = base+"/signin.html";
+        var base = window.location.origin;
+        window.location.href = base+"/signin.html";
     }
 };
 
