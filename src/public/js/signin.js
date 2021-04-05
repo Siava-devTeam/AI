@@ -18,7 +18,7 @@ signIn.setPasswordEye = function(){
 };
 
 signIn.validateEmail = function(){
-    var emailText = document.getElementById('txtEmail').value;
+    var emailText = document.getElementById('txtEmail').value.trim();
     var result = false;
     if (emailText.indexOf('@')>-1){
         if((emailText.split('@')[1]).indexOf('.')>-1){
@@ -71,8 +71,8 @@ signIn.validateServerResponse = function(data){
 signIn.handleSigninProcess = function(){
     signIn.validateForm(function(title, message){
         if (title == 'valid'){
-            var userEmail = document.getElementById('txtEmail').value;
-            var userPassword = document.getElementById('txtPassword').value;
+            var userEmail = document.getElementById('txtEmail').value.trim();
+            var userPassword = document.getElementById('txtPassword').value.trim();
 
             var formData={
                 "email":userEmail,
