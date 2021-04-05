@@ -93,13 +93,13 @@ signup.handleRegistration = function(){
                 data:formData
             })
             .then(function(res){
+                var base = window.location.origin;
                 if (res.data.data=='paid'){
-                    var base = window.location.origin;
                     window.location.href = base+"/signin.html";
-                    
                 }else{
-                    app.showModal('success','Congrats!','User Registered successfully.'+ 
-                    'We have sent you an Email. Please confirm your email and continue the registration process.');
+                    window.location.href = base+"/confirmationPage.html?type=signupConfirmation";
+                    // app.showModal('success','Congrats!','User Registered successfully.'+ 
+                    // 'We have sent you an Email. Please confirm your email and continue the registration process.');
                 }
 
             }).catch(function(err){
