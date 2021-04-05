@@ -51,15 +51,15 @@
   width: 8.33333%;
 }
 
-.col-2, .appWrapper .leftSection {
+.col-2 {
   width: 16.66667%;
 }
 
-.col-3, .modalWrapper .messageWrapper, .modalWrapper2 .messageWrapper {
+.col-3, .modalWrapper .messageWrapper {
   width: 25%;
 }
 
-.col-4 {
+.col-4, .formWrapper {
   width: 33.33333%;
 }
 
@@ -67,7 +67,7 @@
   width: 41.66667%;
 }
 
-.col-6, .appWrapper .rightSection .topMenu .topMenuLeft, .appWrapper .rightSection .topMenu .topMenuRight {
+.col-6 {
   width: 50%;
 }
 
@@ -75,7 +75,7 @@
   width: 58.33333%;
 }
 
-.col-8, .appWrapper .leftSection .leftMenu .menuRow .menuText {
+.col-8 {
   width: 66.66667%;
 }
 
@@ -83,7 +83,7 @@
   width: 75%;
 }
 
-.col-10, .appWrapper .rightSection {
+.col-10 {
   width: 83.33333%;
 }
 
@@ -91,49 +91,49 @@
   width: 91.66667%;
 }
 
-.col-12, .modalWrapper .messageWrapper .messageTitle, .modalWrapper2 .messageWrapper .messageTitle, .modalWrapper .messageWrapper .messageText, .modalWrapper2 .messageWrapper .messageText, .modalWrapper .messageWrapper .modalButton, .modalWrapper2 .messageWrapper .modalButton, .appWrapper, .appWrapper .leftSection .appLogo, .appWrapper .leftSection .leftMenu, .appWrapper .leftSection .leftMenu .menuRow, .appWrapper .rightSection .topMenu, .appWrapper .rightSection .topMenu .topMenuLeft .searchBox, .appWrapper .rightSection .topMenu .topMenuRight .notifications .notification, .appWrapper .rightSection .content {
+.col-12, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .messageText, .modalWrapper .messageWrapper .modalButton, .vrow, .formWrapper .headerImage, .formWrapper .formTitle, .formWrapper .formMessage, .formWrapper .formSubtitle, .formWrapper .lineTextGroup, .formWrapper .lineTextGroup .line {
   width: 100%;
 }
 
-.h-screen, body, .modalWrapper, .modalWrapper2 {
+.h-screen, body, .modalWrapper, .appWrapper {
   height: 100vh;
 }
 
-.w-screen, body, .modalWrapper, .modalWrapper2 {
+.w-screen, body, .modalWrapper, .appWrapper {
   width: 100vw;
 }
 
-.text-xss {
+.text-xss, .formWrapper .formSubtitle, .formWrapper .formLink {
   font-size: 0.70rem;
   line-height: 1rem;
 }
 
-.text-xs, .appWrapper .rightSection .topMenu .topMenuRight .notifications .notification .counter {
+.text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
 }
 
-.text-sm, .modalWrapper .messageWrapper .messageText, .modalWrapper2 .messageWrapper .messageText, .appWrapper .leftSection, .appWrapper .rightSection .topMenu, .appWrapper .rightSection .topMenu .topMenuRight .user .options {
+.text-sm, .modalWrapper .messageWrapper .messageText, .formWrapper, .formWrapper .formMessage {
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
 
-.text-base, body, .modalWrapper, .modalWrapper2, .modalWrapper .messageWrapper .modalButton, .modalWrapper2 .messageWrapper .modalButton {
+.text-base, body, .modalWrapper, .modalWrapper .messageWrapper .modalButton, .appWrapper, .formWrapper .formButton, .formWrapper .formButtonGoogle {
   font-size: 1rem;
   line-height: 1.5rem;
 }
 
-.text-lg, .modalWrapper .messageWrapper .messageTitle, .modalWrapper2 .messageWrapper .messageTitle {
+.text-lg, .modalWrapper .messageWrapper .messageTitle, .formWrapper .lineTextGroup .lineText {
   font-size: 1.125rem;
   line-height: 1.75rem;
 }
 
-.text-xl {
+.text-xl, .formWrapper .formTitle {
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
 
-.text-2xl {
+.text-2xl, .formWrapper .header, .formWrapper .headerImage {
   font-size: 1.5rem;
   line-height: 2rem;
 }
@@ -200,7 +200,7 @@
   font-weight: 400;
 }
 
-.bold-500, .modalWrapper .messageWrapper .messageTitle, .modalWrapper2 .messageWrapper .messageTitle {
+.bold-500, .modalWrapper .messageWrapper .messageTitle {
   font-weight: 500;
 }
 
@@ -1130,11 +1130,11 @@
   margin-bottom: 0.25rem;
 }
 
-.ml-1 {
+.ml-1, .formWrapper .formLink {
   margin-left: 0.25rem;
 }
 
-.mt-2, .modalWrapper .messageWrapper .messageImage, .modalWrapper2 .messageWrapper .messageImage {
+.mt-2, .modalWrapper .messageWrapper .messageImage {
   margin-top: 0.5rem;
 }
 
@@ -1146,11 +1146,11 @@
   margin-bottom: 0.5rem;
 }
 
-.ml-2, .appWrapper .leftSection .leftMenu .menuRow .menuText {
+.ml-2 {
   margin-left: 0.5rem;
 }
 
-.mt-3, .modalWrapper .messageWrapper .modalButton, .modalWrapper2 .messageWrapper .modalButton {
+.mt-3, .modalWrapper .messageWrapper .modalButton {
   margin-top: 0.75rem;
 }
 
@@ -1262,7 +1262,7 @@
   margin-left: 2.25rem;
 }
 
-.mt-10, .appWrapper .leftSection .leftMenu, .appWrapper .rightSection .content {
+.mt-10 {
   margin-top: 2.5rem;
 }
 
@@ -2114,11 +2114,11 @@
   padding: 0px;
 }
 
-.p-1 {
+.p-1, .vrow, .formWrapper .formSubtitle {
   padding: 0.25rem;
 }
 
-.p-2, .modalWrapper .messageWrapper .messageTitle, .modalWrapper2 .messageWrapper .messageTitle, .modalWrapper .messageWrapper .modalButton, .modalWrapper2 .messageWrapper .modalButton, .appWrapper .leftSection .appLogo {
+.p-2, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .modalButton, .formWrapper .formButton, .formWrapper .formButtonGoogle {
   padding: 0.5rem;
 }
 
@@ -2130,7 +2130,7 @@
   padding: 1rem;
 }
 
-.p-5 {
+.p-5, .formWrapper, .formWrapper .header {
   padding: 1.25rem;
 }
 
@@ -2150,7 +2150,7 @@
   padding: 2.25rem;
 }
 
-.p-10, .modalWrapper .messageWrapper .messageImage, .modalWrapper2 .messageWrapper .messageImage {
+.p-10, .modalWrapper .messageWrapper .messageImage {
   padding: 2.5rem;
 }
 
@@ -2254,17 +2254,17 @@
   padding-right: 0.25rem;
 }
 
-.py-2 {
+.py-2, .formWrapper .lineTextGroup {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
 
-.px-2, .appWrapper, .appWrapper .leftSection .leftMenu .menuRow {
+.px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
 
-.py-3, .appWrapper .leftSection .leftMenu .menuRow {
+.py-3, .formWrapper .formMessage {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
 }
@@ -2284,22 +2284,22 @@
   padding-right: 1rem;
 }
 
-.py-5, .appWrapper {
+.py-5 {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
 }
 
-.px-5, .appWrapper .rightSection {
+.px-5, .formWrapper .lineTextGroup .lineText {
   padding-left: 1.25rem;
   padding-right: 1.25rem;
 }
 
-.py-6, .modalWrapper .messageWrapper, .modalWrapper2 .messageWrapper {
+.py-6, .modalWrapper .messageWrapper {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
 }
 
-.px-6, .modalWrapper .messageWrapper, .modalWrapper2 .messageWrapper {
+.px-6, .modalWrapper .messageWrapper {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
@@ -2334,7 +2334,7 @@
   padding-right: 2.25rem;
 }
 
-.py-10, .appWrapper .rightSection .content {
+.py-10 {
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
 }
@@ -2580,7 +2580,7 @@
   padding-top: 0.5rem;
 }
 
-.pr-2, .appWrapper .leftSection .leftMenu {
+.pr-2 {
   padding-right: 0.5rem;
 }
 
@@ -2588,7 +2588,7 @@
   padding-bottom: 0.5rem;
 }
 
-.pl-2, .appWrapper .rightSection .topMenu .topMenuRight .user .options {
+.pl-2 {
   padding-left: 0.5rem;
 }
 
@@ -2604,7 +2604,7 @@
   padding-bottom: 0.75rem;
 }
 
-.pl-3, .appWrapper .rightSection .topMenu .topMenuRight .user {
+.pl-3 {
   padding-left: 0.75rem;
 }
 
@@ -2632,7 +2632,7 @@
   padding-right: 1.25rem;
 }
 
-.pb-5 {
+.pb-5, .formWrapper .headerImage {
   padding-bottom: 1.25rem;
 }
 
@@ -3048,7 +3048,7 @@
   display: block;
 }
 
-.display-flex, .modalWrapper, .modalWrapper2, .modalWrapper .messageWrapper, .modalWrapper2 .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper2 .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper2 .messageWrapper .messageTitle, .modalWrapper .messageWrapper .messageText, .modalWrapper2 .messageWrapper .messageText, .modalWrapper .messageWrapper .modalButton, .modalWrapper2 .messageWrapper .modalButton, body, .appWrapper, .appWrapper .leftSection, .appWrapper .leftSection .leftMenu .menuRow, .appWrapper .rightSection, .appWrapper .rightSection .topMenu .topMenuLeft, .appWrapper .rightSection .topMenu .topMenuRight, .appWrapper .rightSection .topMenu .topMenuRight .notifications .notification .counter, .appWrapper .rightSection .topMenu .topMenuRight .user, .appWrapper .rightSection .topMenu .topMenuRight .user .options .optionsText {
+.display-flex, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .messageText, .modalWrapper .messageWrapper .modalButton, body, .vrow, .appWrapper, .formWrapper, .formWrapper .header, .formWrapper .headerImage, .formWrapper .formTitle, .formWrapper .formMessage, .formWrapper .formSubtitle, .formWrapper .lineTextGroup {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3060,7 +3060,7 @@
   display: inline-flex;
 }
 
-.flex-row, .appWrapper, .appWrapper .leftSection .leftMenu .menuRow, .appWrapper .rightSection .topMenu .topMenuLeft, .appWrapper .rightSection .topMenu .topMenuRight, .appWrapper .rightSection .topMenu .topMenuRight .notifications .notification .counter, .appWrapper .rightSection .topMenu .topMenuRight .user {
+.flex-row, .formWrapper .formSubtitle {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -3074,7 +3074,7 @@
           flex-direction: row-reverse;
 }
 
-.flex-column, .modalWrapper, .modalWrapper2, .modalWrapper .messageWrapper, .modalWrapper2 .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper2 .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper2 .messageWrapper .messageTitle, .modalWrapper .messageWrapper .messageText, .modalWrapper2 .messageWrapper .messageText, .modalWrapper .messageWrapper .modalButton, .modalWrapper2 .messageWrapper .modalButton, body, .appWrapper .leftSection, .appWrapper .rightSection .topMenu .topMenuRight .user .options .optionsText {
+.flex-column, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .messageText, .modalWrapper .messageWrapper .modalButton, body, .vrow, .appWrapper, .formWrapper, .formWrapper .header, .formWrapper .headerImage, .formWrapper .formTitle, .formWrapper .formMessage, .formWrapper .lineTextGroup {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -3115,7 +3115,7 @@
           align-items: flex-end;
 }
 
-.align-items-center, .modalWrapper, .modalWrapper2, .modalWrapper .messageWrapper, .modalWrapper2 .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper2 .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper2 .messageWrapper .messageTitle, .modalWrapper .messageWrapper .messageText, .modalWrapper2 .messageWrapper .messageText, .modalWrapper .messageWrapper .modalButton, .modalWrapper2 .messageWrapper .modalButton, .appWrapper .leftSection .leftMenu .menuRow, .appWrapper .rightSection .topMenu .topMenuLeft, .appWrapper .rightSection .topMenu .topMenuRight, .appWrapper .rightSection .topMenu .topMenuRight .notifications .notification .counter, .appWrapper .rightSection .topMenu .topMenuRight .user {
+.align-items-center, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .messageText, .modalWrapper .messageWrapper .modalButton, body, .appWrapper, .formWrapper .header, .formWrapper .headerImage, .formWrapper .formTitle, .formWrapper .formMessage, .formWrapper .lineTextGroup {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -3211,19 +3211,19 @@
   justify-items: stretch;
 }
 
-.justify-content-start, .appWrapper .leftSection .leftMenu .menuRow {
+.justify-content-start, .formWrapper .formMessage {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
 }
 
-.justify-content-end, .appWrapper .rightSection .topMenu .topMenuRight, .appWrapper .rightSection .topMenu .topMenuRight .user {
+.justify-content-end {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
 }
 
-.justify-content-center, .modalWrapper, .modalWrapper2, .modalWrapper .messageWrapper, .modalWrapper2 .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper2 .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper2 .messageWrapper .messageTitle, .modalWrapper .messageWrapper .messageText, .modalWrapper2 .messageWrapper .messageText, .modalWrapper .messageWrapper .modalButton, .modalWrapper2 .messageWrapper .modalButton, .appWrapper .rightSection .topMenu .topMenuRight .notifications .notification .counter {
+.justify-content-center, .modalWrapper, .modalWrapper .messageWrapper, .modalWrapper .messageWrapper .messageImage, .modalWrapper .messageWrapper .messageTitle, .modalWrapper .messageWrapper .messageText, .modalWrapper .messageWrapper .modalButton, body, .appWrapper, .formWrapper .header, .formWrapper .headerImage, .formWrapper .formTitle, .formWrapper .formSubtitle, .formWrapper .lineTextGroup {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -3285,7 +3285,7 @@
           transition-duration: 150ms;
 }
 
-.transition-opacity, .modalWrapper .messageWrapper, .modalWrapper2 .messageWrapper, .appWrapper {
+.transition-opacity, .modalWrapper .messageWrapper, .appWrapper {
   -webkit-transition-property: opacity;
   transition-property: opacity;
   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -3326,7 +3326,7 @@ body {
   color: #1F2937;
 }
 
-.modalWrapper, .modalWrapper2 {
+.modalWrapper {
   background-color: #000000;
   display: none;
   position: absolute;
@@ -3334,11 +3334,11 @@ body {
   opacity: 80%;
 }
 
-.modalWrapper .messageWrapper, .modalWrapper2 .messageWrapper {
+.modalWrapper .messageWrapper {
   background-color: #ffffff;
 }
 
-.modalWrapper .messageWrapper .messageImage, .modalWrapper2 .messageWrapper .messageImage {
+.modalWrapper .messageWrapper .messageImage {
   background-image: url("../images/check.svg");
   background-repeat: no-repeat;
   background-size: initial;
@@ -3347,15 +3347,15 @@ body {
   border-radius: 50px;
 }
 
-.modalWrapper .messageWrapper .messageTitle, .modalWrapper2 .messageWrapper .messageTitle {
+.modalWrapper .messageWrapper .messageTitle {
   color: #9CA3AF;
 }
 
-.modalWrapper .messageWrapper .messageText, .modalWrapper2 .messageWrapper .messageText {
+.modalWrapper .messageWrapper .messageText {
   color: #9CA3AF;
 }
 
-.modalWrapper .messageWrapper .modalButton, .modalWrapper2 .messageWrapper .modalButton {
+.modalWrapper .messageWrapper .modalButton {
   background-color: #60A5FA;
   color: #ffffff;
   border: none;
@@ -3363,11 +3363,11 @@ body {
   border: 2px #60A5FA solid;
 }
 
-.modalWrapper .messageWrapper .modalButton:hover, .modalWrapper2 .messageWrapper .modalButton:hover {
+.modalWrapper .messageWrapper .modalButton:hover {
   cursor: pointer;
 }
 
-.modalWrapper .messageWrapper .modalButton:focus, .modalWrapper2 .messageWrapper .modalButton:focus {
+.modalWrapper .messageWrapper .modalButton:focus {
   outline: none;
   border: none;
 }
@@ -3390,364 +3390,114 @@ body {
 
 body {
   background-color: #F3F4F6;
-  height: 100vh;
 }
 
-.appWrapper {
-  height: 100%;
+.formWrapper {
+  background-color: #ffffff;
 }
 
-.appWrapper .leftSection {
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 100%;
+.formWrapper .header {
+  color: #60A5FA;
 }
 
-.appWrapper .leftSection .appLogo {
-  height: 50px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+.formWrapper .headerImage {
+  color: #60A5FA;
 }
 
-.appWrapper .leftSection .appLogo img {
-  height: 50px;
+.formWrapper .headerImage img {
+  height: 60px;
 }
 
-.appWrapper .leftSection .leftMenu {
-  border-right: 2px solid #E5E7EB;
-  height: 100%;
+.formWrapper .formTitle {
+  color: #60A5FA;
 }
 
-.appWrapper .leftSection .leftMenu .menuRow img {
-  width: 20px;
+.formWrapper .formMessage {
+  color: #9CA3AF;
 }
 
-.appWrapper .leftSection .leftMenu .menuRow:hover {
-  border-radius: 10px;
+.formWrapper .formButton, .formWrapper .formButtonGoogle {
+  background-color: #60A5FA;
+  color: #ffffff;
+  border-radius: 8px;
+  border: 2px #60A5FA solid;
+}
+
+.formWrapper .formButton:hover, .formWrapper .formButtonGoogle:hover {
   cursor: pointer;
-  background-color: #1E40AF;
-  color: #eee;
 }
 
-.appWrapper .rightSection {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-}
-
-.appWrapper .rightSection .topMenu {
-  height: 50px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.appWrapper .rightSection .topMenu .topMenuLeft {
-  height: 100%;
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-}
-
-.appWrapper .rightSection .topMenu .topMenuLeft .searchBox {
-  height: 40px;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 10px;
-  background-color: #E5E7EB;
-  color: #6B7280;
-}
-
-.appWrapper .rightSection .topMenu .topMenuLeft .searchBox:focus {
+.formWrapper .formButton:focus, .formWrapper .formButtonGoogle:focus {
   outline: none;
 }
 
-.appWrapper .rightSection .topMenu .topMenuLeft .searchImage {
-  margin-right: 15px;
-  position: absolute;
-  z-index: 10;
+.formWrapper .formButtonGoogle {
+  color: #60A5FA;
+  background-color: #ffffff;
 }
 
-.appWrapper .rightSection .topMenu .topMenuLeft .searchImage:hover {
-  cursor: pointer;
-  margin-right: 14px;
-}
-
-.appWrapper .rightSection .topMenu .topMenuRight {
-  height: 100%;
-}
-
-.appWrapper .rightSection .topMenu .topMenuRight .notifications {
-  height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  justify-items: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.appWrapper .rightSection .topMenu .topMenuRight .notifications .notification {
-  position: relative;
-  right: 10px;
-}
-
-.appWrapper .rightSection .topMenu .topMenuRight .notifications .notification img {
-  height: 25px;
-}
-
-.appWrapper .rightSection .topMenu .topMenuRight .notifications .notification .counter {
-  height: 20px;
-  width: 20px;
-  background-color: indianred;
-  color: #eee;
-  position: absolute;
-  z-index: 10;
-  border-radius: 10px;
-  top: -15px;
-  left: 15px;
-}
-
-.appWrapper .rightSection .topMenu .topMenuRight .notifications .notification:hover {
+.formWrapper .formButtonGoogle:hover {
+  background-color: #60A5FA;
+  color: #ffffff;
   cursor: pointer;
 }
 
-.appWrapper .rightSection .topMenu .topMenuRight .notifications > :nth-child(1) {
-  right: 20px;
+.formWrapper .formButtonGoogle:focus {
+  outline: none;
 }
 
-.appWrapper .rightSection .topMenu .topMenuRight .user {
-  height: 100%;
+.formWrapper .formSubtitle {
+  color: #60A5FA;
 }
 
-.appWrapper .rightSection .topMenu .topMenuRight .user .profilePic {
-  width: 50px;
-  height: 50px;
-  background-color: #D1D5DB;
-  border-radius: 10px;
-}
-
-.appWrapper .rightSection .topMenu .topMenuRight .user .options {
-  height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-}
-
-.appWrapper .rightSection .topMenu .topMenuRight .user .options .optionsText {
-  width: 100%;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-}
-
-.appWrapper .rightSection .topMenu .topMenuRight .user .options .logout {
-  width: 100%;
-}
-
-.appWrapper .rightSection .topMenu .topMenuRight .user .options .logout:hover {
-  cursor: pointer;
+.formWrapper .formLink {
+  color: #60A5FA;
   text-decoration: underline;
 }
 
-.appWrapper .rightSection .content {
-  background-color: #D1D5DB;
-  border-radius: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+.formWrapper .formLink:hover {
+  cursor: pointer;
 }
 
-.appWrapper .rightSection .content .contentRow {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  height: 100%;
-  width: 100%;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+.formWrapper .lineTextGroup {
+  position: relative;
 }
 
-.appWrapper .rightSection .content .contentColumn {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  height: 100%;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+.formWrapper .lineTextGroup .line {
+  border: 1px solid #D1D5DB;
 }
 
-.appWrapper .rightSection .content .widget, .appWrapper .rightSection .content .widget22, .appWrapper .rightSection .content .widget11, .appWrapper .rightSection .content .widget21, .appWrapper .rightSection .content .widget31 {
-  background-color: white;
-  border-radius: 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+.formWrapper .lineTextGroup .lineText {
+  background-color: #ffffff;
+  color: #D1D5DB;
+  position: absolute;
+  z-index: 10;
 }
 
-.appWrapper .rightSection .content .plus, .appWrapper .rightSection .content .plus22, .appWrapper .rightSection .content .plus11, .appWrapper .rightSection .content .plus21, .appWrapper .rightSection .content .plus31 {
-  border: 2px #D1D5DB dashed;
-  border-radius: 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background-image: url("../images/plus.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+@media (min-width: 767px) and (max-width: 1024px) {
+  .formWrapper {
+    width: 50%;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
 }
 
-.appWrapper .rightSection .content .hSpacer {
-  width: 100%;
-  height: 10px;
+@media (max-width: 766px) {
+  body {
+    background-color: #ffffff;
+  }
+  .formWrapper {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    width: 91.66667%;
+  }
+  .formWrapper .formSubtitle {
+    font-size: 0.70rem;
+    line-height: 1rem;
+  }
+  .formWrapper .formLink {
+    font-size: 0.70rem;
+    line-height: 1rem;
+  }
 }
-
-.appWrapper .rightSection .content .vSpacer {
-  width: 10px;
-  height: 100%;
-}
-
-.appWrapper .rightSection .content .widget22 {
-  width: 300px;
-  height: 300px;
-}
-
-.appWrapper .rightSection .content .widget11 {
-  width: 150px;
-  height: 150px;
-}
-
-.appWrapper .rightSection .content .widget21 {
-  width: 310px;
-  height: 150px;
-}
-
-.appWrapper .rightSection .content .widget31 {
-  width: 460px;
-  height: 150px;
-}
-
-.appWrapper .rightSection .content .plus22 {
-  padding: 130px;
-}
-
-.appWrapper .rightSection .content .plus11 {
-  padding: 50px;
-}
-
-.appWrapper .rightSection .content .plus21 {
-  padding: 50px 130px;
-}
-
-.appWrapper .rightSection .content .plus31 {
-  padding: 50px 200px;
-}
-/*# sourceMappingURL=dashboard.css.map */
+/*# sourceMappingURL=confirmationPage.css.map */

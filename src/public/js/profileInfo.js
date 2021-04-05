@@ -46,7 +46,7 @@ profileInfo.validateRequired = function(filedId){
 
 profileInfo.validateDOB = function(){
     var result = true;
-    var dob = document.getElementById('dob').value.trim();
+    var dob = (document.getElementById('dob').value).trim();
     result = (dob.length!=10)?false:true;
     result = (dob.indexOf('/')==-1)?false:true;
     return result;
@@ -54,8 +54,8 @@ profileInfo.validateDOB = function(){
 
 profileInfo.validatePassword = function(){
     var result = true;
-    var pass1 = document.getElementById('password').value.trim();
-    var pass2 = document.getElementById('password2').value.trim();
+    var pass1 = (document.getElementById('password').value).trim();
+    var pass2 = (document.getElementById('password2').value).trim();
     result = (pass1 == pass2)?true: false;
     return result;
 };
@@ -95,11 +95,11 @@ profileInfo.validateForm = function(callback){
 profileInfo.handleUserInfoSubmission = function(){
     profileInfo.validateForm(function(title, message){
         if (title == 'valid'){
-            var userDateOfBirth = document.getElementById('dob').value.trim();
-            var userLicenceNumber = document.getElementById('licenceNumber').value.trim();
-            var userCompanyName = document.getElementById('companyName').value.trim();
-            var userPassword = document.getElementById('password').value.trim();
-            var userPlan = document.getElementById('selectPlan').value.trim();
+            var userDateOfBirth = (document.getElementById('dob').value).trim();
+            var userLicenceNumber = (document.getElementById('licenceNumber').value).trim();
+            var userCompanyName = (document.getElementById('companyName').value).trim();
+            var userPassword = (document.getElementById('password').value).trim();
+            var userPlan = (document.getElementById('selectPlan').value).trim();
 
             var pageToken = JSON.parse(window.localStorage.getItem('aiAppData'));
             var formData={

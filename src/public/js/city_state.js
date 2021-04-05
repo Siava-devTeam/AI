@@ -266,29 +266,29 @@ city_states['Venezuela'] = '|Caracas|Amazonas|Anzoategui|Apure|Aragua|Barinas|Bo
 ////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////
 
-function set_country()
-{	
-    var oRegionSel = document.getElementById('selRegion');
-    var oCountrySel  = document.getElementById('selCountry');
-    var oCity_StateSel = document.getElementById('selState');
-    var countryArr;
+// function set_country()
+// {	
+//     var oRegionSel = document.getElementById('selRegion');
+//     var oCountrySel  = document.getElementById('selCountry');
+//     var oCity_StateSel = document.getElementById('selState');
+//     var countryArr;
     
 
-    oCountrySel.length = 0;
-    oCity_StateSel.length = 0;
+//     oCountrySel.length = 0;
+//     oCity_StateSel.length = 0;
 
-    var region = oRegionSel.options[oRegionSel.selectedIndex].text;
-    if (countries[region])
-    {
-        oCountrySel.disabled = false;
-        oCity_StateSel.disabled = true;
-        oCountrySel.options[0] = new Option('SELECT COUNTRY','');
-        countryArr = countries[region].split('|');
-        for (var i = 0; i < countryArr.length; i++)
-            oCountrySel.options[i + 1] = new Option(countryArr[i], countryArr[i]);
-    }
-    else oCountrySel.disabled = true;
-}
+//     var region = oRegionSel.options[oRegionSel.selectedIndex].text;
+//     if (countries[region])
+//     {
+//         oCountrySel.disabled = false;
+//         oCity_StateSel.disabled = true;
+//         oCountrySel.options[0] = new Option('SELECT COUNTRY','');
+//         countryArr = countries[region].split('|');
+//         for (var i = 0; i < countryArr.length; i++)
+//             oCountrySel.options[i + 1] = new Option(countryArr[i], countryArr[i]);
+//     }
+//     else oCountrySel.disabled = true;
+// }
 
 function set_city_state()
 {
@@ -308,3 +308,32 @@ function set_city_state()
     }
     else oCity_StateSel.disabled = true;
 }
+
+function setAllCountries(){
+    var allCountries=[];
+    var allCountriesNames = Object.keys(countries);
+    // console.log(allCountriesNames);
+    for (var i=0;i<allCountriesNames.length;i++){
+        // console.log(countries[allCountriesNames[i]]);
+        var temp = (countries[allCountriesNames[i]]);
+        var tempCountry = temp.split('|');
+        for (var j=1;j<tempCountry.length;j++){
+            allCountries.push(tempCountry[j]);
+        }
+    }
+    allCountries.sort();
+    // console.log(allCountries);
+    var oCountrySel  = document.getElementById('selCountry');
+    var oCity_StateSel = document.getElementById('selState');
+    if (allCountries.length>0){
+        oCountrySel.disabled = false;
+        oCity_StateSel.disabled = true;
+        oCountrySel.options[0] = new Option('SELECT COUNTRY','');
+        for (var i = 0; i < allCountries.length; i++){
+            oCountrySel.options[i + 1] = new Option(allCountries[i], allCountries[i]);
+        }
+    }
+    
+    document.getElementById('selCountry').value = 'Canada';
+    set_city_state();
+};

@@ -1,7 +1,7 @@
 var forgotPassword={};
 
 forgotPassword.validateEmail = function(){
-    var emailText = document.getElementById('txtEmail').value;
+    var emailText = (document.getElementById('txtEmail').value).trim();
     var result = false;
     if (emailText.indexOf('@')>-1){
         if((emailText.split('@')[1]).indexOf('.')>-1){
@@ -37,7 +37,7 @@ forgotPassword.handleResetProcess = function(){
     forgotPassword.validateForm(function(title, message){
         if (title == 'valid'){
             // alert('inProcess!')
-            var email = document.getElementById('txtEmail').value;
+            var email = (document.getElementById('txtEmail').value).trim();
             var formData={
                 "email":email
             };

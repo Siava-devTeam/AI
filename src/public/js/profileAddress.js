@@ -23,7 +23,7 @@ profileAddress.validateRequired = function(filedId){
     return true;
 };
 profileAddress.validateForm = function(callback){
-    if (profileAddress.validateRequired('selRegion')){
+    if (profileAddress.validateRequired('txtCity')){
         if (profileAddress.validateRequired('selCountry')){
             if (profileAddress.validateRequired('txtAddress1')){
                 if (profileAddress.validateRequired('txtZip')){
@@ -32,13 +32,13 @@ profileAddress.validateForm = function(callback){
                     callback('Zip code empty', "Please type-in your zip code!");
                 }
             }else{
-                callback('Address Empty', "Please type-in your address!")
+                callback('Address Empty', "Please type-in your address!");
             }
         }else{
-            callback('Country Empty', "Please Choose a country!")
+            callback('Country Empty', "Please Choose a country!");
         }
     }else{
-        callback('Region Empty', "Please Choose your region!")
+        callback('City Empty', "Please type-in your city!");
     }
 
 };
@@ -46,18 +46,18 @@ profileAddress.validateForm = function(callback){
 profileAddress.handleUserAddressSubmission = function(){
     profileAddress.validateForm(function(title, message){
         if (title == 'valid'){
-            var userRegion = document.getElementById('selRegion').value.trim();
-            var userCountry = document.getElementById('selCountry').value.trim();
-            var userState =  document.getElementById('selState').value.trim();
-            var userAddress1 =  document.getElementById('txtAddress1').value.trim();
-            var userAddress2 =  document.getElementById('txtAddress2').value.trim();
-            var userZipCode =  document.getElementById('txtZip').value.trim();
+            var userCity = (document.getElementById('txtCity').value).trim();
+            var userCountry = (document.getElementById('selCountry').value).trim();
+            var userState =  (document.getElementById('selState').value).trim();
+            var userAddress1 =  (document.getElementById('txtAddress1').value).trim();
+            var userAddress2 =  (document.getElementById('txtAddress2').value).trim();
+            var userZipCode =  (document.getElementById('txtZip').value).trim();
 
             var pageToken = JSON.parse(window.localStorage.getItem('aiAppData'));
             var formData={
                 'type':'homeAddress',
                 'token': pageToken['regToken'],
-                'region':userRegion,
+                'city':userCity,
                 'country':userCountry,
                 'state':userState,
                 'address1':userAddress1,
@@ -99,10 +99,10 @@ profileAddress.setFormButton = function(){
 };
 
 profileAddress.setRegionCountryState = function(){
-    var regionSelect = document.getElementById('selRegion');
-    regionSelect.addEventListener('change',function(){
-        set_country();
-    });
+    // var regionSelect = document.getElementById('selRegion');
+    // regionSelect.addEventListener('change',function(){
+    //     set_country();
+    // });
     var countrySelect  = document.getElementById('selCountry');
     countrySelect.addEventListener('change',function(){
         set_city_state();
@@ -113,6 +113,7 @@ app.init = function(){
     app.setModalCloseButton();
     profileAddress.setRegionCountryState();
     if (profileAddress.validatePage()){
+        setAllCountries();
         profileAddress.setFormButton();
     }else{
         var base = window.location.origin;

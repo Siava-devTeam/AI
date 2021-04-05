@@ -34,7 +34,7 @@ signup.validateTermsOfPolicy = function(){
     return document.getElementById('checkBoxPolicy').checked;
 };
 signup.validateEmail = function(){
-    var emailText = document.getElementById('txtEmail').value;
+    var emailText = (document.getElementById('txtEmail').value).trim();
     var result = false;
     if (emailText.indexOf('@')>-1){
         if((emailText.split('@')[1]).indexOf('.')>-1){
@@ -73,11 +73,11 @@ signup.validateForm = function(callback){
 signup.handleRegistration = function(){
     signup.validateForm(function(title, message){
         if (title == 'valid'){
-            var firstName = document.getElementById('txtFirstName').value;
-            var lastName = document.getElementById('txtLastName').value;
-            var email = document.getElementById('txtEmail').value;
-            var phone = document.getElementById('phone').value;
-            var prefix = iti.getSelectedCountryData().dialCode;
+            var firstName = (document.getElementById('txtFirstName').value).trim();
+            var lastName = (document.getElementById('txtLastName').value).trim();
+            var email = (document.getElementById('txtEmail').value).trim();
+            var phone = (document.getElementById('phone').value).trim();
+            var prefix = (iti.getSelectedCountryData().dialCode).trim();
 
             var formData={
                 "firstName":firstName,
@@ -93,13 +93,13 @@ signup.handleRegistration = function(){
                 data:formData
             })
             .then(function(res){
+                var base = window.location.origin;
                 if (res.data.data=='paid'){
-                    var base = window.location.origin;
                     window.location.href = base+"/signin.html";
-                    
                 }else{
-                    app.showModal('success','Congrats!','User Registered successfully.'+ 
-                    'We have sent you an Email. Please confirm your email and continue the registration process.');
+                    window.location.href = base+"/confirmationPage.html?type=signupConfirmation";
+                    // app.showModal('success','Congrats!','User Registered successfully.'+ 
+                    // 'We have sent you an Email. Please confirm your email and continue the registration process.');
                 }
 
             }).catch(function(err){

@@ -24,7 +24,7 @@ profileBillingAddress.validateRequired = function(filedId){
 };
 
 profileBillingAddress.validateForm = function(callback){
-    if (profileBillingAddress.validateRequired('selRegion')){
+    if (profileBillingAddress.validateRequired('txtCity')){
         if (profileBillingAddress.validateRequired('selCountry')){
             if (profileBillingAddress.validateRequired('txtAddress1')){
                 if (profileBillingAddress.validateRequired('txtZip')){
@@ -33,13 +33,13 @@ profileBillingAddress.validateForm = function(callback){
                     callback('Zip code empty', "Please type-in your zip code!");
                 }
             }else{
-                callback('Address Empty', "Please type-in your address!")
+                callback('Address Empty', "Please type-in your address!");
             }
         }else{
-            callback('Country Empty', "Please Choose a country!")
+            callback('Country Empty', "Please Choose a country!");
         }
     }else{
-        callback('Region Empty', "Please Choose your region!")
+        callback('City Empty', "Please type-in your city!");
     }
 
 };
@@ -47,18 +47,18 @@ profileBillingAddress.validateForm = function(callback){
 profileBillingAddress.handleUserAddressSubmission = function(){
     profileBillingAddress.validateForm(function(title, message){
         if (title == 'valid'){
-            var userRegion = document.getElementById('selRegion').value.trim();
-            var userCountry = document.getElementById('selCountry').value.trim();
-            var userState =  document.getElementById('selState').value.trim();
-            var userAddress1 =  document.getElementById('txtAddress1').value.trim();
-            var userAddress2 =  document.getElementById('txtAddress2').value.trim();
-            var userZipCode =  document.getElementById('txtZip').value.trim();
+            var userCity = (document.getElementById('txtCity').value).trim();
+            var userCountry = (document.getElementById('selCountry').value).trim();
+            var userState =  (document.getElementById('selState').value).trim();
+            var userAddress1 =  (document.getElementById('txtAddress1').value).trim();
+            var userAddress2 =  (document.getElementById('txtAddress2').value).trim();
+            var userZipCode =  (document.getElementById('txtZip').value).trim();
 
             var pageToken = JSON.parse(window.localStorage.getItem('aiAppData'));
             var formData={
                 'type':'billingAddress',
                 'token': pageToken['regToken'],
-                'region':userRegion,
+                'city':userCity,
                 'country':userCountry,
                 'state':userState,
                 'address1':userAddress1,
@@ -73,14 +73,16 @@ profileBillingAddress.handleUserAddressSubmission = function(){
                 data:formData
             })
             .then(function(res){
+                console.log(res);
                 // app.showModal('success','Congrats!','User information updated successfully');
                 window.location.href = base+"/payment.html";
 
             }).catch(function(err){
+                // console.log(err.response.data);
                 if (typeof(err.response)=="undefined"){
                     app.showModal('error','Something went wrong!',"Request timeout!");
                 }else{
-                    console.log(err.response);
+                    // console.log(err.response);
                     app.showModal('error','Something went wrong!',err.response.data.data);
                 }
             });
@@ -104,18 +106,23 @@ profileBillingAddress.setTextField = function(fieldId,fieldValue){
 };
 profileBillingAddress.setInitialFormFields = function(data){
 
-    profileBillingAddress.setTextField('selRegion',data.region);
-    var regionField = document.getElementById('selRegion');
-    set_country();
+    // profileBillingAddress.setTextField('selRegion',data.region);
+    // var regionField = document.getElementById('selRegion');
+    // set_country();
 
     profileBillingAddress.setTextField('selCountry',data.country);
-    var countryField = document.getElementById('selCountry');
     set_city_state();
 
     profileBillingAddress.setTextField('selState',data.state);
+    // console.log("state Set");
     profileBillingAddress.setTextField('txtAddress1',data.address1);
+    // console.log("address1 Set");
     profileBillingAddress.setTextField('txtAddress2',data.address2);
+    // console.log("address2 Set");
     profileBillingAddress.setTextField('txtZip',data.zipCode);
+    // console.log("zipCode Set");
+    profileBillingAddress.setTextField('txtCity',data.city);
+    // console.log("city Set");
     
 };
 
@@ -137,7 +144,7 @@ profileBillingAddress.loadUserInfo = async function(){
         await profileBillingAddress.setInitialFormFields(userData);
         
     }).catch(function(err){
-        console.log(err.response);
+        // console.log(err.response);
         if (typeof(err.response)=="undefined"){
             app.showModal('error','Something went wrong!',"Request timeout!");
         }else{
@@ -146,7 +153,7 @@ profileBillingAddress.loadUserInfo = async function(){
     });
 };
 
-profileBillingAddress.handleCheckbox = async function(){
+profileBillingAddress.handleCheckbox =  async function(){
     var frmCheckBox = document.getElementById('addressCheck');
     if (frmCheckBox.checked){
         await profileBillingAddress.loadUserInfo();
@@ -161,10 +168,6 @@ profileBillingAddress.setCheckBox = function(){
 }
 
 profileBillingAddress.setRegionCountryState = function(){
-    var regionSelect = document.getElementById('selRegion');
-    regionSelect.addEventListener('change',function(){
-        set_country();
-    });
     var countrySelect  = document.getElementById('selCountry');
     countrySelect.addEventListener('change',function(){
         set_city_state();
@@ -177,6 +180,7 @@ app.init = function(){
     if (profileBillingAddress.validatePage()){
         profileBillingAddress.setFormButton();
         profileBillingAddress.setCheckBox();
+        setAllCountries();
     }else{
         var base = window.location.origin;
         window.location.href = base+"/signin.html";

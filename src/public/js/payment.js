@@ -48,7 +48,9 @@ payment.handleUserAddressSubmission = function(){
                 .then(function(res){
                     // app.showModal('success','Congratulations!',`Registration Completed!`);
                     window.localStorage.removeItem('aiAppData');
-                    window.location.href = base+"/signin.html";
+                    // window.location.href = base+"/signin.html";
+                    var base = window.location.origin;
+                    window.location.href = base+"/confirmationPage.html?type=registrationComplete";
                     
                 }).catch(function(err){
                     if (typeof(err.response)=="undefined"){

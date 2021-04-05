@@ -209,10 +209,15 @@ user.getAddressByToken =async function(req,res,next){
         var token = req.query;
         token = (token.hasOwnProperty('t'))?token.t:false;
 
+        
+
         await user.getUserByToken(token)
         .then(function(userData){
+
             var allUserInfo= JSON.parse(userData);
             var userInfo = allUserInfo.homeAddress;
+            
+            // console.log(userInfo);
 
             var messageStatus = 200;
             var messageText = {
@@ -323,20 +328,20 @@ user.updateUserAddressByToken = async function(req,res,next){
         .then(async function(userData){
 
             var addressType = ((req.body.type)&&(typeof(req.body.type))!== 'undefined')?req.body.type:false;
-            var userRegion = ((req.body.region)&&(typeof(req.body.region))!== 'undefined')?req.body.region:false;
+            var userCity = ((req.body.city)&&(typeof(req.body.city))!== 'undefined')?req.body.city:false;
             var userCountry = ((req.body.country)&&(typeof(req.body.country)!== 'undefined'))?req.body.country:false;
             var userState = ((req.body.state)&&(typeof(req.body.state)!== 'undefined'))?req.body.state:"";
             var userAddress1 = ((req.body.address1)&&(typeof(req.body.address1)!== 'undefined'))?req.body.address1:false;
             var userAddress2 = ((req.body.address2)&&(typeof(req.body.address2)!== 'undefined'))?req.body.address2:"";
             var userZipCode = ((req.body.zipCode)&&(typeof(req.body.zipCode)!== 'undefined'))?req.body.zipCode:false;
 
-            if (userRegion && userCountry && userAddress1 && userZipCode){
+            if (userCity && userCountry && userAddress1 && userZipCode){
             
                 // console.log("data Valid");
 
                 var addressObject = {};
                 addressObject[addressType] = {
-                    'region':userRegion,
+                    'city':userCity,
                     'country':userCountry,
                     'state':userState,
                     'address1':userAddress1,
