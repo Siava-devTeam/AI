@@ -3268,7 +3268,7 @@ body {
   color:$font-color;
 }
 
-.modalWrapper {
+.modalWrapper, .modalWrapper2 {
   background-color: $black-900;
   @extend .display-flex, .flex-column, .justify-content-center, .align-items-center;
   @extend .h-screen, .w-screen, .text-base;
@@ -3277,7 +3277,7 @@ body {
   z-index: 20;
   opacity: 80%;
 
-  & .messageWrapper {
+  & .messageWrapper{
     background-color: $white-900;
     @extend .display-flex, .flex-column, .justify-content-center, .align-items-center;
     @extend .col-3, .px-6, .py-6;
