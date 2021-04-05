@@ -46,12 +46,12 @@ profileAddress.validateForm = function(callback){
 profileAddress.handleUserAddressSubmission = function(){
     profileAddress.validateForm(function(title, message){
         if (title == 'valid'){
-            var userCity = document.getElementById('txtCity').value.trim();
-            var userCountry = document.getElementById('selCountry').value.trim();
-            var userState =  document.getElementById('selState').value.trim();
-            var userAddress1 =  document.getElementById('txtAddress1').value.trim();
-            var userAddress2 =  document.getElementById('txtAddress2').value.trim();
-            var userZipCode =  document.getElementById('txtZip').value.trim();
+            var userCity = (document.getElementById('txtCity').value).trim();
+            var userCountry = (document.getElementById('selCountry').value).trim();
+            var userState =  (document.getElementById('selState').value).trim();
+            var userAddress1 =  (document.getElementById('txtAddress1').value).trim();
+            var userAddress2 =  (document.getElementById('txtAddress2').value).trim();
+            var userZipCode =  (document.getElementById('txtZip').value).trim();
 
             var pageToken = JSON.parse(window.localStorage.getItem('aiAppData'));
             var formData={

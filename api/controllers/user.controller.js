@@ -209,10 +209,15 @@ user.getAddressByToken =async function(req,res,next){
         var token = req.query;
         token = (token.hasOwnProperty('t'))?token.t:false;
 
+        
+
         await user.getUserByToken(token)
         .then(function(userData){
+
             var allUserInfo= JSON.parse(userData);
             var userInfo = allUserInfo.homeAddress;
+            
+            // console.log(userInfo);
 
             var messageStatus = 200;
             var messageText = {

@@ -47,12 +47,12 @@ profileBillingAddress.validateForm = function(callback){
 profileBillingAddress.handleUserAddressSubmission = function(){
     profileBillingAddress.validateForm(function(title, message){
         if (title == 'valid'){
-            var userCity = document.getElementById('txtCity').value.trim();
-            var userCountry = document.getElementById('selCountry').value.trim();
-            var userState =  document.getElementById('selState').value.trim();
-            var userAddress1 =  document.getElementById('txtAddress1').value.trim();
-            var userAddress2 =  document.getElementById('txtAddress2').value.trim();
-            var userZipCode =  document.getElementById('txtZip').value.trim();
+            var userCity = (document.getElementById('txtCity').value).trim();
+            var userCountry = (document.getElementById('selCountry').value).trim();
+            var userState =  (document.getElementById('selState').value).trim();
+            var userAddress1 =  (document.getElementById('txtAddress1').value).trim();
+            var userAddress2 =  (document.getElementById('txtAddress2').value).trim();
+            var userZipCode =  (document.getElementById('txtZip').value).trim();
 
             var pageToken = JSON.parse(window.localStorage.getItem('aiAppData'));
             var formData={
@@ -73,14 +73,16 @@ profileBillingAddress.handleUserAddressSubmission = function(){
                 data:formData
             })
             .then(function(res){
+                console.log(res);
                 // app.showModal('success','Congrats!','User information updated successfully');
                 window.location.href = base+"/payment.html";
 
             }).catch(function(err){
+                // console.log(err.response.data);
                 if (typeof(err.response)=="undefined"){
                     app.showModal('error','Something went wrong!',"Request timeout!");
                 }else{
-                    console.log(err.response);
+                    // console.log(err.response);
                     app.showModal('error','Something went wrong!',err.response.data.data);
                 }
             });
@@ -109,14 +111,18 @@ profileBillingAddress.setInitialFormFields = function(data){
     // set_country();
 
     profileBillingAddress.setTextField('selCountry',data.country);
-    var countryField = document.getElementById('selCountry');
     set_city_state();
 
     profileBillingAddress.setTextField('selState',data.state);
+    // console.log("state Set");
     profileBillingAddress.setTextField('txtAddress1',data.address1);
+    // console.log("address1 Set");
     profileBillingAddress.setTextField('txtAddress2',data.address2);
+    // console.log("address2 Set");
     profileBillingAddress.setTextField('txtZip',data.zipCode);
+    // console.log("zipCode Set");
     profileBillingAddress.setTextField('txtCity',data.city);
+    // console.log("city Set");
     
 };
 
@@ -138,7 +144,7 @@ profileBillingAddress.loadUserInfo = async function(){
         await profileBillingAddress.setInitialFormFields(userData);
         
     }).catch(function(err){
-        console.log(err.response);
+        // console.log(err.response);
         if (typeof(err.response)=="undefined"){
             app.showModal('error','Something went wrong!',"Request timeout!");
         }else{
@@ -147,7 +153,7 @@ profileBillingAddress.loadUserInfo = async function(){
     });
 };
 
-profileBillingAddress.handleCheckbox = async function(){
+profileBillingAddress.handleCheckbox =  async function(){
     var frmCheckBox = document.getElementById('addressCheck');
     if (frmCheckBox.checked){
         await profileBillingAddress.loadUserInfo();
@@ -174,6 +180,7 @@ app.init = function(){
     if (profileBillingAddress.validatePage()){
         profileBillingAddress.setFormButton();
         profileBillingAddress.setCheckBox();
+        setAllCountries();
     }else{
         var base = window.location.origin;
         window.location.href = base+"/signin.html";

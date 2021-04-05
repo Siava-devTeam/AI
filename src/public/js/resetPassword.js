@@ -21,7 +21,7 @@ resetPassword.validateForm = function(callback){
 resetPassword.handleResetProcess = function(){
     resetPassword.validateForm(function(title, message){
         if (title == 'valid'){
-            var userPass = document.getElementById('txtPassword').value.trim();
+            var userPass = (document.getElementById('txtPassword').value).trim();
             
             if (resetPassword.hasOwnProperty('pageToken'))
             {
