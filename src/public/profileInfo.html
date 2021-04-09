@@ -43,13 +43,15 @@
                     <div class="formTextGroup">
                         <!-- <div class="formLabel">First Name</div> -->
                         <input class="formTextbox" type="text" id="firstName" 
-                        name="firstName" placeholder="First Name"/>
+                        name="firstName" placeholder="First Name" tabindex="1"/>
                     </div>
                     <!-- Right Field -->
                     <div class="formTextGroup">
-                        <!-- <div class="formLabel">Company Name</div> -->
-                        <input class="formTextbox" type="text" id="companyName" 
-                        name="companyName" placeholder="Company Name"/>
+                        <input class="formTextbox" type="text" id="dob" 
+                        name="dob" placeholder="Date of birth" tabindex="5" readonly/>
+                        <div class="calendar">
+                            <img src="images/calendarBlue.svg" class="calendarImg"/>
+                        </div>
                     </div>
                 </div>
                 <div class="frow">
@@ -57,46 +59,42 @@
                     <div class="formTextGroup">
                         <!-- <div class="formLabel">Last Name</div> -->
                         <input class="formTextbox" type="text" id="lastName" 
-                        name="lastName" placeholder="Last Name"/>
+                        name="lastName" placeholder="Last Name" tabindex="2"/>
                     </div>
                     <!-- Right Field -->
                     <div class="formTextGroup">
-                        <!-- <div class="formLabel">Password</div> -->
+                        <input class="formTextbox" type="text" id="companyName" 
+                        name="companyName" placeholder="Company Name" tabindex="6"/>
+                    </div>
+                </div>
+                <div class="frow">
+                    <!-- Left Field -->
+                    <div class="formTextGroup">
                         <input class="formTextbox" type="password" id="password" 
-                        name="password"  placeholder="Password"/>
-                    </div>
-                </div>
-                <div class="frow">
-                    <!-- Left Field -->
-                    <div class="formTextGroup">
-                        <!-- <div class="formLabel">Date of birth</div> -->
-                        <input class="formTextbox" type="text" id="dob" 
-                        name="dob" placeholder="Date of birth"/>
-                        <div class="calendar">
-                            <img src="images/calendarBlue.svg" class="calendarImg"/>
-                        </div>
-                    </div>
-                    <!-- Right Field -->
-                    <div class="formTextGroup">
-                        <!-- <div class="formLabel">Retype Password</div> -->
-                        <input class="formTextbox" type="password" id="password2" 
-                        name="password2" placeholder="Retype Password"/>
-                    </div>
-                </div>
-                <div class="frow">
-                    <!-- Left Field -->
-                    <div class="formTextGroup">
-                        <!-- <div class="formLabel">Licence number</div> -->
-                        <input class="formTextbox" type="text" id="licenceNumber" 
-                        name="licenceNumber" placeholder="Licence number"/>
+                        name="password"  placeholder="Password" tabindex="3"/>
                     </div>
                     <!-- Right Field -->
                     <div class="formSelectGroup">
-                        <select class="formSelect" id="selectPlan">
-                            <option value="plan1"><div class="selectOptions">Plan 1</div></option>
-                            <option value="plan2"><div class="selectOptions">Plan 2</div></option>
-                            <option value="plan3"><div class="selectOptions">Plan 3</div></option>
+                        <select class="formSelect" id="selectMembership"  tabindex="7">
+                            <option value="default" selected disabled hidden><div class="defaultOptions">Member of ... </div></option>
+                            <option value="plan1"><div class="selectOptions">Immigration Consultants of Canada Regulatory Council</div></option>
+                            <option value="plan2"><div class="selectOptions">Canadian provincial or territorial law society</div></option>
+                            <option value="plan3"><div class="selectOptions">Chambre des notaires du Québec</div></option>
+                            <option value="plan3"><div class="selectOptions">Law Society of Upper Canada</div></option>
                         </select>
+                    </div>
+                </div>
+                <div class="frow">
+                    <!-- Left Field -->
+                    <div class="formTextGroup">
+                        <!-- <div class="formLabel">Retype Password</div> -->
+                        <input class="formTextbox" type="password" id="password2" 
+                        name="password2" placeholder="Retype Password" tabindex="4"/>
+                    </div>
+                    <!-- Right Field -->
+                    <div class="formTextGroup">
+                        <input class="formTextbox" type="text" id="licenceNumber" 
+                        name="licenceNumber" placeholder="Licence number"  tabindex="8"/>
                     </div>
                 </div>
                 <div class="frow">
@@ -106,7 +104,7 @@
         </div>
     </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="js/datepicker-full.min.js"></script>
+    <script src="js/rolldate.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/profileInfo.js"></script>
 </body>

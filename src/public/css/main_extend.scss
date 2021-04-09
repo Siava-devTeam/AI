@@ -118,7 +118,7 @@ $textbox-placeHolder-color:$gray-400;
 
 //Screen Width and Height
 .h-screen {
-  height: 100vh;
+  height:100vh;
 }
 .w-screen {
   width: 100vw;
@@ -3274,7 +3274,7 @@ body {
   @extend .h-screen, .w-screen, .text-base;
     display: none;
   position: absolute;
-  z-index: 20;
+  z-index: 200;
   opacity: 80%;
 
   & .messageWrapper{

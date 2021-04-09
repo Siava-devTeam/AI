@@ -124,15 +124,15 @@ user.updateUserByToken = async function(req,res,next){
         await user.getUserByToken(token)
         .then(async function(userData){
 
-
             var userDateOfBirth = ((req.body.dateOfBirth)&&(typeof(req.body.dateOfBirth))!== 'undefined')?req.body.dateOfBirth:false;
             var userLicenceNumber = ((req.body.licenceNumber)&&(typeof(req.body.licenceNumber)!== 'undefined'))?req.body.licenceNumber:false;
             var userCompanyName = ((req.body.companyName)&&(typeof(req.body.companyName)!== 'undefined'))?req.body.companyName:false;
             var userPassword = ((req.body.password)&&(typeof(req.body.password)!== 'undefined'))?req.body.password:false;
-            var userPlan = ((req.body.plan)&&(typeof(req.body.plan)!== 'undefined'))?req.body.plan:false;
+            var userMembership = ((req.body.membership)&&(typeof(req.body.membership)!== 'undefined'))?req.body.membership:false;
+
 
             if(userDateOfBirth && userLicenceNumber && 
-                userCompanyName && userPassword && userPlan){
+                userCompanyName && userPassword && userMembership){
 
                 var hashedPassword = await helpers.hashPassword(userPassword);
 
@@ -142,7 +142,7 @@ user.updateUserByToken = async function(req,res,next){
                         'licenceNumber':userLicenceNumber,
                         'companyName':userCompanyName,
                         'password':hashedPassword,
-                        'plan':userPlan,
+                        'membership':userMembership,
 
                     }
 

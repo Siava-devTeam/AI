@@ -48,7 +48,7 @@ profileInfo.validateDOB = function(){
     var result = true;
     var dob = (document.getElementById('dob').value).trim();
     result = (dob.length!=10)?false:true;
-    result = (dob.indexOf('/')==-1)?false:true;
+    result = (dob.indexOf('-')==-1)?false:true;
     return result;
 };
 
@@ -59,6 +59,12 @@ profileInfo.validatePassword = function(){
     result = (pass1 == pass2)?true: false;
     return result;
 };
+profileInfo.validateMembership = function(){
+    var result = true;
+    var membershipType = (document.getElementById('selectMembership').value).trim();
+    result = (membershipType=='default')?false:true;
+    return result;
+};
 
 profileInfo.validateForm = function(callback){
     if (profileInfo.validateRequired('firstName')){
@@ -66,12 +72,16 @@ profileInfo.validateForm = function(callback){
             if (profileInfo.validateRequired('companyName')){
                 if (profileInfo.validateRequired('licenceNumber')){
                     if (profileInfo.validateDOB()){
-                        if (profileInfo.validatePassword()){
-                            //SUBMIT FORM
-                            callback ("valid","valid");
-    
+                        if (profileInfo.validateMembership()){
+                            if (profileInfo.validatePassword()){
+                                //SUBMIT FORM
+                                callback ("valid","valid");
+        
+                            }else{
+                                callback('Password', "Password does not match")
+                            }
                         }else{
-                            callback('Password', "Password does not match")
+                            callback('Membership Empty!', "Please choose a valid Membership!")
                         }
 
                     }else{
@@ -99,7 +109,7 @@ profileInfo.handleUserInfoSubmission = function(){
             var userLicenceNumber = (document.getElementById('licenceNumber').value).trim();
             var userCompanyName = (document.getElementById('companyName').value).trim();
             var userPassword = (document.getElementById('password').value).trim();
-            var userPlan = (document.getElementById('selectPlan').value).trim();
+            var userMembership = (document.getElementById('selectMembership').value).trim();
 
             var pageToken = JSON.parse(window.localStorage.getItem('aiAppData'));
             var formData={
@@ -108,8 +118,10 @@ profileInfo.handleUserInfoSubmission = function(){
                 'licenceNumber':userLicenceNumber,
                 'companyName':userCompanyName,
                 'password':userPassword,
-                'plan':userPlan,
+                'membership':userMembership,
             };
+
+            console.log(formData);
 
             var base = window.location.origin;
             axios({
@@ -125,6 +137,7 @@ profileInfo.handleUserInfoSubmission = function(){
                 if (typeof(err.response)=="undefined"){
                     app.showModal('error','Something went wrong!',"Request timeout!");
                 }else{
+                    console.log(err.response);
                     app.showModal('error','Something went wrong!',err.response.data.data);
                 }
             });
@@ -187,8 +200,22 @@ app.init = function(){
         var base = window.location.origin;
         window.location.href = base+"/signin.html";
     }
-    const elem = document.querySelector('input[name="dob"]');
-    const datepicker = new Datepicker(elem, {});
+    // const elem = document.querySelector('input[name="dob"]');
+    // const datepicker = new Datepicker(elem, {});
+    new Rolldate({
+        el: '#dob',
+        format: 'YYYY-MM-DD',
+        beginYear: 1950,
+        endYear: 2020,
+        lang: { 
+            title: 'Select A Date', 
+            cancel: 'Cancel', 
+            confirm: 'Confirm',
+            year:'',
+            month:'',
+            day:''
+        }
+    });
 };
 
 
