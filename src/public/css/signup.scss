@@ -12,8 +12,10 @@ body{
 
 .appWrapper{
     @extend .display-flex, .flex-column, .justify-content-center, .align-items-center;
-    @extend .h-screen, .w-screen, .text-base;
+    @extend .h-screen, .w-screen;
+    @extend .text-base;
     @extend .transition-opacity;
+    // width:100%;
 }
 
 .formWrapper{
